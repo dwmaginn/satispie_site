@@ -7,6 +7,16 @@ export default {
   theme: {
     extend: {
       colors: {
+        // SatisPie brand colors
+        'sp-primary': '#D35400',
+        'sp-secondary': '#8B4513',
+        'sp-accent': '#C0392B',
+        'sp-text-primary': '#2C3E50',
+        'sp-text-secondary': '#7F8C8D',
+        'sp-bg-light': '#F8F9FA',
+        'sp-bg-white': '#FFFFFF',
+        
+        // Legacy colors for backward compatibility
         primary: 'var(--aw-color-primary)',
         secondary: 'var(--aw-color-secondary)',
         accent: 'var(--aw-color-accent)',
@@ -14,9 +24,9 @@ export default {
         muted: 'var(--aw-color-text-muted)',
       },
       fontFamily: {
-        sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', 'Inter Variable', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        heading: ['Inter', 'Inter Variable', 'ui-sans-serif', ...defaultTheme.fontFamily.sans],
       },
 
       animation: {

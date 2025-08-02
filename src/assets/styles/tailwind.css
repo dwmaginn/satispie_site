@@ -2,31 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
+/* SatisPie Brand Colors */
+:root {
+  --sp-primary: #D35400;
+  --sp-secondary: #8B4513;
+  --sp-accent: #C0392B;
+  --sp-text-primary: #2C3E50;
+  --sp-text-secondary: #7F8C8D;
+  --sp-bg-light: #F8F9FA;
+  --sp-bg-white: #FFFFFF;
+}
+
 @layer utilities {
   .bg-page {
-    background-color: var(--aw-color-bg-page);
+    background-color: var(--sp-bg-light);
   }
   .bg-dark {
-    background-color: var(--aw-color-bg-page-dark);
+    background-color: var(--sp-text-primary);
   }
   .bg-light {
-    background-color: var(--aw-color-bg-page);
+    background-color: var(--sp-bg-white);
   }
   .text-page {
-    color: var(--aw-color-text-page);
+    color: var(--sp-text-primary);
   }
   .text-muted {
-    color: var(--aw-color-text-muted);
+    color: var(--sp-text-secondary);
   }
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-blue-500 focus:ring-offset-blue-200 focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800 cursor-pointer;
+    @apply inline-flex items-center justify-center rounded-full border-gray-400 border bg-transparent font-medium text-center text-base text-page leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-sp-primary focus:ring-offset-sp-primary focus:ring-2 focus:ring-offset-2 hover:bg-gray-100 hover:border-gray-600 dark:text-slate-300 dark:border-slate-500 dark:hover:bg-slate-800 dark:hover:border-slate-800 cursor-pointer;
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;
+    @apply btn font-semibold bg-sp-primary text-white border-sp-primary hover:bg-sp-secondary hover:border-sp-secondary hover:text-white dark:text-white dark:bg-sp-primary dark:border-sp-primary dark:hover:border-sp-secondary dark:hover:bg-sp-secondary;
   }
 
   .btn-secondary {

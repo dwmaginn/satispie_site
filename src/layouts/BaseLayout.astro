@@ -1,0 +1,66 @@
+---
+import '~/assets/styles/tailwind.css';
+
+import CommonMeta from '~/components/common/CommonMeta.astro';
+import Favicons from '~/components/Favicons.astro';
+import CustomStyles from '~/components/CustomStyles.astro';
+import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
+import Metadata from '~/components/common/Metadata.astro';
+import SiteVerification from '~/components/common/SiteVerification.astro';
+import Analytics from '~/components/common/Analytics.astro';
+import BasicScripts from '~/components/common/BasicScripts.astro';
+import Header from '~/components/Header.astro';
+import Footer from '~/components/Footer.astro';
+
+// Comment the line below to disable View Transitions
+import { ClientRouter } from 'astro:transitions';
+
+import type { MetaData as MetaDataType } from '~/types';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  metadata?: MetaDataType;
+}
+
+const { 
+  title = "SatisPie", 
+  description = "Pre-baked pies, waffles, and pancakes. Quality desserts for retail and foodservice.",
+  metadata = {} 
+} = Astro.props;
+
+// Combine with default metadata
+const fullMetadata = {
+  title: title === "SatisPie" ? title : `${title} – SatisPie`,
+  description,
+  ...metadata
+};
+---
+
+<!doctype html>
+<html lang="en" class="2xl:text-[20px]">
+  <head>
+    <CommonMeta />
+    <Favicons />
+    <CustomStyles />
+    <ApplyColorMode />
+    <Metadata {...fullMetadata} />
+    <SiteVerification />
+    <Analytics />
+
+    <!-- Comment the line below to disable View Transitions -->
+    <ClientRouter fallback="swap" />
+  </head>
+
+  <body class="antialiased text-sp-text-primary bg-sp-bg-light tracking-tight min-h-screen flex flex-col">
+    <Header />
+    
+    <main class="flex-grow">
+      <slot />
+    </main>
+    
+    <Footer />
+
+    <BasicScripts />
+  </body>
+</html> 

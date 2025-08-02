@@ -1,0 +1,85 @@
+---
+// Company information
+const companyInfo = {
+  name: "SatisPie, LLC",
+  address: "155 Balta Drive",
+  city: "Rochester, NY 14623",
+  phone: "(585) 424-1240",
+  email: "mm@satispie.com"
+};
+---
+
+<footer class="bg-sp-text-primary text-white mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Company Info -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">SatisPie, LLC</h3>
+        <address class="not-italic text-sp-text-secondary">
+          <p>{companyInfo.address}</p>
+          <p>{companyInfo.city}</p>
+          <p class="mt-2">
+            <strong>Phone:</strong> 
+            <a href={`tel:${companyInfo.phone}`} class="hover:text-sp-primary transition-colors">
+              {companyInfo.phone}
+            </a>
+          </p>
+          <p>
+            <strong>Email:</strong> 
+            <a href={`mailto:${companyInfo.email}`} class="hover:text-sp-primary transition-colors">
+              {companyInfo.email}
+            </a>
+          </p>
+        </address>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/" class="text-sp-text-secondary hover:text-sp-primary transition-colors">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/branded-products" class="text-sp-text-secondary hover:text-sp-primary transition-colors">
+              Branded Products
+            </a>
+          </li>
+          <li>
+            <a href="/tips-and-techniques" class="text-sp-text-secondary hover:text-sp-primary transition-colors">
+              Tips & Techniques
+            </a>
+          </li>
+          <li>
+            <a href="/contact-us" class="text-sp-text-secondary hover:text-sp-primary transition-colors">
+              Contact Us
+            </a>
+          </li>
+          <li>
+            <a href="/apply-today" class="text-sp-text-secondary hover:text-sp-primary transition-colors">
+              Apply Today
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Company Description -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">About Us</h3>
+        <p class="text-sp-text-secondary">
+          SatisPie specializes in pre-baked pies, waffles, and pancakes for retail and foodservice. 
+          Our products are made under SQF, HACCP & GMP controls, ensuring the highest quality standards.
+        </p>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+      <p class="text-sp-text-secondary">
+        © {new Date().getFullYear()} SatisPie, LLC. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer> 
