@@ -1,79 +1,139 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-
-const metadata = {
-  title: 'Contact',
-};
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FormHandler from '../components/FormHandler.astro';
+export const prerender = true;
+const pageTitle = "Contact Us";
+const pageDescription = "Get in touch with SatisPie – our address, phone, email, and a contact form to reach our team for any inquiries about our products.";
 ---
 
-<Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <section class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-sp-text-primary mb-6">
+        Contact Us
+      </h1>
+      <p class="text-xl text-sp-text-secondary">
+        Get in touch with our team for any inquiries about our products
+      </p>
+    </section>
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+    <!-- Contact Information -->
+    <section class="mb-12">
+      <div class="bg-sp-bg-light p-8 rounded-lg">
+        <h2 class="text-2xl font-semibold text-sp-text-primary mb-6">Company Information</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold text-sp-text-primary mb-4">Address</h3>
+            <address class="not-italic text-sp-text-secondary">
+              <p class="mb-2">SatisPie, LLC</p>
+              <p class="mb-2">155 Balta Drive</p>
+              <p class="mb-4">Rochester, NY 14623</p>
+            </address>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-sp-text-primary mb-4">Contact Details</h3>
+            <div class="space-y-3 text-sp-text-secondary">
+              <p>
+                <strong>Phone:</strong> 
+                <a href="tel:+15854241240" class="text-sp-primary hover:underline">
+                  (585) 424-1240
+                </a>
+              </p>
+              <p>
+                <strong>Email:</strong> 
+                <a href="mailto:mm@satispie.com" class="text-sp-primary hover:underline">
+                  mm@satispie.com
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
+    <!-- Contact Form -->
+    <section class="mb-12">
+      <div class="bg-white border border-gray-200 rounded-lg p-8">
+        <h2 class="text-2xl font-semibold text-sp-text-primary mb-6">Send Us a Message</h2>
+        <p class="text-sp-text-secondary mb-8">
+          Interested in our products or have questions? Please fill out the form below. 
+          We will get back to you within 1–3 business days.
+        </p>
+        
+        <form id="contactForm" action="https://formspree.io/f/xaylqjwn" method="POST" class="max-w-md">
+          <div class="mb-4">
+            <label for="name" class="block font-medium text-sp-text-primary mb-2">
+              Name: <span class="text-red-600">*</span>
+            </label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              class="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sp-primary focus:border-transparent"
+            />
+          </div>
+          
+          <div class="mb-4">
+            <label for="email" class="block font-medium text-sp-text-primary mb-2">
+              E-mail address: <span class="text-red-600">*</span>
+            </label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required 
+              class="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sp-primary focus:border-transparent"
+            />
+          </div>
+          
+          <div class="mb-6">
+            <label for="message" class="block font-medium text-sp-text-primary mb-2">
+              Message: <span class="text-red-600">*</span>
+            </label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="5" 
+              required 
+              class="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sp-primary focus:border-transparent"
+            ></textarea>
+          </div>
+          
+          <!-- Hidden fields for Formspree -->
+          <input type="hidden" name="_subject" value="New Contact Form Submission from SatisPie">
+          <input type="hidden" name="_captcha" value="false">
+          
+          <button 
+            type="submit" 
+            class="bg-sp-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-sp-primary-dark transition-colors"
+          >
+            Send Message
+          </button>
+        </form>
+        
+        <!-- Form feedback message -->
+        <div id="formFeedback" class="mt-4 hidden"></div>
+        
+        <p class="text-sm text-sp-text-secondary mt-4">
+          By submitting this form, you agree that your data will be stored and processed for the purpose of contacting you regarding your inquiry. You can revoke this consent at any time.
+        </p>
+      </div>
+    </section>
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
-</Layout>
+    <!-- Additional Information -->
+    <section class="bg-sp-bg-light p-8 rounded-lg">
+      <h2 class="text-2xl font-semibold text-sp-text-primary mb-4">Business Hours</h2>
+      <p class="text-sp-text-secondary mb-4">
+        Our office is open Monday through Friday, 8:00 AM to 5:00 PM Eastern Time. 
+        We typically respond to all inquiries within 1-3 business days.
+      </p>
+      <p class="text-sp-text-secondary">
+        For urgent matters, please call us directly at (585) 424-1240.
+      </p>
+    </section>
+  </div>
+  
+  <FormHandler />
+</BaseLayout>

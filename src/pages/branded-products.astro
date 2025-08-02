@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+export const prerender = true;
+const pageTitle = "Branded Products";
+const pageDescription = "SatisPie branded take-and-bake frozen pies are available in a variety of flavors (Apple, Pumpkin, etc.), with private label options to suit your needs.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <section class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-sp-text-primary mb-6">
+        SatisPie Branded Take & Bake Products
+      </h1>
+      <p class="text-xl text-sp-text-secondary">
+        Quality frozen pies available in a variety of delicious flavors
+      </p>
+    </section>
+
+    <!-- Available Flavors Section -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold text-sp-text-primary mb-6">Available Flavors</h2>
+      <p class="text-sp-text-secondary mb-6">
+        SatisPie Branded Take & Bake products are available in the following flavors:
+      </p>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-sp-bg-light p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-sp-text-primary mb-2">Fruit Pies</h3>
+          <ul class="list-disc list-inside text-sp-text-secondary space-y-1">
+            <li>Apple</li>
+            <li>Blueberry</li>
+            <li>Cherry</li>
+            <li>Peach</li>
+          </ul>
+        </div>
+        
+        <div class="bg-sp-bg-light p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-sp-text-primary mb-2">Seasonal Pies</h3>
+          <ul class="list-disc list-inside text-sp-text-secondary space-y-1">
+            <li>Pumpkin</li>
+            <li>Sweet Potato</li>
+          </ul>
+        </div>
+        
+        <div class="bg-sp-bg-light p-6 rounded-lg">
+          <h3 class="text-xl font-semibold text-sp-text-primary mb-2">Specialty Pies</h3>
+          <ul class="list-disc list-inside text-sp-text-secondary space-y-1">
+            <li>Pecan (Pre-Baked)</li>
+            <li>Apple Crumb</li>
+            <li>Triple Berry</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Private Label Section -->
+    <section class="bg-sp-primary text-white p-8 rounded-lg mb-12">
+      <h2 class="text-3xl font-semibold mb-6">Private Label Solutions</h2>
+      <p class="text-lg mb-6">
+        In addition to our own branded line, we offer <strong>Private Label</strong> products 
+        custom formulated to your specifications. It's your product, in your packaging, 
+        made under SQF, HACCP & GMP controls.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-semibold mb-3">Quality Standards</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>SQF (Safe Quality Food) certified</li>
+            <li>HACCP (Hazard Analysis Critical Control Point) compliant</li>
+            <li>GMP (Good Manufacturing Practices) controlled</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold mb-3">Customization Options</h3>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Custom formulations</li>
+            <li>Your packaging design</li>
+            <li>Your brand identity</li>
+            <li>Flexible production runs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="text-center">
+      <h2 class="text-2xl font-semibold text-sp-text-primary mb-4">Interested in Our Products?</h2>
+      <p class="text-sp-text-secondary mb-6">
+        Contact us to discuss your specific needs, whether you're interested in our branded products 
+        or want to explore private label opportunities.
+      </p>
+      <a 
+        href="/contact-us" 
+        class="inline-block bg-sp-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-sp-primary-dark transition-colors"
+      >
+        Contact Us Today
+      </a>
+    </section>
+  </div>
+</BaseLayout> 

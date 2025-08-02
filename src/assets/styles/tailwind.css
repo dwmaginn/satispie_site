@@ -13,6 +13,55 @@
   --sp-bg-white: #FFFFFF;
 }
 
+/* Accessibility improvements */
+@layer base {
+  /* Ensure focus is always visible */
+  *:focus {
+    outline: 2px solid var(--sp-primary);
+    outline-offset: 2px;
+  }
+  
+  /* Remove focus outline for mouse users but keep for keyboard */
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* Ensure sufficient color contrast */
+  body {
+    color: var(--sp-text-primary);
+    background-color: var(--sp-bg-light);
+  }
+  
+  /* Improve form field accessibility */
+  input, textarea, select {
+    border: 1px solid #d1d5db;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--sp-primary);
+    box-shadow: 0 0 0 3px rgba(211, 84, 0, 0.1);
+  }
+  
+  /* Ensure links have sufficient contrast */
+  a {
+    color: var(--sp-primary);
+  }
+  
+  a:hover {
+    color: var(--sp-secondary);
+  }
+  
+  /* Improve button accessibility */
+  button {
+    cursor: pointer;
+  }
+  
+  button:focus {
+    outline: 2px solid var(--sp-primary);
+    outline-offset: 2px;
+  }
+}
+
 @layer utilities {
   .bg-page {
     background-color: var(--sp-bg-light);
