@@ -230,29 +230,31 @@ To customize Font families, Colors or more Elements refer to the following files
 
 ### Deploy
 
-#### Deploy to production (manual)
+#### Automated Deployment (IONOS Deploy Now)
+
+This site is configured for automated deployment to IONOS hosting via GitHub Actions:
+
+- **Build Command:** `pnpm install && pnpm run build`
+- **Publish Directory:** `dist/`
+- **Node Version:** 20 (auto-detected via .nvmrc)
+
+**Deployment Process:**
+1. Push changes to `main` branch
+2. GitHub Actions runs tests and builds the site
+3. IONOS Deploy Now automatically deploys to production
+4. Site is updated at [https://satispie.com](https://satispie.com)
+
+**Manual Deployment (Fallback)**
 
 You can create an optimized production build with:
 
 ```shell
-npm run build
+pnpm run build
 ```
 
-Now, your website is ready to be deployed. All generated files are located at
-`dist` folder, which you can deploy the folder to any hosting service you
-prefer.
+The generated files are located in the `dist` folder, which can be uploaded to any hosting service.
 
-#### Deploy to Netlify
-
-Clone this repository on your own GitHub account and deploy it to Netlify:
-
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/onwidget/astrowind)
-
-#### Deploy to Vercel
-
-Clone this repository on your own GitHub account and deploy to Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonwidget%2Fastrowind)
+For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
 
 <br>
 
