@@ -11,8 +11,8 @@ export const validateRequired = (value: string): boolean => {
 };
 
 export const validatePhone = (phone: string): boolean => {
-  const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-  const cleanedPhone = phone.replace(/[\s\-\(\)]/g, '');
+  const phoneRegex = /^[+]?[1-9][\d]{0,15}$/;
+  const cleanedPhone = phone.replace(/[\s\-()]/g, '');
   return phoneRegex.test(cleanedPhone) && cleanedPhone.length >= 10;
 };
 

@@ -1,5 +1,5 @@
 // Test setup file for Vitest
-import { beforeAll } from 'vitest';
+import { beforeAll, vi } from 'vitest';
 
 beforeAll(() => {
   // Set up any global test configuration here

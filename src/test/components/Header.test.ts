@@ -1,6 +1,4 @@
 import { describe, it, expect } from 'vitest';
-import { render } from '@testing-library/react';
-import { createElement } from 'react';
 
 // Mock the Header component since we can't directly test .astro files
 // This is a simplified test that would work with a React version
