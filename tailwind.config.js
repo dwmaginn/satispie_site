@@ -11,6 +11,9 @@ export default {
         'sp-primary': '#D35400',
         'sp-secondary': '#8B4513',
         'sp-accent': '#C0392B',
+        'sp-purple': '#4A148C', // Deep purple from logo
+        'sp-purple-light': '#6A1B9A', // Lighter purple for hover states
+        'sp-purple-dark': '#311B92', // Darker purple for active states
         'sp-text-primary': '#2C3E50',
         'sp-text-secondary': '#7F8C8D',
         'sp-bg-light': '#F8F9FA',

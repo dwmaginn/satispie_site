@@ -11,31 +11,31 @@ const navItems = [
 
 <header class="bg-white shadow-sm border-b border-gray-200" role="banner">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
+    <div class="flex justify-between items-center h-20">
       <!-- Logo -->
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center" aria-label="SatisPie - Go to homepage">
-          <span class="text-2xl font-bold text-sp-primary">SatisPie</span>
+          <img src="/satispie logo .png" alt="SatisPie Logo" class="h-20 w-20" />
         </a>
       </div>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-8" role="navigation" aria-label="Main navigation">
+      <nav class="hidden md:flex space-x-6" role="navigation" aria-label="Main navigation">
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-sp-text-primary hover:text-sp-primary px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-primary focus:ring-offset-2"
+            class="text-sp-text-primary hover:text-sp-purple px-4 py-2 rounded-lg text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-purple focus:ring-offset-2 hover:bg-gray-50"
           >
             {item.text}
           </a>
         ))}
       </nav>
 
-      <!-- Mobile menu button -->
-      <div class="md:hidden">
-        <button
-          type="button"
-          class="text-sp-text-primary hover:text-sp-primary inline-flex items-center justify-center p-2 rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sp-primary"
+             <!-- Mobile menu button -->
+       <div class="md:hidden">
+         <button
+           type="button"
+           class="text-sp-text-primary hover:text-sp-purple inline-flex items-center justify-center p-3 rounded-lg text-base font-medium focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sp-purple"
           aria-controls="mobile-menu"
           aria-expanded="false"
           aria-label="Toggle main menu"
@@ -85,7 +85,7 @@ const navItems = [
       {navItems.map((item) => (
         <a
           href={item.href}
-          class="text-sp-text-primary hover:text-sp-primary block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-primary focus:ring-offset-2"
+          class="text-sp-text-primary hover:text-sp-purple block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-purple focus:ring-offset-2"
         >
           {item.text}
         </a>

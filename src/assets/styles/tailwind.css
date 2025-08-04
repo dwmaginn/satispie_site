@@ -7,6 +7,9 @@
   --sp-primary: #D35400;
   --sp-secondary: #8B4513;
   --sp-accent: #C0392B;
+  --sp-purple: #4A148C;
+  --sp-purple-light: #6A1B9A;
+  --sp-purple-dark: #311B92;
   --sp-text-primary: #2C3E50;
   --sp-text-secondary: #7F8C8D;
   --sp-bg-light: #F8F9FA;
@@ -86,7 +89,7 @@
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-sp-primary text-white border-sp-primary hover:bg-sp-secondary hover:border-sp-secondary hover:text-white dark:text-white dark:bg-sp-primary dark:border-sp-primary dark:hover:border-sp-secondary dark:hover:bg-sp-secondary;
+    @apply btn font-semibold bg-sp-purple text-white border-sp-purple hover:bg-sp-purple-dark hover:border-sp-purple-dark hover:text-white dark:text-white dark:bg-sp-purple dark:border-sp-purple dark:hover:border-sp-purple-dark dark:hover:bg-sp-purple-dark;
   }
 
   .btn-secondary {
