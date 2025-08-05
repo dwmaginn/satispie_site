@@ -9,16 +9,41 @@ const pageDescription =
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-blue-50 to-purple-50 py-20">
+  <!-- Logo Hero Section -->
+  <section class="relative bg-gradient-to-br from-purple-50 to-blue-50 py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <!-- Option 1: PNG Logo (current) -->
+      <img 
+        src="/satispie-logo.png" 
+        alt="SatisPie - Quality Pre-baked Pies and Desserts"
+        class="mx-auto mb-8 w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 object-contain"
+      />
+      
+      <!-- Option 2: SVG Logo (uncomment to use) -->
+      <!-- <img 
+        src="/satispie-logo.svg" 
+        alt="SatisPie - Quality Pre-baked Pies and Desserts"
+        class="mx-auto mb-8 w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80"
+      /> -->
+      <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+        Welcome to SatisPie
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 font-sans">
+        Hand-Crafted Pies Made with Love
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Section -->
+  <section class="relative bg-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h2 class="font-heading text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             Hand-Crafted
             <span class="text-blue-600">All-Butter</span>
             Pies
-          </h1>
+          </h2>
           <p class="text-xl text-gray-600 mb-8 max-w-2xl">
             Each pie is carefully crafted with our signature flaky crust and premium ingredients. 
             From classic favorites to seasonal specialties, discover the perfect pie for every occasion.
@@ -61,7 +86,7 @@ const pageDescription =
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Kosher Certified</h3>
+          <h3 class="font-heading text-xl font-semibold text-gray-900 mb-3">Kosher Certified</h3>
           <p class="text-gray-600">All our pies are certified kosher, meeting the highest standards of quality and tradition.</p>
         </div>
         
@@ -71,7 +96,7 @@ const pageDescription =
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">All-Butter Crust</h3>
+          <h3 class="font-heading text-xl font-semibold text-gray-900 mb-3">All-Butter Crust</h3>
           <p class="text-gray-600">Our signature flaky crust is made with 100% butter for the perfect texture and flavor.</p>
         </div>
         
@@ -81,7 +106,7 @@ const pageDescription =
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-3">Employment Mission</h3>
+          <h3 class="font-heading text-xl font-semibold text-gray-900 mb-3">Employment Mission</h3>
           <p class="text-gray-600">We provide meaningful employment opportunities for individuals with disabilities.</p>
         </div>
       </div>
@@ -92,7 +117,7 @@ const pageDescription =
   <section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Signature Pies</h2>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Signature Pies</h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
           Discover our most popular flavors, each crafted with care and premium ingredients.
         </p>
@@ -136,7 +161,7 @@ const pageDescription =
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Latest from Our Blog</h2>
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-4">Latest from Our Blog</h2>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto">
           Tips, recipes, and stories from our kitchen to yours.
         </p>
@@ -152,7 +177,7 @@ const pageDescription =
             >
           </div>
           <div class="p-6">
-            <h3 class="font-semibold text-gray-900 mb-2">Best Summer Fruit Pies You Can Buy</h3>
+            <h3 class="font-heading font-semibold text-gray-900 mb-2">Best Summer Fruit Pies You Can Buy</h3>
             <p class="text-gray-600 text-sm mb-4">Discover the perfect summer pies and where to find them.</p>
             <a href="/blog" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
           </div>
@@ -167,7 +192,7 @@ const pageDescription =
             >
           </div>
           <div class="p-6">
-            <h3 class="font-semibold text-gray-900 mb-2">Behind Our All-Butter Crust</h3>
+            <h3 class="font-heading font-semibold text-gray-900 mb-2">Behind Our All-Butter Crust</h3>
             <p class="text-gray-600 text-sm mb-4">The secret to our signature flaky, buttery crust.</p>
             <a href="/blog" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
           </div>
@@ -182,7 +207,7 @@ const pageDescription =
             >
           </div>
           <div class="p-6">
-            <h3 class="font-semibold text-gray-900 mb-2">Top Holiday Desserts for Thanksgiving</h3>
+            <h3 class="font-heading font-semibold text-gray-900 mb-2">Top Holiday Desserts for Thanksgiving</h3>
             <p class="text-gray-600 text-sm mb-4">Planning the perfect Thanksgiving dessert spread.</p>
             <a href="/blog" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
           </div>
@@ -203,7 +228,7 @@ const pageDescription =
   <!-- CTA Section -->
   <section class="py-16 bg-blue-600">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold text-white mb-4">Ready to Try Our Pies?</h2>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Ready to Try Our Pies?</h2>
       <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
         Find our pies at local retailers or contact us for bulk orders and special events.
       </p>

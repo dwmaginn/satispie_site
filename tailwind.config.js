@@ -27,9 +27,9 @@ export default {
         muted: 'var(--aw-color-text-muted)',
       },
       fontFamily: {
-        sans: ['Inter', 'Inter Variable', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['Inter', 'Inter Variable', 'ui-sans-serif', ...defaultTheme.fontFamily.sans],
+        sans: ['Lato', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', ...defaultTheme.fontFamily.serif],
+        heading: ['Playfair Display', 'Georgia', ...defaultTheme.fontFamily.serif],
       },
       fontSize: {
         // Enhanced mobile typography
