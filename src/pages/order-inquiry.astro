@@ -1,0 +1,299 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import satispieLogo from '~/assets/images/satispie-logo.png';
+
+export const metadata = {
+  title: 'Order Inquiry | Bulk & Holiday Orders | SatisPie',
+  description: 'Submit an order inquiry for bulk orders, holiday catering, or special events. Our team will get back to you within 24 hours with pricing and availability.',
+  keywords: 'bulk pie orders, holiday catering, corporate orders, wedding cakes, special events, order inquiry',
+  openGraph: {
+    title: 'Order Inquiry - Bulk & Holiday Orders',
+    description: 'Request pricing for bulk orders and holiday catering',
+    image: satispieLogo.src,
+    url: '/order-inquiry'
+  }
+};
+
+// Product options for the form
+const productOptions = [
+  { id: 'apple-pie', name: 'Apple Pie', price: '$24.99' },
+  { id: 'cherry-pie', name: 'Cherry Pie', price: '$26.99' },
+  { id: 'pumpkin-pie', name: 'Pumpkin Pie', price: '$22.99' },
+  { id: 'pecan-pie', name: 'Pecan Pie', price: '$28.99' },
+  { id: 'blueberry-pie', name: 'Blueberry Pie', price: '$25.99' },
+  { id: 'mixed-variety', name: 'Mixed Variety Pack', price: '$89.99' },
+  { id: 'custom-order', name: 'Custom Order', price: 'Quote Required' }
+];
+
+const quantityOptions = [
+  { value: '1-5', label: '1-5 pies' },
+  { value: '6-10', label: '6-10 pies' },
+  { value: '11-25', label: '11-25 pies' },
+  { value: '26-50', label: '26-50 pies' },
+  { value: '50+', label: '50+ pies' }
+];
+
+const eventTypes = [
+  'Corporate Event',
+  'Wedding',
+  'Birthday Party',
+  'Holiday Gathering',
+  'Fundraiser',
+  'Restaurant/Catering',
+  'Other'
+];
+---
+
+<Layout metadata={metadata}>
+  <main class="container mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <section class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Order Inquiry
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Planning a special event or need bulk orders? Submit your inquiry below and our team will get back to you within 24 hours with pricing and availability.
+      </p>
+    </section>
+
+    <!-- Form Section -->
+    <section class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <form 
+          action="https://formspree.io/f/YOUR_FORM_ID" 
+          method="POST"
+          class="space-y-6"
+        >
+          <!-- Honeypot field for spam protection -->
+          <input type="text" name="_gotcha" style="display:none">
+          
+          <!-- Contact Information -->
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
+                First Name *
+              </label>
+              <input 
+                type="text" 
+                id="firstName" 
+                name="firstName" 
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+            </div>
+            <div>
+              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
+                Last Name *
+              </label>
+              <input 
+                type="text" 
+                id="lastName" 
+                name="lastName" 
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                Email Address *
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                Phone Number
+              </label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+            </div>
+          </div>
+
+          <!-- Order Details -->
+          <div>
+            <label for="eventType" class="block text-sm font-medium text-gray-700 mb-2">
+              Event Type *
+            </label>
+            <select 
+              id="eventType" 
+              name="eventType" 
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            >
+              <option value="">Select an event type...</option>
+              {eventTypes.map((type) => (
+                <option value={type}>{type}</option>
+              ))}
+            </select>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="eventDate" class="block text-sm font-medium text-gray-700 mb-2">
+                Event Date *
+              </label>
+              <input 
+                type="date" 
+                id="eventDate" 
+                name="eventDate" 
+                required
+                min={new Date().toISOString().split('T')[0]}
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+            </div>
+            <div>
+              <label for="quantity" class="block text-sm font-medium text-gray-700 mb-2">
+                Estimated Quantity *
+              </label>
+              <select 
+                id="quantity" 
+                name="quantity" 
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="">Select quantity...</option>
+                {quantityOptions.map((option) => (
+                  <option value={option.value}>{option.label}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <!-- Product Selection -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-4">
+              Products of Interest *
+            </label>
+            <div class="grid md:grid-cols-2 gap-4">
+              {productOptions.map((product) => (
+                <label class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                  <input 
+                    type="checkbox" 
+                    name="products" 
+                    value={product.id}
+                    class="mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  >
+                  <div class="flex-1">
+                    <div class="font-medium text-gray-900">{product.name}</div>
+                    <div class="text-sm text-gray-500">{product.price}</div>
+                  </div>
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <!-- Special Requirements -->
+          <div>
+            <label for="specialRequirements" class="block text-sm font-medium text-gray-700 mb-2">
+              Special Requirements or Dietary Restrictions
+            </label>
+            <textarea 
+              id="specialRequirements" 
+              name="specialRequirements" 
+              rows="4"
+              placeholder="Any dietary restrictions, allergies, or special requests..."
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            ></textarea>
+          </div>
+
+          <!-- Additional Information -->
+          <div>
+            <label for="additionalInfo" class="block text-sm font-medium text-gray-700 mb-2">
+              Additional Information
+            </label>
+            <textarea 
+              id="additionalInfo" 
+              name="additionalInfo" 
+              rows="4"
+              placeholder="Tell us more about your event, delivery preferences, or any other details..."
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button 
+              type="submit"
+              class="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg"
+            >
+              Submit Order Inquiry
+            </button>
+            <p class="text-sm text-gray-500 mt-2">
+              We'll respond within 24 hours with pricing and availability
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Additional Information -->
+    <section class="mt-12 grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">24-Hour Response</h3>
+        <p class="text-gray-600">We'll get back to you within 24 hours with pricing and availability.</p>
+      </div>
+      
+      <div class="text-center">
+        <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Custom Orders</h3>
+        <p class="text-gray-600">We can accommodate special dietary requirements and custom flavors.</p>
+      </div>
+      
+      <div class="text-center">
+        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">Bulk Discounts</h3>
+        <p class="text-gray-600">Volume pricing available for orders of 10+ pies.</p>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="mt-12 text-center">
+      <div class="bg-gray-50 rounded-lg p-8">
+        <h2 class="text-2xl font-semibold mb-4">Need Immediate Assistance?</h2>
+        <p class="text-gray-600 mb-6">
+          For urgent orders or questions, give us a call directly.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="tel:+15551234567"
+            class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+          >
+            Call (555) 123-4567
+          </a>
+          <a 
+            href="/contact"
+            class="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors font-semibold"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout> 

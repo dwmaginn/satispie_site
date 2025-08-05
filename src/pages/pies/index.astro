@@ -1,0 +1,256 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import { getAllPies, getAvailablePies, getSeasonalPies } from '~/data/pies';
+
+export const metadata = {
+  title: 'Our Pies | All-Butter Crust Pies | SatisPie',
+  description: 'Discover our collection of hand-crafted, all-butter crust pies. From classic apple to seasonal favorites, each pie is made with premium ingredients and traditional techniques.',
+  keywords: 'pies, dessert, all-butter crust, apple pie, cherry pie, pumpkin pie, pecan pie, blueberry pie, hand-crafted',
+  openGraph: {
+    title: 'Our Pies - Hand-Crafted All-Butter Crust',
+    description: 'Discover our collection of premium hand-crafted pies',
+    url: '/pies'
+  }
+};
+
+const allPies = getAllPies();
+const availablePies = getAvailablePies();
+const seasonalPies = getSeasonalPies();
+---
+
+<Layout metadata={metadata}>
+  <main class="container mx-auto px-4 py-8">
+    <!-- Hero Section -->
+    <section class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Our Pies
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Each pie is hand-crafted with our signature all-butter crust and premium ingredients. 
+        From classic favorites to seasonal specialties, discover the perfect pie for every occasion.
+      </p>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="mb-8">
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <div class="flex flex-col md:flex-row gap-4 items-center">
+          <div class="flex-1">
+            <input 
+              type="text" 
+              id="searchInput"
+              placeholder="Search pies..."
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            >
+          </div>
+          <div class="flex gap-2">
+            <button 
+              id="allFilter"
+              class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              All Pies
+            </button>
+            <button 
+              id="availableFilter"
+              class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              Available
+            </button>
+            <button 
+              id="seasonalFilter"
+              class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              Seasonal
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="mb-16">
+      <div id="productsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {allPies.map((pie) => (
+          <div class="product-card bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow" data-category={pie.seasonal ? 'seasonal' : 'regular'} data-available={pie.available}>
+            <div class="aspect-square bg-gray-100 relative">
+              <img 
+                src={pie.image} 
+                alt={pie.name}
+                class="w-full h-full object-cover"
+              >
+              {pie.seasonal && (
+                <div class="absolute top-2 right-2">
+                  <span class="px-2 py-1 bg-orange-500 text-white text-xs rounded-full">
+                    Seasonal
+                  </span>
+                </div>
+              )}
+              {!pie.available && (
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                  <span class="text-white font-semibold">Currently Unavailable</span>
+                </div>
+              )}
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">{pie.name}</h3>
+              <p class="text-gray-600 mb-4">{pie.shortDescription}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {pie.features.slice(0, 2).map((feature) => (
+                  <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">
+                    {feature}
+                  </span>
+                ))}
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-2xl font-bold text-blue-600">{pie.price}</span>
+                <a 
+                  href={`/pies/${pie.slug}`}
+                  class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-semibold"
+                >
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Why Choose SatisPie?</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">All-Butter Crust</h3>
+          <p class="text-gray-600">Our signature flaky crust is made with 100% butter for the perfect texture and flavor.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Hand-Crafted</h3>
+          <p class="text-gray-600">Each pie is carefully crafted by our skilled bakers using traditional techniques.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Premium Ingredients</h3>
+          <p class="text-gray-600">We source only the finest ingredients, from local fruits to premium spices and extracts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="text-center bg-blue-50 rounded-lg p-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Ready to Try Our Pies?</h2>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+        Find our pies at local retailers or contact us for bulk orders and special events.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/find-pies"
+          class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+        >
+          Find Stores Near You
+        </a>
+        <a 
+          href="/order-inquiry"
+          class="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors font-semibold"
+        >
+          Order Inquiry
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Filter and search functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+      const allFilter = document.getElementById('allFilter') as HTMLButtonElement;
+      const availableFilter = document.getElementById('availableFilter') as HTMLButtonElement;
+      const seasonalFilter = document.getElementById('seasonalFilter') as HTMLButtonElement;
+      const productCards = document.querySelectorAll('.product-card') as NodeListOf<HTMLElement>;
+
+      let currentFilter = 'all';
+
+      function filterProducts() {
+        const searchTerm = searchInput.value.toLowerCase();
+        
+        productCards.forEach(card => {
+          const titleElement = card.querySelector('h3');
+          const descriptionElement = card.querySelector('p');
+          const title = titleElement?.textContent?.toLowerCase() || '';
+          const description = descriptionElement?.textContent?.toLowerCase() || '';
+          const isAvailable = card.dataset.available === 'true';
+          const isSeasonal = card.dataset.category === 'seasonal';
+          
+          let showCard = true;
+          
+          // Search filter
+          if (searchTerm && !title.includes(searchTerm) && !description.includes(searchTerm)) {
+            showCard = false;
+          }
+          
+          // Category filter
+          if (currentFilter === 'available' && !isAvailable) {
+            showCard = false;
+          } else if (currentFilter === 'seasonal' && !isSeasonal) {
+            showCard = false;
+          }
+          
+          card.style.display = showCard ? 'block' : 'none';
+        });
+      }
+
+      // Event listeners
+      searchInput.addEventListener('input', filterProducts);
+      
+      allFilter.addEventListener('click', () => {
+        currentFilter = 'all';
+        updateFilterButtons();
+        filterProducts();
+      });
+      
+      availableFilter.addEventListener('click', () => {
+        currentFilter = 'available';
+        updateFilterButtons();
+        filterProducts();
+      });
+      
+      seasonalFilter.addEventListener('click', () => {
+        currentFilter = 'seasonal';
+        updateFilterButtons();
+        filterProducts();
+      });
+
+      function updateFilterButtons() {
+        [allFilter, availableFilter, seasonalFilter].forEach(btn => {
+          if (btn) {
+            btn.classList.remove('bg-blue-600', 'text-white');
+            btn.classList.add('border', 'border-gray-300', 'text-gray-700');
+          }
+        });
+        
+        const activeButton = document.getElementById(currentFilter + 'Filter') as HTMLButtonElement;
+        if (activeButton) {
+          activeButton.classList.remove('border', 'border-gray-300', 'text-gray-700');
+          activeButton.classList.add('bg-blue-600', 'text-white');
+        }
+      }
+    });
+  </script>
+</Layout> 

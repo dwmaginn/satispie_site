@@ -1,68 +1,226 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getAllPies } from '~/data/pies';
+
 export const prerender = true;
-const pageTitle = 'Pre-Baked Pies & Desserts | SatisPie';
+const pageTitle = 'Hand-Crafted All-Butter Pies | SatisPie';
 const pageDescription =
-  'Quality pre-baked pies, waffles & pancakes for retail & foodservice. Apple, pumpkin, cherry pies. Private label solutions available.';
+  'Discover our collection of hand-crafted, all-butter crust pies. From classic apple to seasonal favorites, each pie is made with premium ingredients and traditional techniques.';
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <!-- Hero Section -->
-    <section class="text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-sp-purple mb-6">Quality Pre-Baked Pies & Desserts</h1>
-      <p class="text-xl text-sp-text-secondary mb-8">
-        Premium frozen pies, waffles, and pancakes for retail and foodservice
-      </p>
-    </section>
-
-    <!-- Main Content -->
-    <section class="prose prose-lg max-w-none">
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-50 to-purple-50 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-2xl font-semibold text-sp-text-primary mb-4">New State-of-the-Art Facility</h2>
-          <p class="text-sp-text-secondary mb-4">
-            We are excited to announce our new state-of-the-art facility in Rochester, NY. Our expanded production
-            capacity allows us to serve more customers while maintaining the same high quality standards that SatisPie
-            is known for.
+          <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            Hand-Crafted
+            <span class="text-blue-600">All-Butter</span>
+            Pies
+          </h1>
+          <p class="text-xl text-gray-600 mb-8 max-w-2xl">
+            Each pie is carefully crafted with our signature flaky crust and premium ingredients. 
+            From classic favorites to seasonal specialties, discover the perfect pie for every occasion.
           </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="/find-pies"
+              class="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors text-center"
+            >
+              Find Pies Near You
+            </a>
+            <a
+              href="/pies"
+              class="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors text-center"
+            >
+              Browse Our Pies
+            </a>
+          </div>
         </div>
-
-        <div>
-          <h2 class="text-2xl font-semibold text-sp-text-primary mb-4">Private Label Solutions</h2>
-          <p class="text-sp-text-secondary mb-4">
-            In addition to our own branded products, we offer comprehensive private label solutions. Our products are
-            custom formulated to your specifications - it's your product, in your packaging, made under SQF, HACCP & GMP
-            controls.
-          </p>
+        <div class="relative">
+          <div class="aspect-square bg-gray-100 rounded-2xl overflow-hidden shadow-2xl">
+            <img 
+              src="/images/satispie-hero-pies.png" 
+              alt="Delicious SatisPie pies on display"
+              class="w-full h-full object-cover"
+            >
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="bg-sp-bg-light p-6 rounded-lg mb-8">
-        <h2 class="text-2xl font-semibold text-sp-text-primary mb-4">Available Products</h2>
-        <p class="text-sp-text-secondary mb-4">We offer a wide variety of pre-baked desserts including:</p>
-        <ul class="list-disc list-inside text-sp-text-secondary space-y-2">
-          <li>Fruit pies (Apple, Blueberry, Cherry, Peach)</li>
-          <li>Seasonal pies (Pumpkin, Sweet Potato)</li>
-          <li>Specialty pies (Pecan, Apple Crumb, Triple Berry)</li>
-          <li>Pre-baked pie shells</li>
-          <li>Waffles and pancakes</li>
-        </ul>
+  <!-- Unique Selling Points -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Kosher Certified</h3>
+          <p class="text-gray-600">All our pies are certified kosher, meeting the highest standards of quality and tradition.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">All-Butter Crust</h3>
+          <p class="text-gray-600">Our signature flaky crust is made with 100% butter for the perfect texture and flavor.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-purple-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">Employment Mission</h3>
+          <p class="text-gray-600">We provide meaningful employment opportunities for individuals with disabilities.</p>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="text-center">
-        <h2 class="text-2xl font-semibold text-sp-text-primary mb-4">Fall Pie Season</h2>
-        <p class="text-sp-text-secondary mb-6">
-          As we approach the fall season, our pie production is in full swing. Contact us today to discuss your pie
-          needs for the upcoming holiday season.
+  <!-- Featured Pies -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Signature Pies</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Discover our most popular flavors, each crafted with care and premium ingredients.
         </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {getAllPies().slice(0, 4).map((pie) => (
+          <a href={`/pies/${pie.slug}`} class="group">
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div class="aspect-square bg-gray-100">
+                <img 
+                  src={pie.image} 
+                  alt={pie.name}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                >
+              </div>
+              <div class="p-6">
+                <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  {pie.name}
+                </h3>
+                <p class="text-sm text-gray-600 mt-2">{pie.shortDescription}</p>
+                <p class="text-blue-600 font-semibold mt-3">{pie.price}</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      
+      <div class="text-center mt-12">
         <a
-          href="/contact"
-          class="inline-block bg-sp-purple text-white px-6 py-3 rounded-lg font-semibold hover:bg-sp-purple-dark transition-colors"
+          href="/pies"
+          class="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors"
         >
-          Contact Us Today
+          View All Pies
         </a>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <!-- Latest Blog Posts -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Latest from Our Blog</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Tips, recipes, and stories from our kitchen to yours.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="aspect-video bg-gray-100">
+            <img 
+              src="/images/blog-post-1.jpg" 
+              alt="Blog post thumbnail"
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-gray-900 mb-2">Best Summer Fruit Pies You Can Buy</h3>
+            <p class="text-gray-600 text-sm mb-4">Discover the perfect summer pies and where to find them.</p>
+            <a href="/blog" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="aspect-video bg-gray-100">
+            <img 
+              src="/images/blog-post-2.jpg" 
+              alt="Blog post thumbnail"
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-gray-900 mb-2">Behind Our All-Butter Crust</h3>
+            <p class="text-gray-600 text-sm mb-4">The secret to our signature flaky, buttery crust.</p>
+            <a href="/blog" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+          <div class="aspect-video bg-gray-100">
+            <img 
+              src="/images/blog-post-3.jpg" 
+              alt="Blog post thumbnail"
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-semibold text-gray-900 mb-2">Top Holiday Desserts for Thanksgiving</h3>
+            <p class="text-gray-600 text-sm mb-4">Planning the perfect Thanksgiving dessert spread.</p>
+            <a href="/blog" class="text-blue-600 hover:text-blue-800 font-medium">Read More →</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a
+          href="/blog"
+          class="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors"
+        >
+          Read Our Blog
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-blue-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Ready to Try Our Pies?</h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+        Find our pies at local retailers or contact us for bulk orders and special events.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/find-pies"
+          class="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+        >
+          Find Stores Near You
+        </a>
+        <a
+          href="/order-inquiry"
+          class="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors"
+        >
+          Order Inquiry
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
