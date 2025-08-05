@@ -1,18 +1,18 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 
-const pageTitle = "Test Layout";
-const pageDescription = "Testing the new SatisPie layout with header and footer";
+const pageTitle = 'Test Layout';
+const pageDescription = 'Testing the new SatisPie layout with header and footer';
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <h1 class="text-4xl font-bold text-sp-text-primary mb-6">Welcome to SatisPie</h1>
-    
+
     <p class="text-lg text-sp-text-secondary mb-8">
       This is a test page to verify that our new layout with SatisPie branding is working correctly.
     </p>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="bg-white p-6 rounded-lg shadow-sm">
         <h2 class="text-2xl font-semibold text-sp-primary mb-4">Brand Colors Test</h2>
@@ -31,7 +31,7 @@ const pageDescription = "Testing the new SatisPie layout with header and footer"
           </div>
         </div>
       </div>
-      
+
       <div class="bg-white p-6 rounded-lg shadow-sm">
         <h2 class="text-2xl font-semibold text-sp-primary mb-4">Typography Test</h2>
         <div class="space-y-2">
@@ -43,9 +43,9 @@ const pageDescription = "Testing the new SatisPie layout with header and footer"
         </div>
       </div>
     </div>
-    
+
     <div class="mt-8">
       <a href="/" class="btn-primary">Back to Home</a>
     </div>
   </div>
-</BaseLayout> 
+</BaseLayout>

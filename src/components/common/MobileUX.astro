@@ -1,0 +1,110 @@
+---
+// Mobile UX Enhancement Component
+// Improves mobile readability, touch targets, and accessibility
+---
+
+<style>
+  /* Mobile-first typography improvements */
+  @media (max-width: 768px) {
+    body {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    
+    h1 {
+      font-size: 30px;
+      line-height: 1.3;
+    }
+    
+    h2 {
+      font-size: 24px;
+      line-height: 1.4;
+    }
+    
+    h3 {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+    
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+  }
+
+  /* Enhanced touch targets */
+  @media (max-width: 768px) {
+    button, 
+    a[role="button"],
+    input[type="button"],
+    input[type="submit"] {
+      min-height: 48px;
+      min-width: 48px;
+      padding: 12px 16px;
+    }
+    
+    /* Ensure proper spacing for touch interactions */
+    .touch-target {
+      min-height: 48px;
+      min-width: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  /* Improved contrast for mobile */
+  @media (max-width: 768px) {
+    .text-sp-text-primary {
+      color: #1a202c;
+    }
+    
+    .text-sp-text-secondary {
+      color: #4a5568;
+    }
+  }
+
+  /* Better mobile spacing */
+  @media (max-width: 768px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .mobile-padding {
+      padding: 1.5rem 1rem;
+    }
+  }
+
+  /* Mobile accessibility improvements */
+  @media (max-width: 768px) {
+    /* Ensure focus indicators are visible */
+    *:focus {
+      outline: 2px solid #D35400;
+      outline-offset: 2px;
+    }
+    
+    /* Improve tap highlight */
+    * {
+      -webkit-tap-highlight-color: rgba(211, 84, 0, 0.1);
+    }
+  }
+
+  /* Mobile performance optimizations */
+  @media (max-width: 768px) {
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  }
+</style>
+
+<!-- Mobile-specific meta tags for better UX -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+<meta name="theme-color" content="#D35400" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" /> 

@@ -18,7 +18,7 @@ export default {
         'sp-text-secondary': '#7F8C8D',
         'sp-bg-light': '#F8F9FA',
         'sp-bg-white': '#FFFFFF',
-        
+
         // Legacy colors for backward compatibility
         primary: 'var(--aw-color-primary)',
         secondary: 'var(--aw-color-secondary)',
@@ -30,6 +30,13 @@ export default {
         sans: ['Inter', 'Inter Variable', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
         heading: ['Inter', 'Inter Variable', 'ui-sans-serif', ...defaultTheme.fontFamily.sans],
+      },
+      fontSize: {
+        // Enhanced mobile typography
+        'mobile-base': ['18px', { lineHeight: '1.6' }],
+        'mobile-lg': ['20px', { lineHeight: '1.5' }],
+        'mobile-xl': ['24px', { lineHeight: '1.4' }],
+        'mobile-2xl': ['30px', { lineHeight: '1.3' }],
       },
 
       animation: {

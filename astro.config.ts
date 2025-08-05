@@ -32,10 +32,12 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         // Exclude test pages and private content
-        return !page.includes('test-layout') && 
-               !page.includes('404') &&
-               !page.includes('/admin/') &&
-               !page.includes('/private/');
+        return (
+          !page.includes('test-layout') &&
+          !page.includes('404') &&
+          !page.includes('/admin/') &&
+          !page.includes('/private/')
+        );
       },
       changefreq: 'weekly',
       priority: 0.7,
@@ -70,6 +72,10 @@ export default defineConfig({
       HTML: {
         'html-minifier-terser': {
           removeAttributeQuotes: false,
+          collapseWhitespace: true,
+          removeComments: true,
+          minifyCSS: true,
+          minifyJS: true,
         },
       },
       Image: false,
@@ -85,6 +91,15 @@ export default defineConfig({
 
   image: {
     domains: ['cdn.pixabay.com'],
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+    },
+    // Enhanced image optimization settings
+    quality: 80,
+    format: ['webp', 'avif'],
+    densities: [1, 2],
+    // Enable responsive images
+    widths: [640, 750, 828, 960, 1080, 1280, 1668, 1920, 2048, 2560],
   },
 
   markdown: {
@@ -96,6 +111,26 @@ export default defineConfig({
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
+      },
+    },
+    // Performance optimizations
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['astro'],
+          },
+        },
+      },
+      // Enable source maps for debugging
+      sourcemap: false,
+      // Optimize chunk size
+      chunkSizeWarningLimit: 1000,
+    },
+    // Enable HTTP/2 server push hints
+    server: {
+      headers: {
+        'Link': '</src/assets/styles/tailwind.css>; rel=preload; as=style',
       },
     },
   },

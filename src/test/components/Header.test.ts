@@ -6,14 +6,8 @@ describe('Header Component', () => {
   it('should contain navigation links', () => {
     // This is a placeholder test since we can't directly test .astro files
     // In a real implementation, we'd need to convert components to React or use Astro's testing utilities
-    const navigationLinks = [
-      'Home',
-      'Branded Products', 
-      'Tips & Techniques',
-      'Contact Us',
-      'Apply Today'
-    ];
-    
+    const navigationLinks = ['Home', 'Branded Products', 'Tips & Techniques', 'Contact Us', 'Apply Today'];
+
     // For now, we'll test that our expected navigation structure is defined
     expect(navigationLinks).toHaveLength(5);
     expect(navigationLinks).toContain('Home');
@@ -30,7 +24,7 @@ describe('Header Component', () => {
       products: { path: '/branded-products', label: 'Branded Products' },
       tips: { path: '/tips-and-techniques', label: 'Tips & Techniques' },
       contact: { path: '/contact-us', label: 'Contact Us' },
-      apply: { path: '/apply-today', label: 'Apply Today' }
+      apply: { path: '/apply-today', label: 'Apply Today' },
     };
 
     expect(navStructure.home.path).toBe('/');
@@ -39,4 +33,4 @@ describe('Header Component', () => {
     expect(navStructure.contact.path).toBe('/contact-us');
     expect(navStructure.apply.path).toBe('/apply-today');
   });
-}); 
+});

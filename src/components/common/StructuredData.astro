@@ -1,0 +1,165 @@
+---
+// Structured Data Component for JSON-LD Schema Markup
+// Implements organization, product, and recipe schemas for SEO
+
+export interface Props {
+  type: 'organization' | 'product' | 'recipe' | 'faq' | 'breadcrumb';
+  data: any;
+}
+
+const { type, data } = Astro.props;
+
+// Organization Schema (global)
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'SatisPie',
+  url: 'https://satispie.com',
+  logo: 'https://satispie.com/satispie-logo.svg',
+  description: 'Pre-baked pies, waffles, and pancakes. Quality desserts for retail and foodservice.',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'US',
+    addressRegion: 'CA',
+    addressLocality: 'Los Angeles'
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+1-555-123-4567',
+    contactType: 'customer service',
+    availableLanguage: 'English'
+  },
+  sameAs: [
+    'https://facebook.com/satispie',
+    'https://instagram.com/satispie',
+    'https://twitter.com/satispie'
+  ]
+};
+
+// Product Schema
+const productSchema = (productData: any) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: productData.name,
+  description: productData.description,
+  image: productData.image,
+  brand: {
+    '@type': 'Brand',
+    name: 'SatisPie'
+  },
+  offers: {
+    '@type': 'Offer',
+    price: productData.price,
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    seller: {
+      '@type': 'Organization',
+      name: 'SatisPie'
+    }
+  },
+  aggregateRating: productData.rating ? {
+    '@type': 'AggregateRating',
+    ratingValue: productData.rating.value,
+    reviewCount: productData.rating.count
+  } : undefined
+});
+
+// Recipe Schema
+const recipeSchema = (recipeData: any) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Recipe',
+  name: recipeData.name,
+  description: recipeData.description,
+  image: recipeData.image,
+  author: {
+    '@type': 'Organization',
+    name: 'SatisPie'
+  },
+  datePublished: recipeData.datePublished,
+  prepTime: recipeData.prepTime,
+  cookTime: recipeData.cookTime,
+  totalTime: recipeData.totalTime,
+  recipeYield: recipeData.yield,
+  recipeCategory: recipeData.category,
+  recipeCuisine: 'American',
+  nutrition: recipeData.nutrition ? {
+    '@type': 'NutritionInformation',
+    calories: recipeData.nutrition.calories,
+    fatContent: recipeData.nutrition.fat,
+    carbohydrateContent: recipeData.nutrition.carbs,
+    proteinContent: recipeData.nutrition.protein
+  } : undefined,
+  recipeIngredient: recipeData.ingredients,
+  recipeInstructions: recipeData.instructions
+});
+
+// FAQ Schema
+const faqSchema = (faqData: any) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqData.questions.map((q: any) => ({
+    '@type': 'Question',
+    name: q.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: q.answer
+    }
+  }))
+});
+
+// Breadcrumb Schema
+const breadcrumbSchema = (breadcrumbData: any) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbData.items.map((item: any, index: number) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: item.url
+  }))
+});
+
+// Generate schema based on type
+let schema;
+switch (type) {
+  case 'organization':
+    schema = organizationSchema;
+    break;
+  case 'product':
+    schema = productSchema(data);
+    break;
+  case 'recipe':
+    schema = recipeSchema(data);
+    break;
+  case 'faq':
+    schema = faqSchema(data);
+    break;
+  case 'breadcrumb':
+    schema = breadcrumbSchema(data);
+    break;
+  default:
+    schema = null;
+}
+
+// Remove undefined properties
+const cleanSchema = (obj: any): any => {
+  if (obj === null || obj === undefined) return obj;
+  if (Array.isArray(obj)) return obj.map(cleanSchema);
+  if (typeof obj === 'object') {
+    const cleaned: any = {};
+    for (const [key, value] of Object.entries(obj)) {
+      if (value !== undefined) {
+        cleaned[key] = cleanSchema(value);
+      }
+    }
+    return cleaned;
+  }
+  return obj;
+};
+
+const finalSchema = schema ? cleanSchema(schema) : null;
+---
+
+{finalSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />
+)} 

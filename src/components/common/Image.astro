@@ -59,16 +59,16 @@ if (
   !image ? (
     <Fragment />
   ) : (
-    <img 
-      src={image.src} 
+    <img
+      src={image.src}
       alt={props.alt}
       loading={props.loading}
       decoding={props.decoding}
       width={props.width}
       height={props.height}
-      crossorigin="anonymous" 
-      referrerpolicy="no-referrer" 
-      {...image.attributes} 
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      {...image.attributes}
     />
   )
 }

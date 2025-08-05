@@ -8,7 +8,7 @@ test.describe('Simple Site Tests', () => {
 
   test('should have navigation links', async ({ page }) => {
     await page.goto('/');
-    
+
     // Check that navigation links exist in the main navigation
     await expect(page.locator('nav a[href="/"]').first()).toBeVisible();
     await expect(page.locator('nav a[href="/branded-products"]')).toBeVisible();
@@ -19,10 +19,10 @@ test.describe('Simple Site Tests', () => {
 
   test('should have proper page structure', async ({ page }) => {
     await page.goto('/');
-    
+
     // Check for basic page structure - use more specific selectors
     await expect(page.locator('header[role="banner"]')).toBeVisible();
     await expect(page.locator('main')).toBeVisible();
     await expect(page.locator('footer')).toBeVisible();
   });
-}); 
+});

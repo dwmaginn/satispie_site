@@ -1,0 +1,93 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+
+const faqData = {
+  questions: [
+    {
+      question: "How long do your pies stay fresh?",
+      answer: "Our pies stay fresh for up to 7 days when refrigerated. For best quality, we recommend consuming within 5 days of purchase."
+    },
+    {
+      question: "Do you offer gluten-free options?",
+      answer: "Yes! We offer several gluten-free pie options including our popular apple crumble and berry medley pies. All gluten-free items are clearly labeled."
+    },
+    {
+      question: "Can I order pies for special events?",
+      answer: "Absolutely! We offer bulk ordering for events, parties, and corporate functions. Please contact us at least 48 hours in advance for custom orders."
+    },
+    {
+      question: "Do you ship nationwide?",
+      answer: "Currently, we ship to all 50 states. Shipping takes 2-3 business days and includes special packaging to maintain freshness."
+    },
+    {
+      question: "Are your ingredients locally sourced?",
+      answer: "We prioritize local ingredients whenever possible. Our apples come from local orchards, and we work with regional dairy farms for our butter and cream."
+    },
+    {
+      question: "What allergens are in your products?",
+      answer: "Our products contain wheat, dairy, and eggs. We also process nuts in our facility. All allergen information is clearly listed on each product page."
+    },
+    {
+      question: "Do you offer vegan options?",
+      answer: "Yes, we have a selection of vegan pies including our popular coconut cream and mixed berry options. All vegan items are clearly marked."
+    },
+    {
+      question: "How can I find your products in stores?",
+      answer: "Use our store locator to find the nearest retailer carrying SatisPie products. You can also call us directly for the most up-to-date availability."
+    },
+    {
+      question: "What's your return policy?",
+      answer: "We stand behind the quality of our products. If you're not completely satisfied, contact us within 24 hours for a full refund or replacement."
+    },
+    {
+      question: "Do you offer wholesale pricing?",
+      answer: "Yes! We offer competitive wholesale pricing for restaurants, cafes, and retailers. Contact our wholesale team for pricing and minimum order requirements."
+    }
+  ]
+};
+---
+
+<BaseLayout title="Frequently Asked Questions" description="Find answers to common questions about SatisPie products, ordering, shipping, and more.">
+  <StructuredData type="faq" data={faqData} />
+
+  <div class="container mx-auto px-4 py-8">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-bold text-center mb-8">Frequently Asked Questions</h1>
+      
+      <div class="space-y-6">
+        {faqData.questions.map((faq, index) => (
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              {faq.question}
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              {faq.answer}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <h2 class="text-2xl font-semibold mb-4">Still have questions?</h2>
+        <p class="text-gray-600 mb-6">
+          Can't find what you're looking for? Our team is here to help!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/contact" 
+            class="bg-sp-primary text-white px-6 py-3 rounded-lg hover:bg-sp-primary-dark transition-colors"
+          >
+            Contact Us
+          </a>
+          <a 
+            href="tel:+1-555-123-4567" 
+            class="border border-sp-primary text-sp-primary px-6 py-3 rounded-lg hover:bg-sp-primary hover:text-white transition-colors"
+          >
+            Call Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout> 

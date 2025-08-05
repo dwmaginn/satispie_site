@@ -1,0 +1,5 @@
+[33m1f5ad3f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m feat: complete Batch 0.3 Image SEO Pass - optimize images, alt text, and lazy loading
+[33mebb8f3a[m Fix TypeScript and ESLint errors - Add proper type annotations and null checks
+[33m4e7468f[m ci: add IONOS Deploy Now workflow and update README
+[33m8e6129c[m chore: add .htaccess and deployment docs for IONOS hosting
+[33m4cd45df[m test: add comprehensive unit and e2e test suite for Phase 5

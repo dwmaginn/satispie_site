@@ -1,11 +1,11 @@
 ---
 // Navigation items based on site map
 const navItems = [
-  { text: "Home", href: "/" },
-  { text: "Branded Products", href: "/branded-products" },
-  { text: "Tips & Techniques", href: "/tips-and-techniques" },
-  { text: "Contact Us", href: "/contact" },
-  { text: "Apply Today", href: "/apply-today" }
+  { text: 'Home', href: '/' },
+  { text: 'Branded Products', href: '/branded-products' },
+  { text: 'Tips & Techniques', href: '/tips-and-techniques' },
+  { text: 'Contact Us', href: '/contact' },
+  { text: 'Apply Today', href: '/apply-today' },
 ];
 ---
 
@@ -15,34 +15,43 @@ const navItems = [
       <!-- Logo -->
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center" aria-label="SatisPie - Go to homepage">
-          <img 
-          src="/satispie-logo.png" 
-          alt="SatisPie LLC - Quality Pre-baked Pies and Desserts" 
-          width="80" 
-          height="80" 
-          class="h-20 w-20" 
-          loading="eager"
-        />
+          <img
+            src="/satispie-logo.png"
+            alt="SatisPie LLC - Quality Pre-baked Pies and Desserts"
+            width="80"
+            height="80"
+            class="h-20 w-20"
+            loading="eager"
+          />
         </a>
       </div>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex space-x-6" role="navigation" aria-label="Main navigation">
-        {navItems.map((item) => (
-          <a
-            href={item.href}
-            class="text-sp-text-primary hover:text-sp-purple px-4 py-2 rounded-lg text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-purple focus:ring-offset-2 hover:bg-gray-50"
-          >
-            {item.text}
-          </a>
-        ))}
+      <nav class="hidden md:flex items-center space-x-6" role="navigation" aria-label="Main navigation">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="text-sp-text-primary hover:text-sp-purple px-4 py-2 rounded-lg text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-purple focus:ring-offset-2 hover:bg-gray-50"
+            >
+              {item.text}
+            </a>
+          ))
+        }
+        <!-- Desktop CTA Button -->
+        <a
+          href="/contact"
+          class="bg-sp-primary text-white px-6 py-3 rounded-lg text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-primary focus:ring-offset-2 hover:bg-sp-primary-dark shadow-sm"
+        >
+          Find Our Pies
+        </a>
       </nav>
 
-             <!-- Mobile menu button -->
-       <div class="md:hidden">
-         <button
-           type="button"
-           class="text-sp-text-primary hover:text-sp-purple inline-flex items-center justify-center p-3 rounded-lg text-base font-medium focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sp-purple"
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button
+          type="button"
+          class="text-sp-text-primary hover:text-sp-purple inline-flex items-center justify-center p-4 rounded-lg text-base font-medium focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sp-purple min-h-[48px] min-w-[48px]"
           aria-controls="mobile-menu"
           aria-expanded="false"
           aria-label="Toggle main menu"
@@ -58,12 +67,7 @@ const navItems = [
             stroke="currentColor"
             aria-hidden="true"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
           <!-- Icon when menu is open -->
           <svg
@@ -74,12 +78,7 @@ const navItems = [
             stroke="currentColor"
             aria-hidden="true"
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
@@ -89,14 +88,25 @@ const navItems = [
   <!-- Mobile menu -->
   <div class="hidden md:hidden" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-      {navItems.map((item) => (
+              {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="text-sp-text-primary hover:text-sp-purple block px-3 py-4 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-purple focus:ring-offset-2 min-h-[48px] flex items-center"
+            >
+              {item.text}
+            </a>
+          ))
+        }
+      <!-- Mobile CTA Button -->
+      <div class="pt-4 border-t border-gray-200">
         <a
-          href={item.href}
-          class="text-sp-text-primary hover:text-sp-purple block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-purple focus:ring-offset-2"
+          href="/contact"
+          class="bg-sp-primary text-white block w-full text-center px-6 py-4 rounded-lg text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-primary focus:ring-offset-2 hover:bg-sp-primary-dark shadow-sm min-h-[48px] flex items-center justify-center"
         >
-          {item.text}
+          Find Our Pies
         </a>
-      ))}
+      </div>
     </div>
   </div>
 </header>
@@ -110,16 +120,16 @@ const navItems = [
   if (mobileMenuButton && mobileMenu && menuIcons) {
     mobileMenuButton.addEventListener('click', () => {
       const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-      
+
       // Toggle menu visibility
       mobileMenu.classList.toggle('hidden');
-      
+
       // Update button state
       mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
-      
+
       // Toggle icons
-      menuIcons.forEach(icon => icon.classList.toggle('hidden'));
-      
+      menuIcons.forEach((icon) => icon.classList.toggle('hidden'));
+
       // Focus management for accessibility
       if (!isExpanded) {
         // Menu is opening - focus first menu item
@@ -132,7 +142,7 @@ const navItems = [
         mobileMenuButton.focus();
       }
     });
-    
+
     // Close menu when clicking outside
     document.addEventListener('click', (event) => {
       if (!mobileMenuButton?.contains(event.target as Node) && !mobileMenu?.contains(event.target as Node)) {
@@ -145,7 +155,7 @@ const navItems = [
         }
       }
     });
-    
+
     // Close menu on escape key
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
@@ -158,4 +168,4 @@ const navItems = [
       }
     });
   }
-</script> 
+</script>

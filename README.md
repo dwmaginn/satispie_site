@@ -55,17 +55,20 @@ Visit the live site at: **[https://satispie.com](https://satispie.com)**
 ### Local Development
 
 1. **Clone the repository:**
+
    ```bash
    git clone <repository-url>
    cd satispie_site
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 3. **Start the development server:**
+
    ```bash
    npm run dev
    ```
@@ -113,12 +116,11 @@ The site is deployed to IONOS using Git-based deployment. Changes pushed to the 
 ## Contributing
 
 This project uses Conventional Commits for commit messages. Please follow the format:
+
 - `feat:` for new features
 - `fix:` for bug fixes
 - `docs:` for documentation changes
 - `chore:` for maintenance tasks
-
-
 
 <br>
 
@@ -126,15 +128,14 @@ This project uses Conventional Commits for commit messages. Please follow the fo
 
 All commands are run from the root of the project, from a terminal:
 
-| Command             | Action                                             |
-| :------------------ | :------------------------------------------------- |
-| `npm install`       | Installs dependencies                              |
-| `npm run dev`       | Starts local dev server at `localhost:4322`        |
-| `npm run build`     | Builds the site for production                     |
-| `npm run preview`   | Preview the production build locally               |
-| `npm run check`     | Run type checking, linting, and formatting        |
-| `npm run fix`       | Fix linting and formatting issues                 |
-
+| Command           | Action                                      |
+| :---------------- | :------------------------------------------ |
+| `npm install`     | Installs dependencies                       |
+| `npm run dev`     | Starts local dev server at `localhost:4322` |
+| `npm run build`   | Builds the site for production              |
+| `npm run preview` | Preview the production build locally        |
+| `npm run check`   | Run type checking, linting, and formatting  |
+| `npm run fix`     | Fix linting and formatting issues           |
 
 | `npm run astro ...` | Run CLI commands like `astro add`, `astro preview` |
 
@@ -239,6 +240,7 @@ This site is configured for automated deployment to IONOS hosting via GitHub Act
 - **Node Version:** 20 (auto-detected via .nvmrc)
 
 **Deployment Process:**
+
 1. Push changes to `main` branch
 2. GitHub Actions runs tests and builds the site
 3. IONOS Deploy Now automatically deploys to production

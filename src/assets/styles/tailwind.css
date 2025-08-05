@@ -4,16 +4,16 @@
 
 /* SatisPie Brand Colors */
 :root {
-  --sp-primary: #D35400;
-  --sp-secondary: #8B4513;
-  --sp-accent: #C0392B;
-  --sp-purple: #4A148C;
-  --sp-purple-light: #6A1B9A;
-  --sp-purple-dark: #311B92;
-  --sp-text-primary: #2C3E50;
-  --sp-text-secondary: #7F8C8D;
-  --sp-bg-light: #F8F9FA;
-  --sp-bg-white: #FFFFFF;
+  --sp-primary: #d35400;
+  --sp-secondary: #8b4513;
+  --sp-accent: #c0392b;
+  --sp-purple: #4a148c;
+  --sp-purple-light: #6a1b9a;
+  --sp-purple-dark: #311b92;
+  --sp-text-primary: #2c3e50;
+  --sp-text-secondary: #7f8c8d;
+  --sp-bg-light: #f8f9fa;
+  --sp-bg-white: #ffffff;
 }
 
 /* Accessibility improvements */
@@ -23,42 +23,46 @@
     outline: 2px solid var(--sp-primary);
     outline-offset: 2px;
   }
-  
+
   /* Remove focus outline for mouse users but keep for keyboard */
   *:focus:not(:focus-visible) {
     outline: none;
   }
-  
+
   /* Ensure sufficient color contrast */
   body {
     color: var(--sp-text-primary);
     background-color: var(--sp-bg-light);
   }
-  
+
   /* Improve form field accessibility */
-  input, textarea, select {
+  input,
+  textarea,
+  select {
     border: 1px solid #d1d5db;
   }
-  
-  input:focus, textarea:focus, select:focus {
+
+  input:focus,
+  textarea:focus,
+  select:focus {
     border-color: var(--sp-primary);
     box-shadow: 0 0 0 3px rgba(211, 84, 0, 0.1);
   }
-  
+
   /* Ensure links have sufficient contrast */
   a {
     color: var(--sp-primary);
   }
-  
+
   a:hover {
     color: var(--sp-secondary);
   }
-  
+
   /* Improve button accessibility */
   button {
     cursor: pointer;
   }
-  
+
   button:focus {
     outline: 2px solid var(--sp-primary);
     outline-offset: 2px;

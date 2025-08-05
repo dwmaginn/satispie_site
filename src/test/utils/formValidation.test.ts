@@ -59,4 +59,4 @@ describe('Form Validation Utils', () => {
       expect(validatePhone('not-a-number')).toBe(false);
     });
   });
-}); 
+});

@@ -1,6 +1,6 @@
-const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
 
 // Configuration
 const inputDir = 'src/assets/images';
@@ -18,20 +18,15 @@ if (!fs.existsSync(publicOutputDir)) {
 
 // Image optimization function
 async function optimizeImage(inputPath, outputPath, options = {}) {
-  const {
-    quality = 80,
-    width,
-    height,
-    format = 'webp'
-  } = options;
+  const { quality = 80, width, height, format = 'webp' } = options;
 
   try {
     let pipeline = sharp(inputPath);
-    
+
     if (width || height) {
       pipeline = pipeline.resize(width, height, {
         fit: 'inside',
-        withoutEnlargement: true
+        withoutEnlargement: true,
       });
     }
 
@@ -44,14 +39,14 @@ async function optimizeImage(inputPath, outputPath, options = {}) {
     }
 
     await pipeline.toFile(outputPath);
-    
+
     const stats = fs.statSync(outputPath);
     const originalStats = fs.statSync(inputPath);
-    const compressionRatio = ((originalStats.size - stats.size) / originalStats.size * 100).toFixed(1);
-    
+    const compressionRatio = (((originalStats.size - stats.size) / originalStats.size) * 100).toFixed(1);
+
     console.log(`✅ Optimized: ${path.basename(inputPath)} -> ${path.basename(outputPath)}`);
     console.log(`   Size: ${(stats.size / 1024).toFixed(1)}KB (${compressionRatio}% reduction)`);
-    
+
     return { success: true, size: stats.size, compressionRatio };
   } catch (error) {
     console.error(`❌ Failed to optimize ${inputPath}:`, error.message);
@@ -68,13 +63,13 @@ async function optimizeAllImages() {
     { input: 'satispie-hero-pies.png', output: 'satispie-hero-pies.webp', options: { quality: 85, width: 1200 } },
     { input: 'satispie-default-pie.png', output: 'satispie-default-pie.webp', options: { quality: 85, width: 800 } },
     { input: 'app-store-badge.png', output: 'app-store-badge.webp', options: { quality: 90 } },
-    { input: 'google-play-badge.png', output: 'google-play-badge.webp', options: { quality: 90 } }
+    { input: 'google-play-badge.png', output: 'google-play-badge.webp', options: { quality: 90 } },
   ];
 
   for (const file of imageFiles) {
     const inputPath = path.join(inputDir, file.input);
     const outputPath = path.join(outputDir, file.output);
-    
+
     if (fs.existsSync(inputPath)) {
       await optimizeImage(inputPath, outputPath, file.options);
     } else {
@@ -85,13 +80,13 @@ async function optimizeAllImages() {
   // Optimize public images
   const publicImageFiles = [
     { input: 'satispie-logo.png', output: 'satispie-logo.webp', options: { quality: 90 } },
-    { input: 'satispie-logo.svg', output: 'satispie-logo.svg', options: { format: 'svg' } } // SVG doesn't need optimization
+    { input: 'satispie-logo.svg', output: 'satispie-logo.svg', options: { format: 'svg' } }, // SVG doesn't need optimization
   ];
 
   for (const file of publicImageFiles) {
     const inputPath = path.join(publicDir, file.input);
     const outputPath = path.join(publicOutputDir, file.output);
-    
+
     if (fs.existsSync(inputPath)) {
       if (file.input.endsWith('.svg')) {
         // Copy SVG as-is
@@ -112,4 +107,4 @@ async function optimizeAllImages() {
 }
 
 // Run the optimization
-optimizeAllImages().catch(console.error); 
+optimizeAllImages().catch(console.error);

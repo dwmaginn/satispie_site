@@ -2,20 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FormHandler from '../components/FormHandler.astro';
 export const prerender = true;
-const pageTitle = "Apply for Jobs at SatisPie";
-const pageDescription = "Join SatisPie's pie manufacturing team. Employment opportunities in Rochester, NY. Fill out our application form for food production jobs.";
+const pageTitle = 'Apply for Jobs at SatisPie';
+const pageDescription =
+  "Join SatisPie's pie manufacturing team. Employment opportunities in Rochester, NY. Fill out our application form for food production jobs.";
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <div class="max-w-4xl mx-auto px-4 py-8">
     <!-- Hero Section -->
     <section class="text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-sp-purple mb-6">
-        Apply for Jobs at SatisPie
-      </h1>
-      <p class="text-xl text-sp-text-secondary">
-        Join our pie manufacturing team in Rochester, NY
-      </p>
+      <h1 class="text-4xl md:text-5xl font-bold text-sp-purple mb-6">Apply for Jobs at SatisPie</h1>
+      <p class="text-xl text-sp-text-secondary">Join our pie manufacturing team in Rochester, NY</p>
     </section>
 
     <!-- Introduction -->
@@ -23,8 +20,8 @@ const pageDescription = "Join SatisPie's pie manufacturing team. Employment oppo
       <div class="bg-sp-bg-light p-8 rounded-lg">
         <h2 class="text-2xl font-semibold text-sp-text-primary mb-4">Employment Opportunities</h2>
         <p class="text-sp-text-secondary text-lg mb-4">
-          Interested in applying for a position at SatisPie? We're always looking for dedicated individuals 
-          who are passionate about quality food production and customer service.
+          Interested in applying for a position at SatisPie? We're always looking for dedicated individuals who are
+          passionate about quality food production and customer service.
         </p>
         <p class="text-sp-text-secondary">
           Please fill out the form below and we will reach back to you in 1–3 business days.
@@ -36,91 +33,92 @@ const pageDescription = "Join SatisPie's pie manufacturing team. Employment oppo
     <section class="mb-12">
       <div class="bg-white border border-gray-200 rounded-lg p-8">
         <h2 class="text-2xl font-semibold text-sp-text-primary mb-6">Employment Application</h2>
-        
+
         <form id="applyForm" action="https://formspree.io/f/xaylqjwn" method="POST" class="max-w-md">
           <div class="mb-4">
             <label for="appName" class="block font-medium text-sp-text-primary mb-2">
               Name: <span class="text-red-600">*</span>
             </label>
-            <input 
-              type="text" 
-              id="appName" 
-              name="name" 
-              required 
+            <input
+              type="text"
+              id="appName"
+              name="name"
+              required
               class="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sp-purple focus:border-transparent"
             />
           </div>
-          
+
           <div class="mb-4">
             <label for="address" class="block font-medium text-sp-text-primary mb-2">
               Address: <span class="text-red-600">*</span>
             </label>
-            <input 
-              type="text" 
-              id="address" 
-              name="address" 
-              required 
+            <input
+              type="text"
+              id="address"
+              name="address"
+              required
               class="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sp-purple focus:border-transparent"
             />
           </div>
-          
+
           <div class="mb-4">
             <label for="appEmail" class="block font-medium text-sp-text-primary mb-2">
               E-mail address: <span class="text-red-600">*</span>
             </label>
-            <input 
-              type="email" 
-              id="appEmail" 
-              name="email" 
-              required 
+            <input
+              type="email"
+              id="appEmail"
+              name="email"
+              required
               class="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sp-purple focus:border-transparent"
             />
           </div>
-          
+
           <div class="mb-4">
             <label for="phone" class="block font-medium text-sp-text-primary mb-2">
               Telephone/Fax: <span class="text-red-600">*</span>
             </label>
-            <input 
-              type="tel" 
-              id="phone" 
-              name="phone" 
-              required 
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
               class="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sp-purple focus:border-transparent"
             />
           </div>
-          
+
           <div class="mb-6">
             <label for="position" class="block font-medium text-sp-text-primary mb-2">
               Position of Interest: <span class="text-red-600">*</span>
             </label>
-            <input 
-              type="text" 
-              id="position" 
-              name="position" 
-              required 
+            <input
+              type="text"
+              id="position"
+              name="position"
+              required
               class="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sp-purple focus:border-transparent"
               placeholder="e.g., Production Worker, Quality Control, Sales"
             />
           </div>
-          
+
           <!-- Hidden fields for Formspree -->
-          <input type="hidden" name="_subject" value="New Job Application Submission from SatisPie">
-          <input type="hidden" name="_captcha" value="false">
-          
-          <button 
-            type="submit" 
+          <input type="hidden" name="_subject" value="New Job Application Submission from SatisPie" />
+          <input type="hidden" name="_captcha" value="false" />
+
+          <button
+            type="submit"
             class="bg-sp-purple text-white font-semibold px-6 py-3 rounded-lg hover:bg-sp-purple-dark transition-colors"
           >
             Submit Application
           </button>
         </form>
-        
+
         <!-- Form feedback message -->
         <div id="formFeedback" class="mt-4 hidden"></div>
-        
+
         <p class="text-sm text-sp-text-secondary mt-4">
-          By submitting this form, you agree that your data will be stored and processed for the purpose of evaluating your employment application. You can revoke this consent at any time.
+          By submitting this form, you agree that your data will be stored and processed for the purpose of evaluating
+          your employment application. You can revoke this consent at any time.
         </p>
       </div>
     </section>
@@ -150,6 +148,6 @@ const pageDescription = "Join SatisPie's pie manufacturing team. Employment oppo
       </div>
     </section>
   </div>
-  
+
   <FormHandler />
-</BaseLayout> 
+</BaseLayout>
