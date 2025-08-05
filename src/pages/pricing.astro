@@ -8,7 +8,8 @@ import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Pricing',
+  title: 'Pie Pricing & Services | SatisPie',
+  description: 'Competitive pricing for pre-baked pies and manufacturing services. Private label, foodservice, and retail solutions. Contact us for custom quotes.',
 };
 ---
 
@@ -16,95 +17,95 @@ const metadata = {
   <!-- HeroText Widget ******************* -->
 
   <HeroText
-    tagline="Pricing"
-    title="Stellar Pricing for Every Journey"
-    subtitle="Choose the perfect plan that aligns with your cosmic goals."
+    tagline="Pie Pricing & Services"
+    title="Competitive Pricing for Quality Pies"
+    subtitle="Transparent pricing for our pre-baked pies and manufacturing services. From private label to foodservice, we offer flexible solutions to meet your needs."
   />
 
   <!-- Pricing Widget ******************* -->
 
   <Prices
-    title="Our prices"
-    subtitle="Only pay for what you need"
+    title="Our Service Tiers"
+    subtitle="Choose the perfect solution for your pie business"
     prices={[
       {
-        title: 'basic',
-        subtitle: 'Optimal choice for personal use',
-        price: 29,
-        period: 'per month',
+        title: 'Retail',
+        subtitle: 'Perfect for grocery stores and specialty shops',
+        price: 'Custom',
+        period: 'per order',
         items: [
           {
-            description: 'Etiam in libero, et volutpat',
+            description: 'Consumer-ready packaging',
           },
           {
-            description: 'Aenean ac nunc dolor tristique',
+            description: 'Standard pie varieties',
           },
           {
-            description: 'Cras scelerisque accumsan lib',
+            description: 'Quality frozen pies',
           },
           {
-            description: 'In hac habitasse',
+            description: 'Flexible order quantities',
           },
         ],
         callToAction: {
           target: '_blank',
-          text: 'Get started',
-          href: '#',
+          text: 'Get Quote',
+          href: '/contact',
         },
       },
       {
-        title: 'standard',
-        subtitle: 'Optimal choice for small teams',
-        price: 69,
-        period: 'Per Month',
+        title: 'Foodservice',
+        subtitle: 'Ideal for restaurants and institutions',
+        price: 'Custom',
+        period: 'bulk pricing',
         items: [
           {
-            description: 'Proin vel laoreet',
+            description: 'Bulk packaging options',
           },
           {
-            description: 'Ut efficitur habitasse egestas',
+            description: 'Custom formulations available',
           },
           {
-            description: 'Volutpat hac curabitur',
+            description: 'High-volume production',
           },
           {
-            description: 'Pellentesque blandit ut nibh',
+            description: 'Consistent quality control',
           },
           {
-            description: 'Donec fringilla sem',
+            description: 'Flexible delivery schedules',
           },
         ],
         callToAction: {
           target: '_blank',
-          text: 'Get started',
-          href: '#',
+          text: 'Contact Us',
+          href: '/contact',
         },
         hasRibbon: true,
         ribbonTitle: 'popular',
       },
       {
-        title: 'premium',
-        subtitle: 'Optimal choice for companies',
-        price: 199,
-        period: 'Per Month',
+        title: 'Private Label',
+        subtitle: 'Custom solutions for your brand',
+        price: 'Custom',
+        period: 'project-based',
         items: [
           {
-            description: 'Curabitur suscipit risus',
+            description: 'Custom formulations',
           },
           {
-            description: 'Aliquam habitasse malesuada',
+            description: 'Your packaging design',
           },
           {
-            description: 'Suspendisse sit amet blandit',
+            description: 'Your brand identity',
           },
           {
-            description: 'Suspendisse auctor blandit dui',
+            description: 'Quality certifications',
           },
         ],
         callToAction: {
           target: '_blank',
-          text: 'Get started',
-          href: '#',
+          text: 'Start Project',
+          href: '/contact',
         },
       },
     ]}

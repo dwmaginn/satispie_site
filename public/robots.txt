@@ -1,2 +1,9 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: https://satispie.com/sitemap-index.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /private/

@@ -29,7 +29,18 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    sitemap({
+      filter: (page) => {
+        // Exclude test pages and private content
+        return !page.includes('test-layout') && 
+               !page.includes('404') &&
+               !page.includes('/admin/') &&
+               !page.includes('/private/');
+      },
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+    }),
     mdx(),
     icon({
       include: {

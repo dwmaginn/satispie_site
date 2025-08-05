@@ -7,7 +7,8 @@ import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'About SatisPie - Quality Pie Manufacturer',
+  description: 'Learn about SatisPie, a leading manufacturer of pre-baked pies and desserts in Rochester, NY. Quality frozen pies for retail and foodservice.',
 };
 ---
 
@@ -15,60 +16,59 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="About us"
+    tagline="About SatisPie"
     image={{
       src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      alt: 'SatisPie Manufacturing Facility',
     }}
   >
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+      Quality Pre-Baked Pies & <br />
+      <span class="text-accent dark:text-white">Dessert Manufacturing</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      SatisPie is a leading manufacturer of pre-baked pies, waffles, and pancakes serving retail and foodservice customers. 
+      Our state-of-the-art facility in Rochester, NY produces quality frozen desserts under strict SQF, HACCP & GMP controls.
     </Fragment>
   </Hero>
 
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Statistics about us"
+    title="SatisPie Manufacturing Statistics"
     stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
+      { title: 'Years in Business', amount: '25+' },
+      { title: 'Pie Varieties', amount: '12+' },
+      { title: 'Quality Certifications', amount: '3' },
+      { title: 'Customer Satisfaction', amount: '99%' },
     ]}
   />
 
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
+    title="Our Product Categories"
+    subtitle="We specialize in three main categories of pre-baked desserts, each crafted with the highest quality ingredients and manufacturing standards."
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Educational',
+        title: 'Fruit Pies',
         description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
+          'Our signature fruit pies include Apple, Blueberry, Cherry, and Peach varieties. Each pie is made with real fruit and our signature all-butter crust.',
         icon: 'tabler:template',
       },
       {
-        title: 'Interior Design',
+        title: 'Seasonal Pies',
         description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
+          'Perfect for holidays and special occasions, our seasonal line includes Pumpkin and Sweet Potato pies, made with traditional recipes and premium ingredients.',
         icon: 'tabler:template',
       },
       {
-        title: 'Photography',
+        title: 'Specialty Pies',
         description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
+          'Our specialty collection features Pecan, Apple Crumb, and Triple Berry pies. These unique offerings showcase our culinary expertise and innovation.',
         icon: 'tabler:template',
       },
     ]}
@@ -81,46 +81,24 @@ const metadata = {
     isAfterContent={true}
     items={[
       {
-        title: 'E-commerce',
+        title: 'Private Label',
         description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
+          'Custom formulations and packaging solutions for your brand. Your product, your packaging, made under our quality controls.',
         icon: 'tabler:template',
       },
       {
-        title: 'Blog',
+        title: 'Foodservice',
         description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
+          'Bulk packaging and custom formulations for restaurants, cafeterias, and institutional foodservice operations.',
         icon: 'tabler:template',
       },
       {
-        title: 'Business',
+        title: 'Retail',
         description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
+          'Consumer-ready packaging for grocery stores, specialty food shops, and direct-to-consumer sales channels.',
         icon: 'tabler:template',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
   />
 
   <!-- Steps2 Widget ****************** -->

@@ -17,8 +17,10 @@ type ImageType = {
 
 const props = Astro.props;
 
+// Ensure alt text is always provided for SEO
 if (props.alt === undefined || props.alt === null) {
-  throw new Error();
+  console.warn(`Image missing alt text: ${props.src}`);
+  props.alt = 'Image';
 }
 
 if (typeof props.width === 'string') {
@@ -29,6 +31,7 @@ if (typeof props.height === 'string') {
   props.height = parseInt(props.height);
 }
 
+// Set default loading to lazy for better performance
 if (!props.loading) {
   props.loading = 'lazy';
 }
@@ -56,6 +59,16 @@ if (
   !image ? (
     <Fragment />
   ) : (
-    <img src={image.src} crossorigin="anonymous" referrerpolicy="no-referrer" {...image.attributes} />
+    <img 
+      src={image.src} 
+      alt={props.alt}
+      loading={props.loading}
+      decoding={props.decoding}
+      width={props.width}
+      height={props.height}
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" 
+      {...image.attributes} 
+    />
   )
 }
