@@ -3,162 +3,167 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Homes',
+      text: 'Products',
       links: [
         {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
+          text: 'All Products',
+          href: getPermalink('/products'),
         },
         {
-          text: 'Startup',
-          href: getPermalink('/homes/startup'),
+          text: 'Fruit Pies',
+          href: getPermalink('/products/fruit-pies'),
         },
         {
-          text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
+          text: 'Seasonal Pies',
+          href: getPermalink('/products/seasonal'),
         },
         {
-          text: 'Personal',
-          href: getPermalink('/homes/personal'),
+          text: 'Specialty Pies',
+          href: getPermalink('/products/specialty'),
+        },
+        {
+          text: 'Product Specifications',
+          href: getPermalink('/products/specifications'),
         },
       ],
     },
     {
-      text: 'Pages',
+      text: 'Solutions',
       links: [
         {
-          text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
+          text: 'Private Label',
+          href: getPermalink('/solutions/private-label'),
         },
         {
-          text: 'Services',
-          href: getPermalink('/services'),
+          text: 'Foodservice',
+          href: getPermalink('/solutions/foodservice'),
         },
-
         {
-          text: 'About us',
+          text: 'Retail',
+          href: getPermalink('/solutions/retail'),
+        },
+        {
+          text: 'Custom Development',
+          href: getPermalink('/solutions/custom-development'),
+        },
+      ],
+    },
+    {
+      text: 'Capabilities',
+      links: [
+        {
+          text: 'Manufacturing',
+          href: getPermalink('/capabilities/manufacturing'),
+        },
+        {
+          text: 'Quality & Certifications',
+          href: getPermalink('/capabilities/quality'),
+        },
+        {
+          text: 'Innovation & R&D',
+          href: getPermalink('/capabilities/innovation'),
+        },
+        {
+          text: 'Supply Chain',
+          href: getPermalink('/capabilities/supply-chain'),
+        },
+      ],
+    },
+    {
+      text: 'About',
+      links: [
+        {
+          text: 'Our Company',
           href: getPermalink('/about'),
         },
         {
-          text: 'Contact',
-          href: getPermalink('/contact'),
+          text: 'Leadership',
+          href: getPermalink('/about/leadership'),
         },
         {
-          text: 'Terms',
-          href: getPermalink('/terms'),
+          text: 'Sustainability',
+          href: getPermalink('/about/sustainability'),
         },
         {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
+          text: 'Social Impact',
+          href: getPermalink('/about/social-impact'),
+        },
+        {
+          text: 'News & Press',
+          href: getPermalink('/news'),
+        },
+        {
+          text: 'Careers',
+          href: getPermalink('/careers'),
         },
       ],
     },
     {
-      text: 'Landing',
+      text: 'Resources',
       links: [
         {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
+          text: 'Resource Center',
+          href: getPermalink('/resources'),
         },
         {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
+          text: 'Product Catalogs',
+          href: getPermalink('/resources/catalogs'),
         },
         {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
+          text: 'Certifications',
+          href: getPermalink('/resources/certifications'),
         },
         {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
-        },
-        {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
-        },
-        {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
+          text: 'Case Studies',
+          href: getPermalink('/resources/case-studies'),
         },
       ],
-    },
-    {
-      text: 'Blog',
-      links: [
-        {
-          text: 'Blog List',
-          href: getBlogPermalink(),
-        },
-        {
-          text: 'Article',
-          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
-        },
-        {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
-        },
-        {
-          text: 'Category Page',
-          href: getPermalink('tutorials', 'category'),
-        },
-        {
-          text: 'Tag Page',
-          href: getPermalink('astro', 'tag'),
-        },
-      ],
-    },
-    {
-      text: 'Widgets',
-      href: '#',
     },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
+  actions: [{ text: 'Contact Sales', href: '/contact', variant: 'primary' }],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Product',
+      title: 'Products',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-
-        { text: 'Resources', href: '#' },
+        { text: 'Fruit Pies', href: '/products/fruit-pies' },
+        { text: 'Seasonal Pies', href: '/products/seasonal' },
+        { text: 'Specialty Pies', href: '/products/specialty' },
+        { text: 'Product Specifications', href: '/products/specifications' },
+        { text: 'New Products', href: '/products/new' },
       ],
     },
     {
-      title: 'Platform',
+      title: 'Solutions',
       links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
+        { text: 'Private Label', href: '/solutions/private-label' },
+        { text: 'Foodservice', href: '/solutions/foodservice' },
+        { text: 'Retail Partners', href: '/solutions/retail' },
+        { text: 'Custom Development', href: '/solutions/custom-development' },
+        { text: 'Distribution', href: '/solutions/distribution' },
       ],
     },
     {
-      title: 'Support',
+      title: 'Resources',
       links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
+        { text: 'Resource Center', href: '/resources' },
+        { text: 'Product Catalogs', href: '/resources/catalogs' },
+        { text: 'Quality Certifications', href: '/resources/certifications' },
+        { text: 'Case Studies', href: '/resources/case-studies' },
+        { text: 'Industry Insights', href: '/resources/insights' },
       ],
     },
     {
       title: 'Company',
       links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'About Us', href: '/about' },
+        { text: 'Leadership', href: '/about/leadership' },
+        { text: 'Sustainability', href: '/about/sustainability' },
+        { text: 'News & Press', href: '/news' },
+        { text: 'Careers', href: '/careers' },
+        { text: 'Contact', href: '/contact' },
       ],
     },
   ],
@@ -167,14 +172,11 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
+    { ariaLabel: 'YouTube', icon: 'tabler:brand-youtube', href: '#' },
   ],
   footNote: `
-    <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="https://onwidget.com/favicon/favicon-32x32.png" alt="onWidget logo" loading="lazy"></img>
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
+    <span class="text-sm text-gray-600">© ${new Date().getFullYear()} SatisPie Manufacturing. All rights reserved. | <a href="/privacy" class="hover:text-blue-600">Privacy Policy</a> | <a href="/terms" class="hover:text-blue-600">Terms of Use</a></span>
   `,
 };

@@ -1,0 +1,224 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Manufacturing Solutions | SatisPie',
+  description: 'Comprehensive pie manufacturing solutions for private label, foodservice, and retail. Custom formulations, flexible packaging, and nationwide distribution.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <Hero
+    tagline="Manufacturing Solutions"
+    title="Scalable Pie Manufacturing Solutions for Your Business"
+    subtitle="From concept to consumer, we provide end-to-end manufacturing solutions that help our partners succeed in competitive markets. Leverage our expertise, infrastructure, and innovation."
+    actions={[
+      { variant: 'primary', text: 'Contact Our Team', href: '/contact' },
+      { text: 'Download Capabilities Guide', href: '/resources/capabilities-guide' }
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1200',
+      alt: 'Industrial pie manufacturing facility',
+    }}
+  />
+
+  <!-- Solutions Overview -->
+  <Features2
+    title="Comprehensive Manufacturing Solutions"
+    subtitle="Tailored programs designed to meet your specific business needs"
+    columns={2}
+    items={[
+      {
+        title: 'Private Label Manufacturing',
+        description: 'Complete white-label solutions with your branding, packaging, and specifications. We handle production while you focus on marketing and sales.',
+        icon: 'tabler:tag',
+        callToAction: {
+          text: 'Learn More',
+          href: '/solutions/private-label',
+        },
+      },
+      {
+        title: 'Foodservice Programs',
+        description: 'Bulk packaging and custom formulations for restaurants, hotels, schools, and healthcare facilities. Consistent quality at scale.',
+        icon: 'tabler:tools-kitchen-2',
+        callToAction: {
+          text: 'Learn More',
+          href: '/solutions/foodservice',
+        },
+      },
+      {
+        title: 'Retail Partnership',
+        description: 'Consumer-ready products for grocery chains and specialty stores. From regional to national distribution.',
+        icon: 'tabler:building-store',
+        callToAction: {
+          text: 'Learn More',
+          href: '/solutions/retail',
+        },
+      },
+      {
+        title: 'Custom Development',
+        description: 'Work with our R&D team to create unique formulations and products that differentiate your brand in the market.',
+        icon: 'tabler:flask',
+        callToAction: {
+          text: 'Learn More',
+          href: '/solutions/custom-development',
+        },
+      },
+    ]}
+  />
+
+  <!-- Process Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-base text-blue-600 font-bold tracking-wide uppercase">Our Process</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">From Concept to Market</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          A proven process that ensures quality, efficiency, and speed to market
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600">1</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Discovery & Planning</h3>
+          <p class="text-gray-600">Understanding your needs, market positioning, and business objectives</p>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600">2</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Product Development</h3>
+          <p class="text-gray-600">Recipe formulation, testing, and refinement to meet your specifications</p>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600">3</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Production & QA</h3>
+          <p class="text-gray-600">Manufacturing at scale with rigorous quality control at every step</p>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold text-blue-600">4</span>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Distribution & Support</h3>
+          <p class="text-gray-600">Nationwide cold chain logistics and ongoing partnership support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Capabilities Grid -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-base text-blue-600 font-bold tracking-wide uppercase">Capabilities</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Manufacturing Excellence</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <Icon name="tabler:certificate" class="w-10 h-10 text-blue-600 mb-4" />
+          <h3 class="font-semibold text-gray-900 mb-2">SQF Certified Facility</h3>
+          <p class="text-gray-600">Highest food safety standards with annual third-party audits</p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <Icon name="tabler:package" class="w-10 h-10 text-blue-600 mb-4" />
+          <h3 class="font-semibold text-gray-900 mb-2">Flexible Packaging</h3>
+          <p class="text-gray-600">Multiple size options from individual to bulk foodservice</p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <Icon name="tabler:truck" class="w-10 h-10 text-blue-600 mb-4" />
+          <h3 class="font-semibold text-gray-900 mb-2">National Distribution</h3>
+          <p class="text-gray-600">Coast-to-coast frozen distribution network</p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <Icon name="tabler:users" class="w-10 h-10 text-blue-600 mb-4" />
+          <h3 class="font-semibold text-gray-900 mb-2">Dedicated Support</h3>
+          <p class="text-gray-600">Account management and technical support teams</p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <Icon name="tabler:chart-line" class="w-10 h-10 text-blue-600 mb-4" />
+          <h3 class="font-semibold text-gray-900 mb-2">Scalable Production</h3>
+          <p class="text-gray-600">From pilot runs to millions of units annually</p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <Icon name="tabler:leaf" class="w-10 h-10 text-blue-600 mb-4" />
+          <h3 class="font-semibold text-gray-900 mb-2">Clean Label Options</h3>
+          <p class="text-gray-600">Natural ingredients and allergen-free alternatives</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories -->
+  <Content
+    isReversed
+    title="Partnership Success Stories"
+    subtitle="Real results from real partnerships"
+    items={[
+      {
+        title: 'National Grocery Chain',
+        description: 'Developed exclusive seasonal pie line that increased category sales by 35% during holiday period.',
+      },
+      {
+        title: 'Regional Restaurant Group',
+        description: 'Custom formulation reduced costs by 20% while maintaining premium quality standards.',
+      },
+      {
+        title: 'Specialty Food Retailer',
+        description: 'Private label program expanded to 15 SKUs within first year of partnership.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
+      alt: 'Business partnership success',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Proven Track Record
+      </h3>
+      <p class="text-gray-600 mb-6">
+        With over 25 years of experience, we've helped hundreds of partners succeed in competitive markets. Our expertise spans product development, manufacturing optimization, and market positioning.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- CTA Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Schedule Consultation',
+        href: '/contact',
+        icon: 'tabler:calendar',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Let's Build Your Pie Program Together
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Contact our business development team to discuss your needs and explore partnership opportunities
+    </Fragment>
+  </CallToAction>
+</Layout>

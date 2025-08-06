@@ -1,208 +1,300 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
-  title: 'About SatisPie - Quality Pie Manufacturer',
-  description:
-    'Learn about SatisPie, a leading manufacturer of pre-baked pies and desserts in Rochester, NY. Quality frozen pies for retail and foodservice.',
+  title: 'About SatisPie Manufacturing - Industrial Pie Production Leader',
+  description: 'Leading industrial pie manufacturer with 25+ years experience. SQF certified facility producing millions of pies annually for major retailers and foodservice.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-gray-50 to-blue-50 py-20 md:py-28">
+    <div class="absolute inset-0 bg-grid-gray-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="mb-4">
+            <span class="inline-block px-4 py-1 bg-blue-100 text-blue-700 text-sm font-semibold rounded-full uppercase tracking-wider">
+              Est. 1998
+            </span>
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            Leading the Future of <span class="text-blue-600">Pie Manufacturing</span>
+          </h1>
+          <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+            For over 25 years, SatisPie Manufacturing has been at the forefront of industrial pie production, 
+            partnering with America's largest retailers and foodservice operators to deliver quality at scale.
+          </p>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+              <div class="text-3xl font-bold text-blue-600 mb-1">10M+</div>
+              <div class="text-sm text-gray-600">Pies Produced Annually</div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+              <div class="text-3xl font-bold text-blue-600 mb-1">500+</div>
+              <div class="text-sm text-gray-600">Retail Partners</div>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] bg-white rounded-2xl overflow-hidden shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1606938704652-3e588c2c9fd4?w=800" 
+              alt="SatisPie manufacturing facility"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <Hero
-    tagline="About SatisPie"
-    image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'SatisPie Manufacturing Facility',
-    }}
-  >
-    <Fragment slot="title">
-      Quality Pre-Baked Pies & <br />
-      <span class="text-accent dark:text-white">Dessert Manufacturing</span>
-    </Fragment>
+  <!-- Company Overview -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">A Legacy of Manufacturing Excellence</h2>
+        <p class="text-xl text-gray-600 leading-relaxed">
+          From our humble beginnings in Rochester, NY, SatisPie has grown into one of North America's premier 
+          pie manufacturers, combining traditional baking expertise with cutting-edge production technology.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+            <Icon name="tabler:building-factory-2" class="w-10 h-10 text-blue-600" />
+          </div>
+          <div class="text-3xl font-bold text-gray-900 mb-2">50,000</div>
+          <div class="text-gray-600">Sq. Ft. Facility</div>
+        </div>
+        <div class="text-center">
+          <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+            <Icon name="tabler:users" class="w-10 h-10 text-green-600" />
+          </div>
+          <div class="text-3xl font-bold text-gray-900 mb-2">250+</div>
+          <div class="text-gray-600">Employees</div>
+        </div>
+        <div class="text-center">
+          <div class="bg-purple-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+            <Icon name="tabler:truck" class="w-10 h-10 text-purple-600" />
+          </div>
+          <div class="text-3xl font-bold text-gray-900 mb-2">48</div>
+          <div class="text-gray-600">States Served</div>
+        </div>
+        <div class="text-center">
+          <div class="bg-orange-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+            <Icon name="tabler:award" class="w-10 h-10 text-orange-600" />
+          </div>
+          <div class="text-3xl font-bold text-gray-900 mb-2">15+</div>
+          <div class="text-gray-600">Industry Awards</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <Fragment slot="subtitle">
-      SatisPie is a leading manufacturer of pre-baked pies, waffles, and pancakes serving retail and foodservice
-      customers. Our state-of-the-art facility in Rochester, NY produces quality frozen desserts under strict SQF, HACCP
-      & GMP controls.
-    </Fragment>
-  </Hero>
+  <!-- Manufacturing Capabilities -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-base text-blue-600 font-bold tracking-wide uppercase">Our Capabilities</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">State-of-the-Art Manufacturing</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Our Rochester facility represents the pinnacle of modern food manufacturing, combining advanced technology with artisanal expertise
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-blue-100 rounded-lg w-16 h-16 flex items-center justify-center mb-6">
+            <Icon name="tabler:robot" class="w-8 h-8 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Automated Production Lines</h3>
+          <p class="text-gray-600 mb-4">
+            State-of-the-art automated systems ensure consistent quality and efficiency, capable of producing 50,000+ pies daily.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 text-green-500 mr-2" />Precision portioning</li>
+            <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 text-green-500 mr-2" />Automated crimping</li>
+            <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 text-green-500 mr-2" />Consistent baking</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-green-100 rounded-lg w-16 h-16 flex items-center justify-center mb-6">
+            <Icon name="tabler:snowflake" class="w-8 h-8 text-green-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Advanced Freezing Technology</h3>
+          <p class="text-gray-600 mb-4">
+            Blast freezing technology locks in freshness and quality, ensuring products reach customers in perfect condition.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 text-green-500 mr-2" />-40°F blast freezing</li>
+            <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 text-green-500 mr-2" />Maintains texture</li>
+            <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 text-green-500 mr-2" />Extended shelf life</li>
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-purple-100 rounded-lg w-16 h-16 flex items-center justify-center mb-6">
+            <Icon name="tabler:package" class="w-8 h-8 text-purple-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Flexible Packaging Solutions</h3>
+          <p class="text-gray-600 mb-4">
+            Multiple packaging lines accommodate various formats from bulk foodservice to retail-ready consumer packaging.
+          </p>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 text-green-500 mr-2" />Private labeling</li>
+            <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 text-green-500 mr-2" />Multiple sizes</li>
+            <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 text-green-500 mr-2" />Custom packaging</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Stats Widget ****************** -->
+  <!-- Leadership & Vision -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-base text-blue-600 font-bold tracking-wide uppercase">Leadership</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Driven by Vision, Powered by People</h2>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">Our Mission</h3>
+          <p class="text-lg text-gray-600 mb-6">
+            To be the premier pie manufacturing partner for North America's leading food retailers and service operators, 
+            delivering consistent quality, innovation, and value while maintaining our commitment to social responsibility.
+          </p>
+          
+          <h3 class="text-2xl font-bold text-gray-900 mb-6 mt-8">Our Vision</h3>
+          <p class="text-lg text-gray-600 mb-6">
+            To revolutionize the commercial baking industry through technological innovation, sustainable practices, 
+            and inclusive employment, setting new standards for quality and social impact.
+          </p>
+          
+          <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+            <p class="text-gray-700 italic">
+              "Our success is measured not just in the millions of pies we produce, but in the positive impact 
+              we create for our partners, employees, and communities."
+            </p>
+            <p class="text-sm text-gray-600 mt-3 font-semibold">- CEO, SatisPie Manufacturing</p>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <Icon name="tabler:target" class="w-10 h-10 text-blue-600 mb-4" />
+            <h4 class="font-semibold text-gray-900 mb-2">Quality First</h4>
+            <p class="text-sm text-gray-600">Uncompromising commitment to product excellence</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <Icon name="tabler:handshake" class="w-10 h-10 text-green-600 mb-4" />
+            <h4 class="font-semibold text-gray-900 mb-2">Partnership</h4>
+            <p class="text-sm text-gray-600">Building long-term relationships with mutual success</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <Icon name="tabler:bulb" class="w-10 h-10 text-purple-600 mb-4" />
+            <h4 class="font-semibold text-gray-900 mb-2">Innovation</h4>
+            <p class="text-sm text-gray-600">Continuous improvement in products and processes</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg">
+            <Icon name="tabler:heart" class="w-10 h-10 text-red-600 mb-4" />
+            <h4 class="font-semibold text-gray-900 mb-2">Social Impact</h4>
+            <p class="text-sm text-gray-600">Creating opportunities for underserved communities</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Social Impact Section -->
+  <section class="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="relative">
+          <div class="aspect-[4/3] bg-white rounded-2xl shadow-xl overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=800" 
+              alt="Inclusive workplace at SatisPie"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+        <div>
+          <p class="text-base text-green-600 font-bold tracking-wide uppercase mb-4">Social Responsibility</p>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Making a Difference, One Pie at a Time</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            At SatisPie, we believe that business success and social impact go hand in hand. Our commitment to 
+            inclusive employment has transformed hundreds of lives while building a stronger, more diverse workforce.
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <div class="bg-green-100 p-2 rounded-lg mr-4">
+                <Icon name="tabler:users" class="w-6 h-6 text-green-600" />
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-gray-900">30%</div>
+                <div class="text-sm text-gray-600">of workforce from disability community</div>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="bg-blue-100 p-2 rounded-lg mr-4">
+                <Icon name="tabler:award" class="w-6 h-6 text-blue-600" />
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-gray-900">5</div>
+                <div class="text-sm text-gray-600">National awards for inclusive employment</div>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="bg-purple-100 p-2 rounded-lg mr-4">
+                <Icon name="tabler:trending-up" class="w-6 h-6 text-purple-600" />
+              </div>
+              <div>
+                <div class="text-2xl font-bold text-gray-900">95%</div>
+                <div class="text-sm text-gray-600">Employee retention rate</div>
+              </div>
+            </div>
+          </div>
+          
+          <a href="/about/social-impact" class="inline-flex items-center text-green-600 font-semibold hover:text-green-700 mt-8">
+            Learn About Our Impact <Icon name="tabler:arrow-right" class="w-5 h-5 ml-2" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <Stats
-    title="SatisPie Manufacturing Statistics"
-    stats={[
-      { title: 'Years in Business', amount: '25+' },
-      { title: 'Pie Varieties', amount: '12+' },
-      { title: 'Quality Certifications', amount: '3' },
-      { title: 'Customer Satisfaction', amount: '99%' },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Our Product Categories"
-    subtitle="We specialize in three main categories of pre-baked desserts, each crafted with the highest quality ingredients and manufacturing standards."
-    columns={3}
-    isBeforeContent={true}
-    items={[
-      {
-        title: 'Fruit Pies',
-        description:
-          'Our signature fruit pies include Apple, Blueberry, Cherry, and Peach varieties. Each pie is made with real fruit and our signature all-butter crust.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Seasonal Pies',
-        description:
-          'Perfect for holidays and special occasions, our seasonal line includes Pumpkin and Sweet Potato pies, made with traditional recipes and premium ingredients.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Specialty Pies',
-        description:
-          'Our specialty collection features Pecan, Apple Crumb, and Triple Berry pies. These unique offerings showcase our culinary expertise and innovation.',
-        icon: 'tabler:template',
-      },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'Private Label',
-        description:
-          'Custom formulations and packaging solutions for your brand. Your product, your packaging, made under our quality controls.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Foodservice',
-        description:
-          'Bulk packaging and custom formulations for restaurants, cafeterias, and institutional foodservice operations.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Retail',
-        description:
-          'Consumer-ready packaging for grocery stores, specialty food shops, and direct-to-consumer sales channels.',
-        icon: 'tabler:template',
-      },
-    ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
-    isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
-    }}
-    items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
-    items={[
-      {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
-      },
-      {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
-      },
-    ]}
-  />
+  <!-- Call to Action -->
+  <section class="py-20 bg-gradient-to-r from-blue-600 to-blue-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Partner with Industry Leaders</h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+        Join the growing network of retailers and foodservice operators who trust SatisPie Manufacturing 
+        for quality, reliability, and innovation.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl"
+        >
+          Start Partnership Discussion
+        </a>
+        <a
+          href="/capabilities/quality"
+          class="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-200"
+        >
+          View Our Capabilities
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>

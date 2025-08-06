@@ -1,81 +1,116 @@
 ---
-// Company information
+import { Icon } from 'astro-icon/components';
+import { footerData } from '~/navigation';
+
+const { links, socialLinks, footNote } = footerData;
+
 const companyInfo = {
-  name: 'SatisPie, LLC',
+  name: 'SatisPie Manufacturing',
   address: '155 Balta Drive',
   city: 'Rochester, NY 14623',
   phone: '(585) 424-1240',
-  email: 'mm@satispie.com',
+  email: 'info@satispie.com',
 };
 ---
 
-<footer class="bg-sp-text-primary text-white mt-auto">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Company Info -->
-      <div>
-        <h3 class="text-lg font-semibold mb-4">SatisPie, LLC</h3>
-        <address class="not-italic text-sp-text-secondary">
-          <p>{companyInfo.address}</p>
-          <p>{companyInfo.city}</p>
-          <p class="mt-2">
-            <strong>Phone:</strong>
-            <a href={`tel:${companyInfo.phone}`} class="hover:text-sp-purple transition-colors">
+<footer class="bg-gray-900 text-gray-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Main Footer Content -->
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-8 mb-8">
+      <!-- Company Info - Takes 2 columns -->
+      <div class="col-span-2">
+        <div class="mb-6">
+          <img src="/satispie-logo.svg" alt="SatisPie Manufacturing" class="h-10 w-auto brightness-0 invert" />
+        </div>
+        <p class="text-gray-400 mb-4">
+          Leading industrial pie manufacturer providing quality products at scale for retailers and foodservice operators across North America.
+        </p>
+        <div class="space-y-2">
+          <p class="flex items-center">
+            <Icon name="tabler:map-pin" class="w-4 h-4 mr-2" />
+            {companyInfo.address}, {companyInfo.city}
+          </p>
+          <p class="flex items-center">
+            <Icon name="tabler:phone" class="w-4 h-4 mr-2" />
+            <a href={`tel:${companyInfo.phone}`} class="hover:text-white transition-colors">
               {companyInfo.phone}
             </a>
           </p>
-          <p>
-            <strong>Email:</strong>
-            <a href={`mailto:${companyInfo.email}`} class="hover:text-sp-purple transition-colors">
+          <p class="flex items-center">
+            <Icon name="tabler:mail" class="w-4 h-4 mr-2" />
+            <a href={`mailto:${companyInfo.email}`} class="hover:text-white transition-colors">
               {companyInfo.email}
             </a>
           </p>
-        </address>
+        </div>
       </div>
 
-      <!-- Quick Links -->
-      <div>
-        <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-        <ul class="space-y-2">
-          <li>
-            <a href="/" class="text-sp-text-secondary hover:text-sp-purple transition-colors"> Home </a>
-          </li>
-          <li>
-            <a href="/branded-products" class="text-sp-text-secondary hover:text-sp-purple transition-colors">
-              Branded Products
-            </a>
-          </li>
-          <li>
-            <a href="/tips-and-techniques" class="text-sp-text-secondary hover:text-sp-purple transition-colors">
-              Tips & Techniques
-            </a>
-          </li>
-          <li>
-            <a href="/contact" class="text-sp-text-secondary hover:text-sp-purple transition-colors"> Contact Us </a>
-          </li>
-          <li>
-            <a href="/apply-today" class="text-sp-text-secondary hover:text-sp-purple transition-colors">
-              Apply Today
-            </a>
-          </li>
-        </ul>
-      </div>
+      <!-- Footer Links -->
+      {links?.map((section) => (
+        <div>
+          <h3 class="text-white font-semibold mb-4">{section.title}</h3>
+          <ul class="space-y-2">
+            {section.links.map((link) => (
+              <li>
+                <a href={link.href} class="text-gray-400 hover:text-white transition-colors text-sm">
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
 
-      <!-- Company Description -->
-      <div>
-        <h3 class="text-lg font-semibold mb-4">About Us</h3>
-        <p class="text-sp-text-secondary">
-          SatisPie specializes in pre-baked pies, waffles, and pancakes for retail and foodservice. Our products are
-          made under SQF, HACCP & GMP controls, ensuring the highest quality standards.
-        </p>
+    <!-- Certifications & Social -->
+    <div class="border-t border-gray-800 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <!-- Certifications -->
+        <div class="flex items-center space-x-6 mb-4 md:mb-0">
+          <div class="flex items-center space-x-2">
+            <Icon name="tabler:certificate" class="w-5 h-5 text-green-500" />
+            <span class="text-sm">SQF Certified</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <Icon name="tabler:shield-check" class="w-5 h-5 text-blue-500" />
+            <span class="text-sm">HACCP Compliant</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <Icon name="tabler:award" class="w-5 h-5 text-purple-500" />
+            <span class="text-sm">GMP Standards</span>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex items-center space-x-4">
+          {socialLinks?.map((social) => (
+            <a
+              href={social.href}
+              aria-label={social.ariaLabel}
+              class="text-gray-400 hover:text-white transition-colors"
+            >
+              <Icon name={social.icon} class="w-5 h-5" />
+            </a>
+          ))}
+        </div>
       </div>
     </div>
 
-    <!-- Copyright -->
-    <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-      <p class="text-sp-text-secondary">
-        © {new Date().getFullYear()} SatisPie, LLC. All rights reserved.
-      </p>
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-800 mt-8 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <Fragment set:html={footNote} />
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="flex items-center space-x-6">
+          <a href="/contact" class="text-sm text-gray-400 hover:text-white">Partner Portal</a>
+          <a href="/resources" class="text-sm text-gray-400 hover:text-white">Resources</a>
+          <a href="/news" class="text-sm text-gray-400 hover:text-white">Press</a>
+          <a href="/careers" class="text-sm text-gray-400 hover:text-white">Careers</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>

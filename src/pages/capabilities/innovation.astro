@@ -1,0 +1,315 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Innovation & R&D | SatisPie Manufacturing',
+  description: 'Product development, custom formulation, and innovation capabilities. Partner with our R&D team to create next-generation pie products.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-purple-50 to-blue-50 py-20">
+    <div class="absolute inset-0 bg-grid-gray-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-base text-purple-600 font-bold tracking-wide uppercase mb-4">Innovation & R&D</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Where Science Meets <span class="text-purple-600">Culinary Art</span>
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Our dedicated R&D team combines food science expertise with culinary innovation to develop products that meet evolving market demands and consumer preferences
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Innovation Process -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Innovation Process</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          From concept to commercialization, we partner with you at every stage
+        </p>
+      </div>
+
+      <div class="relative">
+        <div class="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-200 via-purple-400 to-purple-200 -translate-y-1/2 hidden lg:block"></div>
+        
+        <div class="grid lg:grid-cols-5 gap-8 relative">
+          <div class="text-center relative">
+            <div class="bg-white border-4 border-purple-600 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 relative z-10">
+              <Icon name="tabler:bulb" class="w-10 h-10 text-purple-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Ideation</h3>
+            <p class="text-sm text-gray-600">Market analysis and concept development</p>
+          </div>
+
+          <div class="text-center relative">
+            <div class="bg-white border-4 border-purple-500 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 relative z-10">
+              <Icon name="tabler:flask" class="w-10 h-10 text-purple-500" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Formulation</h3>
+            <p class="text-sm text-gray-600">Recipe development and optimization</p>
+          </div>
+
+          <div class="text-center relative">
+            <div class="bg-white border-4 border-purple-400 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 relative z-10">
+              <Icon name="tabler:test-pipe" class="w-10 h-10 text-purple-400" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Testing</h3>
+            <p class="text-sm text-gray-600">Sensory evaluation and shelf-life testing</p>
+          </div>
+
+          <div class="text-center relative">
+            <div class="bg-white border-4 border-purple-300 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 relative z-10">
+              <Icon name="tabler:adjustments" class="w-10 h-10 text-purple-300" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Scale-Up</h3>
+            <p class="text-sm text-gray-600">Pilot production and process optimization</p>
+          </div>
+
+          <div class="text-center relative">
+            <div class="bg-white border-4 border-purple-200 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 relative z-10">
+              <Icon name="tabler:rocket" class="w-10 h-10 text-purple-200" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Launch</h3>
+            <p class="text-sm text-gray-600">Full-scale production and market introduction</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- R&D Capabilities -->
+  <Features2
+    title="R&D Capabilities"
+    subtitle="State-of-the-art facilities and expertise to bring your vision to life"
+    columns={3}
+    items={[
+      {
+        title: 'Product Development Lab',
+        description: 'Fully equipped test kitchen for small-batch development with precise control over ingredients and processes',
+        icon: 'tabler:building-factory',
+      },
+      {
+        title: 'Sensory Analysis',
+        description: 'Trained sensory panels and consumer testing capabilities to ensure products meet target profiles',
+        icon: 'tabler:mood-smile',
+      },
+      {
+        title: 'Nutritional Optimization',
+        description: 'Reformulation expertise for reduced sugar, clean label, plant-based, and functional ingredients',
+        icon: 'tabler:apple',
+      },
+      {
+        title: 'Shelf-Life Testing',
+        description: 'Accelerated and real-time stability testing to determine optimal packaging and storage conditions',
+        icon: 'tabler:calendar-time',
+      },
+      {
+        title: 'Process Innovation',
+        description: 'Development of new production methods to improve efficiency, quality, and cost-effectiveness',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Regulatory Support',
+        description: 'Ensuring all new products meet FDA, USDA, and customer-specific regulatory requirements',
+        icon: 'tabler:certificate',
+      },
+    ]}
+  />
+
+  <!-- Innovation Focus Areas -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-base text-purple-600 font-bold tracking-wide uppercase">Focus Areas</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Current Innovation Initiatives</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Our R&D team is actively working on next-generation products to meet emerging market trends
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-green-100 rounded-lg w-14 h-14 flex items-center justify-center mb-6">
+            <Icon name="tabler:plant-2" class="w-8 h-8 text-green-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Plant-Based Options</h3>
+          <p class="text-gray-600 mb-4">
+            Developing dairy-free and vegan pie options using innovative plant-based fats and proteins
+          </p>
+          <div class="pt-4 border-t">
+            <p class="text-sm text-gray-500 font-semibold">Launch: Q2 2024</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-blue-100 rounded-lg w-14 h-14 flex items-center justify-center mb-6">
+            <Icon name="tabler:heart-rate-monitor" class="w-8 h-8 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Better-for-You</h3>
+          <p class="text-gray-600 mb-4">
+            Reduced sugar, lower sodium, and enhanced nutritional profiles without compromising taste
+          </p>
+          <div class="pt-4 border-t">
+            <p class="text-sm text-gray-500 font-semibold">Ongoing Development</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-purple-100 rounded-lg w-14 h-14 flex items-center justify-center mb-6">
+            <Icon name="tabler:sparkles" class="w-8 h-8 text-purple-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Premium Artisan Line</h3>
+          <p class="text-gray-600 mb-4">
+            Elevated ingredients and unique flavor combinations for premium retail segments
+          </p>
+          <div class="pt-4 border-t">
+            <p class="text-sm text-gray-500 font-semibold">Pilot Testing</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-orange-100 rounded-lg w-14 h-14 flex items-center justify-center mb-6">
+            <Icon name="tabler:package" class="w-8 h-8 text-orange-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Sustainable Packaging</h3>
+          <p class="text-gray-600 mb-4">
+            Recyclable and compostable packaging solutions to reduce environmental impact
+          </p>
+          <div class="pt-4 border-t">
+            <p class="text-sm text-gray-500 font-semibold">Research Phase</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-red-100 rounded-lg w-14 h-14 flex items-center justify-center mb-6">
+            <Icon name="tabler:world" class="w-8 h-8 text-red-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Global Flavors</h3>
+          <p class="text-gray-600 mb-4">
+            International dessert-inspired pies to appeal to diverse consumer demographics
+          </p>
+          <div class="pt-4 border-t">
+            <p class="text-sm text-gray-500 font-semibold">Concept Development</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+          <div class="bg-yellow-100 rounded-lg w-14 h-14 flex items-center justify-center mb-6">
+            <Icon name="tabler:wheat" class="w-8 h-8 text-yellow-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Allergen-Free</h3>
+          <p class="text-gray-600 mb-4">
+            Gluten-free, nut-free, and other allergen-free options for sensitive consumers
+          </p>
+          <div class="pt-4 border-t">
+            <p class="text-sm text-gray-500 font-semibold">Testing Phase</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Success -->
+  <Content
+    isReversed
+    title="Innovation Partnership Success"
+    subtitle="Real results from collaborative development"
+    items={[
+      {
+        title: '40% Sugar Reduction',
+        description: 'Developed reduced-sugar pie line maintaining taste profile for health-conscious retailer.',
+      },
+      {
+        title: 'Regional Flavor Success',
+        description: 'Created region-specific seasonal flavors resulting in 25% sales increase.',
+      },
+      {
+        title: 'Speed to Market',
+        description: 'From concept to shelf in 90 days for limited-edition holiday collection.',
+      },
+      {
+        title: 'Cost Optimization',
+        description: 'Reformulation project reduced ingredient costs by 15% without quality compromise.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800',
+      alt: 'R&D team at work',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Your Vision, Our Expertise
+      </h3>
+      <p class="text-gray-600">
+        Partner with our R&D team to create innovative products that differentiate your brand and capture market share. 
+        From minor modifications to completely new product lines, we have the capabilities to bring your ideas to life.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Equipment & Technology -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Advanced Equipment & Technology</h2>
+        <p class="text-xl text-gray-600">Industry-leading tools for product development</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-gray-50 p-6 rounded-lg text-center">
+          <Icon name="tabler:temperature" class="w-12 h-12 text-purple-600 mx-auto mb-3" />
+          <h3 class="font-semibold text-gray-900 mb-2">Texture Analyzer</h3>
+          <p class="text-sm text-gray-600">Precise measurement of crust flakiness and filling consistency</p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg text-center">
+          <Icon name="tabler:color-swatch" class="w-12 h-12 text-purple-600 mx-auto mb-3" />
+          <h3 class="font-semibold text-gray-900 mb-2">Colorimeter</h3>
+          <p class="text-sm text-gray-600">Ensure consistent appearance across production batches</p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg text-center">
+          <Icon name="tabler:microscope" class="w-12 h-12 text-purple-600 mx-auto mb-3" />
+          <h3 class="font-semibold text-gray-900 mb-2">Analytical Lab</h3>
+          <p class="text-sm text-gray-600">Complete nutritional and microbiological testing</p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg text-center">
+          <Icon name="tabler:device-desktop-analytics" class="w-12 h-12 text-purple-600 mx-auto mb-3" />
+          <h3 class="font-semibold text-gray-900 mb-2">Data Analytics</h3>
+          <p class="text-sm text-gray-600">Consumer insights and market trend analysis</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Start Your Innovation Project',
+        href: '/contact',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ready to Innovate? <span class="text-purple-600">Let's Create Together</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Partner with our R&D team to develop products that set you apart in the marketplace
+    </Fragment>
+  </CallToAction>
+</Layout>

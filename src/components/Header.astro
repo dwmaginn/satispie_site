@@ -1,112 +1,161 @@
 ---
-// Navigation items based on site map
-const navItems = [
-  { text: 'Home', href: '/' },
-  { text: 'Our Pies', href: '/pies' },
-  { text: 'Find Pies', href: '/find-pies' },
-  { text: 'Order Inquiry', href: '/order-inquiry' },
-  { text: 'About', href: '/about' },
-  { text: 'Contact', href: '/contact' },
-];
+import { headerData } from '~/navigation';
+import { Icon } from 'astro-icon/components';
+
+const { links, actions } = headerData;
 ---
 
-<header class="bg-white shadow-sm border-b border-gray-200" role="banner">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-28 md:h-32">
-      <!-- Logo -->
-      <div class="flex-shrink-0">
-        <a href="/" class="flex items-center" aria-label="SatisPie - Go to homepage">
-          <img
-            src="/satispie-logo.png"
-            alt="SatisPie LLC - Quality Pre-baked Pies and Desserts"
-            width="120"
-            height="120"
-            class="h-24 w-24 md:h-28 md:w-28"
-            loading="eager"
-          />
-        </a>
-      </div>
+<header class="bg-white shadow-md sticky top-0 z-50" role="banner">
+  <div class="border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="/" class="flex items-center space-x-3">
+            <img src="/satispie-logo.svg" alt="SatisPie Manufacturing" class="h-12 w-auto" />
+            <div class="hidden sm:block">
+              <div class="text-xl font-bold text-gray-900">SatisPie</div>
+              <div class="text-xs text-gray-600 uppercase tracking-wider">Manufacturing</div>
+            </div>
+          </a>
+        </div>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-6" role="navigation" aria-label="Main navigation">
-        {
-          navItems.map((item) => (
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-1" role="navigation" aria-label="Main navigation">
+          {
+            links?.map((item) => (
+              <div class="relative group">
+                {item.links ? (
+                  <>
+                    <button
+                      class="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center group-hover:text-blue-600"
+                      aria-expanded="false"
+                    >
+                      {item.text}
+                      <Icon name="tabler:chevron-down" class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" />
+                    </button>
+                    <div class="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                      <div class="bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 py-2">
+                        {item.links.map((subItem) => (
+                          <a
+                            href={subItem.href}
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                          >
+                            {subItem.text}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <a
+                    href={item.href}
+                    class="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors duration-200"
+                  >
+                    {item.text}
+                  </a>
+                )}
+              </div>
+            ))
+          }
+          
+          <!-- Desktop CTA Button -->
+          {actions?.map((action) => (
             <a
-              href={item.href}
-              class="text-sp-text-primary hover:text-sp-purple px-4 py-2 rounded-lg text-base font-sans font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-purple focus:ring-offset-2 hover:bg-gray-50"
+              href={action.href}
+              class="ml-4 bg-blue-600 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-blue-700 hover:shadow-lg"
             >
-              {item.text}
+              {action.text}
             </a>
-          ))
-        }
-        <!-- Desktop CTA Button -->
-        <a
-          href="/find-pies"
-          class="bg-sp-primary text-white px-6 py-3 rounded-lg text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-primary focus:ring-offset-2 hover:bg-sp-primary-dark shadow-sm"
-        >
-          Find Our Pies
-        </a>
-      </nav>
+          ))}
+        </nav>
 
-      <!-- Mobile menu button -->
-      <div class="md:hidden">
-        <button
-          type="button"
-          class="text-sp-text-primary hover:text-sp-purple inline-flex items-center justify-center p-4 rounded-lg text-base font-medium focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sp-purple min-h-[48px] min-w-[48px]"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-          aria-label="Toggle main menu"
-          id="mobile-menu-button"
-        >
-          <span class="sr-only">Open main menu</span>
-          <!-- Icon when menu is closed -->
-          <svg
-            class="block h-6 w-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
+        <!-- Mobile menu button -->
+        <div class="lg:hidden">
+          <button
+            type="button"
+            class="text-gray-700 hover:text-blue-600 inline-flex items-center justify-center p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-label="Toggle main menu"
+            id="mobile-menu-button"
           >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <!-- Icon when menu is open -->
-          <svg
-            class="hidden h-6 w-6"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
+            <span class="sr-only">Open main menu</span>
+            <!-- Icon when menu is closed -->
+            <svg
+              class="block h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <!-- Icon when menu is open -->
+            <svg
+              class="hidden h-6 w-6"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
+    </div>
+  </div>
+  
   <!-- Mobile menu -->
-  <div class="hidden md:hidden" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-              {
-          navItems.map((item) => (
-            <a
-              href={item.href}
-              class="text-sp-text-primary hover:text-sp-purple block px-3 py-4 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-purple focus:ring-offset-2 min-h-[48px] flex items-center"
-            >
-              {item.text}
-            </a>
-          ))
-        }
+  <div class="hidden lg:hidden" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <div class="px-4 pt-2 pb-3 bg-white border-t border-gray-200">
+      {
+        links?.map((item) => (
+          <div class="py-2">
+            {item.links ? (
+              <>
+                <div class="font-semibold text-gray-900 px-3 py-2 text-sm uppercase tracking-wider">
+                  {item.text}
+                </div>
+                <div class="pl-4">
+                  {item.links.map((subItem) => (
+                    <a
+                      href={subItem.href}
+                      class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-sm transition-colors duration-200"
+                    >
+                      {subItem.text}
+                    </a>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <a
+                href={item.href}
+                class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                {item.text}
+              </a>
+            )}
+          </div>
+        ))
+      }
+      
       <!-- Mobile CTA Button -->
-      <div class="pt-4 border-t border-gray-200">
-        <a
-          href="/find-pies"
-          class="bg-sp-primary text-white block w-full text-center px-6 py-4 rounded-lg text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sp-primary focus:ring-offset-2 hover:bg-sp-primary-dark shadow-sm min-h-[48px] flex items-center justify-center"
-        >
-          Find Our Pies
-        </a>
+      <div class="pt-4 mt-4 border-t border-gray-200">
+        {actions?.map((action) => (
+          <a
+            href={action.href}
+            class="bg-blue-600 text-white block w-full text-center px-6 py-3 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-blue-700"
+          >
+            {action.text}
+          </a>
+        ))}
       </div>
     </div>
   </div>

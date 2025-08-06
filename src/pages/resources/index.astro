@@ -1,0 +1,314 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Resource Center | SatisPie Manufacturing',
+  description: 'Download product specifications, certifications, catalogs, and technical documentation. Access resources for partners and customers.',
+};
+
+const resources = {
+  specifications: [
+    {
+      title: 'Product Specification Sheets',
+      description: 'Detailed specifications for all product lines including nutritional information, ingredients, and packaging',
+      icon: 'tabler:file-text',
+      items: [
+        { name: 'Fruit Pie Specifications', size: '2.4 MB', format: 'PDF' },
+        { name: 'Seasonal Pie Specifications', size: '1.8 MB', format: 'PDF' },
+        { name: 'Private Label Guidelines', size: '3.2 MB', format: 'PDF' },
+        { name: 'Packaging Options Catalog', size: '5.6 MB', format: 'PDF' },
+      ]
+    },
+    {
+      title: 'Nutritional Information',
+      description: 'Complete nutritional data and allergen information for all products',
+      icon: 'tabler:clipboard-list',
+      items: [
+        { name: 'Nutritional Database 2024', size: '1.2 MB', format: 'XLSX' },
+        { name: 'Allergen Matrix', size: '450 KB', format: 'PDF' },
+        { name: 'Ingredient Declarations', size: '890 KB', format: 'PDF' },
+      ]
+    }
+  ],
+  certifications: [
+    {
+      title: 'Quality Certifications',
+      description: 'Current certificates and audit reports demonstrating our commitment to quality',
+      icon: 'tabler:certificate',
+      items: [
+        { name: 'SQF Certificate 2024', size: '320 KB', format: 'PDF' },
+        { name: 'HACCP Compliance Documentation', size: '1.5 MB', format: 'PDF' },
+        { name: 'GMP Standards Compliance', size: '780 KB', format: 'PDF' },
+        { name: 'Kosher Certification', size: '240 KB', format: 'PDF' },
+      ]
+    },
+    {
+      title: 'Insurance & Compliance',
+      description: 'Insurance certificates and regulatory compliance documentation',
+      icon: 'tabler:shield-check',
+      items: [
+        { name: 'Certificate of Insurance', size: '420 KB', format: 'PDF' },
+        { name: 'FDA Facility Registration', size: '180 KB', format: 'PDF' },
+        { name: 'Third-Party Audit Reports', size: '2.1 MB', format: 'PDF' },
+      ]
+    }
+  ],
+  marketing: [
+    {
+      title: 'Sales Materials',
+      description: 'Product catalogs, sell sheets, and promotional materials',
+      icon: 'tabler:presentation',
+      items: [
+        { name: '2024 Product Catalog', size: '12.4 MB', format: 'PDF' },
+        { name: 'Foodservice Solutions Guide', size: '4.8 MB', format: 'PDF' },
+        { name: 'Private Label Capabilities', size: '3.6 MB', format: 'PDF' },
+        { name: 'Seasonal Product Guide', size: '6.2 MB', format: 'PDF' },
+      ]
+    },
+    {
+      title: 'Media Resources',
+      description: 'High-resolution images, logos, and brand guidelines',
+      icon: 'tabler:photo',
+      items: [
+        { name: 'Product Photography Pack', size: '45 MB', format: 'ZIP' },
+        { name: 'Facility Images', size: '28 MB', format: 'ZIP' },
+        { name: 'Logo Package', size: '2.4 MB', format: 'ZIP' },
+        { name: 'Brand Guidelines', size: '8.9 MB', format: 'PDF' },
+      ]
+    }
+  ]
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-50 to-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-base text-blue-600 font-bold tracking-wide uppercase mb-4">Resource Center</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Everything You Need, All in One Place
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Access product specifications, certifications, marketing materials, and technical documentation to support your business needs
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Access -->
+  <section class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-6">
+        <a href="#specifications" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow text-center group">
+          <Icon name="tabler:file-text" class="w-12 h-12 text-blue-600 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+          <h3 class="font-semibold text-gray-900">Product Specs</h3>
+          <p class="text-sm text-gray-600 mt-1">Technical documentation</p>
+        </a>
+        
+        <a href="#certifications" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow text-center group">
+          <Icon name="tabler:certificate" class="w-12 h-12 text-green-600 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+          <h3 class="font-semibold text-gray-900">Certifications</h3>
+          <p class="text-sm text-gray-600 mt-1">Quality & compliance</p>
+        </a>
+        
+        <a href="#marketing" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow text-center group">
+          <Icon name="tabler:presentation" class="w-12 h-12 text-purple-600 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+          <h3 class="font-semibold text-gray-900">Sales Materials</h3>
+          <p class="text-sm text-gray-600 mt-1">Catalogs & guides</p>
+        </a>
+        
+        <a href="#support" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow text-center group">
+          <Icon name="tabler:headset" class="w-12 h-12 text-orange-600 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+          <h3 class="font-semibold text-gray-900">Support</h3>
+          <p class="text-sm text-gray-600 mt-1">Need assistance?</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Specifications -->
+  <section id="specifications" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Product Specifications</h2>
+        <p class="text-xl text-gray-600">Detailed technical information for all product lines</p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-8">
+        {resources.specifications.map((category) => (
+          <div class="bg-gray-50 rounded-xl p-8">
+            <div class="flex items-center mb-6">
+              <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                <Icon name={category.icon} class="w-8 h-8 text-blue-600" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">{category.title}</h3>
+                <p class="text-gray-600 text-sm">{category.description}</p>
+              </div>
+            </div>
+            
+            <div class="space-y-3">
+              {category.items.map((item) => (
+                <div class="bg-white rounded-lg p-4 flex items-center justify-between hover:shadow-md transition-shadow">
+                  <div class="flex items-center">
+                    <Icon name="tabler:file-download" class="w-5 h-5 text-gray-400 mr-3" />
+                    <div>
+                      <p class="font-medium text-gray-900">{item.name}</p>
+                      <p class="text-sm text-gray-500">{item.format} • {item.size}</p>
+                    </div>
+                  </div>
+                  <button class="text-blue-600 hover:text-blue-700 font-medium text-sm">
+                    Download
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certifications" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Certifications & Compliance</h2>
+        <p class="text-xl text-gray-600">Quality certifications and regulatory documentation</p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-8">
+        {resources.certifications.map((category) => (
+          <div class="bg-white rounded-xl p-8 shadow-lg">
+            <div class="flex items-center mb-6">
+              <div class="bg-green-100 p-3 rounded-lg mr-4">
+                <Icon name={category.icon} class="w-8 h-8 text-green-600" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">{category.title}</h3>
+                <p class="text-gray-600 text-sm">{category.description}</p>
+              </div>
+            </div>
+            
+            <div class="space-y-3">
+              {category.items.map((item) => (
+                <div class="border border-gray-200 rounded-lg p-4 flex items-center justify-between hover:border-green-500 transition-colors">
+                  <div class="flex items-center">
+                    <Icon name="tabler:file-certificate" class="w-5 h-5 text-green-500 mr-3" />
+                    <div>
+                      <p class="font-medium text-gray-900">{item.name}</p>
+                      <p class="text-sm text-gray-500">{item.format} • {item.size}</p>
+                    </div>
+                  </div>
+                  <button class="text-green-600 hover:text-green-700 font-medium text-sm">
+                    Download
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Marketing Materials -->
+  <section id="marketing" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Marketing & Sales Resources</h2>
+        <p class="text-xl text-gray-600">Catalogs, promotional materials, and brand assets</p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-8">
+        {resources.marketing.map((category) => (
+          <div class="bg-gradient-to-br from-purple-50 to-white rounded-xl p-8 border border-purple-100">
+            <div class="flex items-center mb-6">
+              <div class="bg-purple-100 p-3 rounded-lg mr-4">
+                <Icon name={category.icon} class="w-8 h-8 text-purple-600" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">{category.title}</h3>
+                <p class="text-gray-600 text-sm">{category.description}</p>
+              </div>
+            </div>
+            
+            <div class="space-y-3">
+              {category.items.map((item) => (
+                <div class="bg-white rounded-lg p-4 flex items-center justify-between hover:shadow-md transition-shadow">
+                  <div class="flex items-center">
+                    <Icon name="tabler:download" class="w-5 h-5 text-purple-400 mr-3" />
+                    <div>
+                      <p class="font-medium text-gray-900">{item.name}</p>
+                      <p class="text-sm text-gray-500">{item.format} • {item.size}</p>
+                    </div>
+                  </div>
+                  <button class="text-purple-600 hover:text-purple-700 font-medium text-sm">
+                    Download
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Request -->
+  <section id="support" class="py-20 bg-gradient-to-br from-blue-600 to-blue-700">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <Icon name="tabler:help-circle" class="w-16 h-16 text-white mx-auto mb-6" />
+      <h2 class="text-3xl font-bold text-white mb-4">Can't Find What You Need?</h2>
+      <p class="text-xl text-blue-100 mb-8">
+        Our team is ready to provide custom documentation, specifications, or any other resources you require
+      </p>
+      
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 max-w-2xl mx-auto">
+        <form class="space-y-4">
+          <div class="grid md:grid-cols-2 gap-4">
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="w-full px-4 py-3 rounded-lg bg-white/90 placeholder-gray-500 text-gray-900 focus:ring-2 focus:ring-white"
+            />
+            <input
+              type="email"
+              placeholder="Business Email"
+              class="w-full px-4 py-3 rounded-lg bg-white/90 placeholder-gray-500 text-gray-900 focus:ring-2 focus:ring-white"
+            />
+          </div>
+          <input
+            type="text"
+            placeholder="Company Name"
+            class="w-full px-4 py-3 rounded-lg bg-white/90 placeholder-gray-500 text-gray-900 focus:ring-2 focus:ring-white"
+          />
+          <textarea
+            placeholder="Describe the resources or documentation you need..."
+            rows="4"
+            class="w-full px-4 py-3 rounded-lg bg-white/90 placeholder-gray-500 text-gray-900 focus:ring-2 focus:ring-white"
+          ></textarea>
+          <button
+            type="submit"
+            class="w-full md:w-auto px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+          >
+            Submit Request
+          </button>
+        </form>
+      </div>
+      
+      <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center text-white">
+        <div class="flex items-center justify-center">
+          <Icon name="tabler:phone" class="w-5 h-5 mr-2" />
+          <span>Call: (585) 424-1240</span>
+        </div>
+        <div class="flex items-center justify-center">
+          <Icon name="tabler:mail" class="w-5 h-5 mr-2" />
+          <span>Email: resources@satispie.com</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

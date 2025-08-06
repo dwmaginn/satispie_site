@@ -1,0 +1,172 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Careers | SatisPie Manufacturing',
+  description: 'Join our team at SatisPie Manufacturing. Explore career opportunities in manufacturing, quality, R&D, and more.',
+};
+
+const benefits = [
+  { icon: 'tabler:heart', title: 'Health Insurance', description: 'Comprehensive medical, dental, and vision coverage' },
+  { icon: 'tabler:pig-money', title: '401(k) Matching', description: 'Competitive retirement savings with company match' },
+  { icon: 'tabler:beach', title: 'Paid Time Off', description: 'Generous PTO and holiday schedule' },
+  { icon: 'tabler:users', title: 'Inclusive Culture', description: 'Diverse and welcoming workplace for all' },
+  { icon: 'tabler:trending-up', title: 'Career Growth', description: 'Professional development and advancement opportunities' },
+  { icon: 'tabler:award', title: 'Recognition Programs', description: 'Employee appreciation and performance rewards' },
+];
+
+const openPositions = [
+  { title: 'Production Manager', department: 'Operations', location: 'Rochester, NY', type: 'Full-time' },
+  { title: 'Quality Assurance Specialist', department: 'Quality', location: 'Rochester, NY', type: 'Full-time' },
+  { title: 'Food Scientist', department: 'R&D', location: 'Rochester, NY', type: 'Full-time' },
+  { title: 'Maintenance Technician', department: 'Facilities', location: 'Rochester, NY', type: 'Full-time' },
+  { title: 'Account Manager', department: 'Sales', location: 'Remote', type: 'Full-time' },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-50 to-purple-50 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-base text-blue-600 font-bold tracking-wide uppercase mb-4">Careers</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Join the SatisPie Team
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Be part of a company that values innovation, inclusion, and making a positive impact. 
+          Build your career while helping us deliver quality products to millions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Work Here -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">Why SatisPie?</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            At SatisPie Manufacturing, we're more than just a pie company. We're a team of dedicated professionals 
+            committed to excellence, innovation, and making a difference in our community.
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+              <span class="text-gray-700">Industry-leading manufacturing facility with cutting-edge technology</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+              <span class="text-gray-700">Commitment to inclusive employment and diversity</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+              <span class="text-gray-700">Strong focus on sustainability and social responsibility</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+              <span class="text-gray-700">Opportunities for professional growth and development</span>
+            </li>
+          </ul>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] bg-white rounded-2xl shadow-xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800"
+              alt="SatisPie team at work"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Benefits & Perks</h2>
+        <p class="text-xl text-gray-600">We take care of our team members</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {benefits.map((benefit) => (
+          <div class="bg-white rounded-lg p-6 shadow-lg">
+            <div class="bg-blue-100 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+              <Icon name={benefit.icon} class="w-6 h-6 text-blue-600" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{benefit.title}</h3>
+            <p class="text-gray-600">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Positions -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Open Positions</h2>
+        <p class="text-xl text-gray-600">Find your next opportunity with us</p>
+      </div>
+
+      <div class="space-y-4">
+        {openPositions.map((position) => (
+          <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <div class="flex flex-col md:flex-row md:items-center justify-between">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">{position.title}</h3>
+                <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+                  <span class="flex items-center">
+                    <Icon name="tabler:building" class="w-4 h-4 mr-1" />
+                    {position.department}
+                  </span>
+                  <span class="flex items-center">
+                    <Icon name="tabler:map-pin" class="w-4 h-4 mr-1" />
+                    {position.location}
+                  </span>
+                  <span class="flex items-center">
+                    <Icon name="tabler:clock" class="w-4 h-4 mr-1" />
+                    {position.type}
+                  </span>
+                </div>
+              </div>
+              <a href="/contact" class="mt-4 md:mt-0 inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                Apply Now
+                <Icon name="tabler:arrow-right" class="w-5 h-5 ml-2" />
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-gray-600 mb-4">Don't see a position that fits? We're always looking for talented individuals.</p>
+        <a href="/contact" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700">
+          Send us your resume <Icon name="tabler:arrow-right" class="w-5 h-5 ml-2" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Start Your Journey?</h2>
+      <p class="text-xl text-blue-100 mb-8">
+        Join a team that values excellence, innovation, and making a positive impact in our community.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 shadow-lg"
+      >
+        View All Opportunities
+        <Icon name="tabler:arrow-right" class="w-5 h-5 ml-2" />
+      </a>
+    </div>
+  </section>
+</Layout>

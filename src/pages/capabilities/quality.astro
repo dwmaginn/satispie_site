@@ -1,0 +1,280 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Quality & Certifications | SatisPie Manufacturing',
+  description: 'SQF certified pie manufacturing facility with HACCP and GMP controls. Rigorous quality standards ensure food safety and consistency.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-50 to-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-base text-blue-600 font-bold tracking-wide uppercase mb-4">Quality Excellence</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Quality You Can Trust
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          Our commitment to quality goes beyond compliance. It's embedded in every process, every product, and every partnership we build.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Grid -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Certifications</h2>
+        <p class="text-xl text-gray-600">Industry-leading certifications demonstrate our commitment to excellence</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl border border-blue-100">
+          <div class="bg-blue-600 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <Icon name="tabler:certificate" class="w-12 h-12 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">SQF Certified</h3>
+          <p class="text-gray-600 mb-4">
+            Safe Quality Food (SQF) certification represents the highest level of food safety and quality assurance. Our facility undergoes rigorous annual audits to maintain this prestigious certification.
+          </p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+              <span>GFSI benchmarked standard</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Annual third-party audits</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Comprehensive quality management</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-br from-green-50 to-white p-8 rounded-xl border border-green-100">
+          <div class="bg-green-600 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <Icon name="tabler:shield-check" class="w-12 h-12 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">HACCP Compliance</h3>
+          <p class="text-gray-600 mb-4">
+            Hazard Analysis and Critical Control Points (HACCP) system ensures systematic preventive approach to food safety from biological, chemical, and physical hazards.
+          </p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Preventive control measures</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Critical control point monitoring</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Comprehensive documentation</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-xl border border-purple-100">
+          <div class="bg-purple-600 w-20 h-20 rounded-lg flex items-center justify-center mb-6 mx-auto">
+            <Icon name="tabler:award" class="w-12 h-12 text-white" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">GMP Standards</h3>
+          <p class="text-gray-600 mb-4">
+            Good Manufacturing Practices (GMP) ensure consistent production and control according to quality standards appropriate for intended use.
+          </p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Personnel training & hygiene</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Equipment maintenance</span>
+            </li>
+            <li class="flex items-start">
+              <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+              <span>Process validation</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 bg-yellow-50 border border-yellow-200 rounded-xl p-8">
+        <div class="flex items-center justify-center mb-6">
+          <Icon name="tabler:rosette" class="w-12 h-12 text-yellow-600 mr-4" />
+          <h3 class="text-2xl font-bold text-gray-900">Kosher Certified</h3>
+        </div>
+        <p class="text-gray-600 text-center max-w-3xl mx-auto">
+          All our products are certified Kosher, meeting the highest standards of kashrut. This certification ensures our products meet strict dietary requirements and quality standards.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality Process -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-base text-blue-600 font-bold tracking-wide uppercase">Quality Process</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Quality at Every Step</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Our comprehensive quality management system ensures consistency and safety from raw materials to finished products
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="space-y-8">
+            <div class="flex items-start">
+              <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                <Icon name="tabler:package" class="w-6 h-6 text-blue-600" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Raw Material Inspection</h3>
+                <p class="text-gray-600">Every ingredient is tested and verified against strict specifications before entering production</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="bg-green-100 p-3 rounded-lg mr-4">
+                <Icon name="tabler:settings" class="w-6 h-6 text-green-600" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">In-Process Controls</h3>
+                <p class="text-gray-600">Continuous monitoring at critical control points ensures product consistency and safety</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="bg-purple-100 p-3 rounded-lg mr-4">
+                <Icon name="tabler:clipboard-check" class="w-6 h-6 text-purple-600" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Finished Product Testing</h3>
+                <p class="text-gray-600">Comprehensive testing including microbiological, physical, and sensory evaluation</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="bg-orange-100 p-3 rounded-lg mr-4">
+                <Icon name="tabler:file-certificate" class="w-6 h-6 text-orange-600" />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Documentation & Traceability</h3>
+                <p class="text-gray-600">Complete batch records and full traceability from farm to fork</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="aspect-[4/3] bg-white rounded-2xl shadow-xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1581093577421-f561a654a353?w=800"
+              alt="Quality control laboratory"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testing Capabilities -->
+  <Features2
+    title="Testing & Analysis Capabilities"
+    subtitle="State-of-the-art laboratory facilities for comprehensive product testing"
+    columns={3}
+    items={[
+      {
+        title: 'Microbiological Testing',
+        description: 'Pathogen detection, shelf-life validation, and environmental monitoring',
+        icon: 'tabler:microscope',
+      },
+      {
+        title: 'Nutritional Analysis',
+        description: 'Complete nutritional profiling for accurate labeling and compliance',
+        icon: 'tabler:chart-pie',
+      },
+      {
+        title: 'Allergen Testing',
+        description: 'Validated testing protocols for allergen control and prevention',
+        icon: 'tabler:alert-triangle',
+      },
+      {
+        title: 'Sensory Evaluation',
+        description: 'Trained panel testing for consistency in taste, texture, and appearance',
+        icon: 'tabler:mood-smile',
+      },
+      {
+        title: 'Physical Testing',
+        description: 'Weight, dimension, and packaging integrity verification',
+        icon: 'tabler:ruler',
+      },
+      {
+        title: 'Metal Detection',
+        description: 'Advanced detection systems with regular calibration and testing',
+        icon: 'tabler:magnet',
+      },
+    ]}
+  />
+
+  <!-- Continuous Improvement -->
+  <Content
+    title="Continuous Improvement"
+    subtitle="Quality is a journey, not a destination"
+    items={[
+      {
+        title: 'Regular Audits',
+        description: 'Internal and third-party audits drive continuous improvement in our processes.',
+      },
+      {
+        title: 'Employee Training',
+        description: 'Ongoing training programs ensure our team maintains the highest standards.',
+      },
+      {
+        title: 'Technology Investment',
+        description: 'Regular upgrades to equipment and systems enhance quality control capabilities.',
+      },
+      {
+        title: 'Customer Feedback',
+        description: 'We actively incorporate customer feedback into our quality improvement initiatives.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800',
+      alt: 'Quality improvement meeting',
+    }}
+  />
+
+  <!-- CTA Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Request Certification Documents',
+        href: '/contact',
+        icon: 'tabler:download',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Quality Assurance You Can Count On
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Request our complete quality documentation package including certifications, audit reports, and specifications
+    </Fragment>
+  </CallToAction>
+</Layout>
