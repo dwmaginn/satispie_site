@@ -1,0 +1,80 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  prices?: {
+    title: string;
+    subtitle: string;
+    price: string | number;
+    period: string;
+    callToAction: {
+      target?: string;
+      text: string;
+      href: string;
+    };
+    hasRibbon?: boolean;
+    ribbonTitle?: string;
+  }[];
+}
+
+const { title = 'Pricing Plans', subtitle, prices = [] } = Astro.props;
+---
+
+<section class="px-4 py-16 mx-auto max-w-7xl lg:py-20">
+  <div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
+    <div class="flex flex-col justify-center">
+      {title && (
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl sm:leading-tight">
+          {title}
+        </h2>
+      )}
+      {subtitle && (
+        <p class="max-w-2xl mt-4 text-xl text-muted-foreground">
+          {subtitle}
+        </p>
+      )}
+    </div>
+    <div class="grid gap-6 lg:gap-8">
+      {prices.map((price) => (
+        <div class="relative flex flex-col p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-slate-900 dark:border-gray-700">
+          {price.hasRibbon && price.ribbonTitle && (
+            <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2">
+              <span class="inline-flex items-center px-3 py-1 text-sm font-medium text-white bg-primary rounded-full">
+                {price.ribbonTitle}
+              </span>
+            </div>
+          )}
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                {price.title}
+              </h3>
+              <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                {price.subtitle}
+              </p>
+            </div>
+            <div class="text-right">
+              <div class="flex items-baseline">
+                <span class="text-3xl font-bold text-gray-900 dark:text-white">
+                  ${price.price}
+                </span>
+                <span class="ml-1 text-sm text-gray-500 dark:text-gray-400">
+                  {price.period}
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6">
+            <a
+              href={price.callToAction.href}
+              target={price.callToAction.target}
+              class="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-primary border border-transparent rounded-md shadow-sm hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            >
+              {price.callToAction.text}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 
