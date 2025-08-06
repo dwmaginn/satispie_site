@@ -34,10 +34,7 @@ export const headerData = {
           text: 'Services',
           href: getPermalink('/services'),
         },
-        {
-          text: 'Pricing',
-          href: getPermalink('/pricing'),
-        },
+
         {
           text: 'About us',
           href: getPermalink('/about'),
@@ -128,7 +125,7 @@ export const footerData = {
         { text: 'Team', href: '#' },
         { text: 'Enterprise', href: '#' },
         { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
+
         { text: 'Resources', href: '#' },
       ],
     },

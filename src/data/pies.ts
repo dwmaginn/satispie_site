@@ -4,7 +4,6 @@ export interface Pie {
   slug: string;
   description: string;
   shortDescription: string;
-  price: string;
   ingredients: string[];
   nutrition: {
     servingSize: string;
@@ -38,7 +37,6 @@ export const pies: Pie[] = [
     slug: 'apple-pie',
     description: 'Our signature apple pie features a perfect balance of tart and sweet Granny Smith apples, enhanced with warm cinnamon and nutmeg spices. Each slice reveals layers of tender apples nestled in our flaky all-butter crust, creating the quintessential American dessert experience.',
     shortDescription: 'Perfectly spiced Granny Smith apples in our flaky all-butter crust.',
-    price: '$24.99',
     ingredients: [
       'Granny Smith Apples',
       'All-Butter Pie Crust',
@@ -65,7 +63,7 @@ export const pies: Pie[] = [
     features: ['Kosher Certified', 'All-Butter Crust', 'Hand-Crafted', 'No Artificial Preservatives'],
     seasonal: false,
     available: true,
-    image: '/images/apple-pie-hero.jpg',
+    image: '/apple-pie-hero.jpg',
     gallery: [
       '/images/apple-pie-1.jpg',
       '/images/apple-pie-2.jpg',
@@ -93,7 +91,6 @@ export const pies: Pie[] = [
     slug: 'cherry-pie',
     description: 'Bursting with the natural sweetness of fresh cherries, our cherry pie delivers a delightful balance of tart and sweet flavors. The vibrant red filling is perfectly complemented by our golden, flaky crust, making every bite a celebration of summer\'s finest fruit.',
     shortDescription: 'Fresh cherries in a sweet-tart filling with our signature all-butter crust.',
-    price: '$26.99',
     ingredients: [
       'Fresh Cherries',
       'All-Butter Pie Crust',
@@ -120,7 +117,7 @@ export const pies: Pie[] = [
     features: ['Kosher Certified', 'All-Butter Crust', 'Hand-Crafted', 'Seasonal Fruit'],
     seasonal: true,
     available: true,
-    image: '/images/cherry-pie-hero.jpg',
+    image: '/pie-filling-hero.jpg',
     gallery: [
       '/images/cherry-pie-1.jpg',
       '/images/cherry-pie-2.jpg',
@@ -148,7 +145,6 @@ export const pies: Pie[] = [
     slug: 'pumpkin-pie',
     description: 'A holiday classic that brings warmth and comfort to any gathering. Our pumpkin pie features a velvety smooth filling made from real pumpkin puree, perfectly spiced with cinnamon, ginger, and cloves. The rich, creamy texture paired with our flaky crust creates the perfect Thanksgiving dessert.',
     shortDescription: 'Velvety smooth pumpkin filling with traditional holiday spices.',
-    price: '$22.99',
     ingredients: [
       'Pumpkin Puree',
       'All-Butter Pie Crust',
@@ -178,7 +174,7 @@ export const pies: Pie[] = [
     features: ['Kosher Certified', 'All-Butter Crust', 'Hand-Crafted', 'Holiday Favorite'],
     seasonal: true,
     available: true,
-    image: '/images/pumpkin-pie-hero.jpg',
+    image: '/pumpkin-pie-hero.jpg',
     gallery: [
       '/images/pumpkin-pie-1.jpg',
       '/images/pumpkin-pie-2.jpg',
@@ -206,7 +202,6 @@ export const pies: Pie[] = [
     slug: 'pecan-pie',
     description: 'A Southern classic that combines the rich, buttery flavor of pecans with a sweet, gooey filling. Our pecan pie features a generous layer of whole pecans arranged in a beautiful pattern, creating both visual appeal and exceptional taste. Perfect for any special occasion.',
     shortDescription: 'Rich, buttery pecans in a sweet, gooey filling with our signature crust.',
-    price: '$28.99',
     ingredients: [
       'Pecans',
       'All-Butter Pie Crust',
@@ -261,7 +256,6 @@ export const pies: Pie[] = [
     slug: 'blueberry-pie',
     description: 'Packed with plump, juicy wild blueberries, our blueberry pie offers a burst of natural sweetness in every bite. The deep purple filling is perfectly balanced with a touch of lemon zest, creating a refreshing and satisfying dessert that celebrates the best of summer berries.',
     shortDescription: 'Plump wild blueberries with a hint of lemon in our flaky all-butter crust.',
-    price: '$25.99',
     ingredients: [
       'Wild Blueberries',
       'All-Butter Pie Crust',
