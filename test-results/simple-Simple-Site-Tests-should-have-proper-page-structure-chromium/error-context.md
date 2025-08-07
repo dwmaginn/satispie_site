@@ -1,0 +1,131 @@
+# Page snapshot
+
+```yaml
+- text: Industrial Pie Manufacturing
+- heading "Premium Pie Manufacturing at Scale" [level=1]
+- paragraph: Partner with SatisPie Manufacturing for high-volume pie production. Our SQF-certified facility produces millions of pies annually for leading retailers and foodservice operators across North America.
+- link "Partner With Us":
+  - /url: /contact
+  - text: Partner With Us
+  - img
+- link "View Capabilities":
+  - /url: /capabilities/manufacturing
+  - text: View Capabilities
+  - img
+- img "Industrial pie manufacturing facility"
+- img
+- text: SQF Certified Highest Quality Standards
+- img
+- text: 10M+ Pies Produced Annually
+- img
+- text: 500+ Retail Partners
+- img
+- text: 50K Sq. Ft. Facility
+- img
+- text: 99.9% On-Time Delivery
+- heading "World-Class Manufacturing Capabilities" [level=2]
+- paragraph: State-of-the-art facilities and processes designed for efficiency, quality, and scale
+- img
+- text: High-Volume Production
+- paragraph: Advanced production lines capable of producing over 50,000 pies daily with consistent quality and efficiency.
+- img
+- text: Quality Certifications
+- paragraph: SQF, HACCP, and GMP certified facility ensuring the highest food safety and quality standards for all products.
+- img
+- text: Custom Formulation
+- paragraph: In-house R&D team develops custom recipes and formulations to meet specific customer requirements and market demands.
+- img
+- text: Flexible Packaging
+- paragraph: Multiple packaging options from bulk foodservice to retail-ready consumer packaging with private label capabilities.
+- img
+- text: Supply Chain Excellence
+- paragraph: Strategic partnerships with premium ingredient suppliers and nationwide cold chain distribution network.
+- img
+- text: Sustainability Focus
+- paragraph: Committed to sustainable manufacturing practices including waste reduction, energy efficiency, and responsible sourcing.
+- paragraph: Our Products
+- heading "Premium Pie Portfolio" [level=2]
+- paragraph: Comprehensive product lines designed to meet diverse market needs and consumer preferences
+- img
+- heading "Fruit Pies" [level=3]
+- paragraph: Classic fruit varieties including apple, cherry, blueberry, and peach. Available in multiple sizes and packaging configurations.
+- link "View Products":
+  - /url: /products/fruit-pies
+  - text: View Products
+  - img
+- img
+- heading "Seasonal Specialties" [level=3]
+- paragraph: Holiday favorites including pumpkin, sweet potato, and pecan. Capitalize on seasonal demand with proven bestsellers.
+- link "View Products":
+  - /url: /products/seasonal
+  - text: View Products
+  - img
+- img
+- heading "Private Label" [level=3]
+- paragraph: Custom formulations and packaging for your brand. Complete white-label solutions with flexible minimum order quantities.
+- link "Learn More":
+  - /url: /solutions/private-label
+  - text: Learn More
+  - img
+- paragraph: Trusted Partnerships
+- heading "Solutions for Every Business Model" [level=2]
+- paragraph: From major retailers to regional chains, we deliver customized solutions that drive growth
+- img
+- heading "Retail Partners" [level=3]
+- paragraph: "\"SatisPie has been our trusted pie supplier for over 5 years. Their consistent quality, reliable delivery, and ability to scale during peak seasons make them an invaluable partner. Our pie sales have increased 40% since partnering with them.\""
+- paragraph: Regional Grocery Chain
+- paragraph: 500+ Store Locations
+- img
+- heading "Foodservice Excellence" [level=3]
+- paragraph: "\"The consistency and quality of SatisPie's products allow us to maintain our high standards across all locations. Their bulk packaging options and competitive pricing have helped us improve our dessert margins by 25%.\""
+- paragraph: National Restaurant Chain
+- paragraph: 1,200+ Locations Nationwide
+- text: 25+ Years of Partnership Excellence 98% Customer Retention Rate 24/7 Customer Support
+- paragraph: Innovation & Sustainability
+- heading "Building a Better Future" [level=2]
+- paragraph: Our commitment extends beyond manufacturing excellence to encompass environmental responsibility and social impact.
+- img
+- heading "Sustainable Operations" [level=3]
+- paragraph: 30% reduction in waste through optimized production processes and packaging innovations
+- img
+- heading "Inclusive Employment" [level=3]
+- paragraph: Providing meaningful employment opportunities for individuals with disabilities
+- img
+- heading "Continuous Innovation" [level=3]
+- paragraph: Dedicated R&D team developing next-generation products and processes
+- link "Learn About Our Impact":
+  - /url: /about/sustainability
+  - text: Learn About Our Impact
+  - img
+- img "Sustainable manufacturing practices"
+- paragraph: News & Updates
+- heading "Latest from SatisPie" [level=2]
+- article:
+  - paragraph: EXPANSION
+  - heading "New Production Line Increases Capacity by 40%" [level=3]
+  - paragraph: Investment in state-of-the-art equipment enables us to meet growing demand from national retail partners.
+  - link "Read More →":
+    - /url: /news
+- article:
+  - paragraph: SUSTAINABILITY
+  - heading "Carbon Neutral Operations by 2025" [level=3]
+  - paragraph: Ambitious sustainability goals position SatisPie as industry leader in environmental responsibility.
+  - link "Read More →":
+    - /url: /news
+- article:
+  - paragraph: INNOVATION
+  - heading "New Plant-Based Line Launches Q2 2024" [level=3]
+  - paragraph: Responding to market demand with innovative plant-based pie options for health-conscious consumers.
+  - link "Read More →":
+    - /url: /news
+- link "View All News & Press Releases":
+  - /url: /news
+  - text: View All News & Press Releases
+  - img
+- heading "Ready to Partner with SatisPie Manufacturing?" [level=2]
+- paragraph: Join leading retailers and foodservice operators who trust us for quality, reliability, and innovation. Let's discuss how we can help grow your business.
+- link "Start Partnership Discussion":
+  - /url: /contact
+  - text: Start Partnership Discussion
+  - img
+```
