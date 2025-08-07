@@ -1,0 +1,277 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+
+export const prerender = true;
+
+const metadata = {
+  title: 'How to Slice a Pie Perfectly Every Time - SatisPie Tips',
+  description: 'Learn the professional technique for cutting clean, even pie slices that look as good as they taste. Expert tips from SatisPie.',
+  ignoreTitleTemplate: true,
+};
+
+const tip = {
+  title: 'How to Slice a Pie Perfectly Every Time',
+  excerpt: 'Learn the professional technique for cutting clean, even pie slices that look as good as they taste.',
+  content: `
+    <p class="text-lg text-gray-600 mb-6">
+      Cutting a pie might seem simple, but achieving perfectly even slices that look as good as they taste requires technique. Whether you're serving a classic apple pie or a decadent chocolate cream pie, these professional tips will ensure every slice is picture-perfect.
+    </p>
+
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Essential Tools</h2>
+    <p class="text-gray-600 mb-4">
+      Before you start slicing, make sure you have the right tools:
+    </p>
+    <ul class="list-disc list-inside text-gray-600 mb-6 space-y-2">
+      <li>A sharp, serrated knife (preferably 8-10 inches long)</li>
+      <li>A pie server or spatula for serving</li>
+      <li>A clean, flat surface</li>
+      <li>Optional: A ruler or measuring tape for precision</li>
+    </ul>
+
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">The Professional Technique</h2>
+    
+    <h3 class="text-xl font-semibold text-gray-900 mb-3">Step 1: Let the Pie Cool</h3>
+    <p class="text-gray-600 mb-4">
+      Always allow your pie to cool completely before slicing. This prevents the filling from running and ensures clean cuts. For cream pies, refrigerate for at least 2 hours.
+    </p>
+
+    <h3 class="text-xl font-semibold text-gray-900 mb-3">Step 2: Mark Your Slices</h3>
+    <p class="text-gray-600 mb-4">
+      For perfectly even slices, lightly mark the top of the pie with a knife tip. For 8 slices, make marks at 12, 3, 6, and 9 o'clock, then bisect each quarter.
+    </p>
+
+    <h3 class="text-xl font-semibold text-gray-900 mb-3">Step 3: Use a Sawing Motion</h3>
+    <p class="text-gray-600 mb-4">
+      Hold your knife at a slight angle and use a gentle sawing motion. Don't press down hard - let the serrated edge do the work. This prevents crushing the crust.
+    </p>
+
+    <h3 class="text-xl font-semibold text-gray-900 mb-3">Step 4: Clean Between Cuts</h3>
+    <p class="text-gray-600 mb-4">
+      Wipe your knife clean between each slice to prevent filling from smearing and to ensure clean cuts.
+    </p>
+
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Pro Tips for Different Pie Types</h2>
+
+    <div class="bg-blue-50 rounded-xl p-6 mb-6">
+      <h3 class="text-xl font-semibold text-gray-900 mb-3">Fruit Pies</h3>
+      <p class="text-gray-600 mb-4">
+        For fruit pies with juicy fillings, make your cuts quickly and decisively. The longer you hesitate, the more the juices will run.
+      </p>
+    </div>
+
+    <div class="bg-orange-50 rounded-xl p-6 mb-6">
+      <h3 class="text-xl font-semibold text-gray-900 mb-3">Cream Pies</h3>
+      <p class="text-gray-600 mb-4">
+        Use a knife dipped in hot water for cream pies. The heat helps the knife glide through the filling without sticking.
+      </p>
+    </div>
+
+    <div class="bg-purple-50 rounded-xl p-6 mb-6">
+      <h3 class="text-xl font-semibold text-gray-900 mb-3">Frozen Pies</h3>
+      <p class="text-gray-600 mb-4">
+        Allow frozen pies to thaw slightly before slicing. This prevents the crust from crumbling and ensures even cuts.
+      </p>
+    </div>
+
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Serving Techniques</h2>
+    <p class="text-gray-600 mb-4">
+      Once you've made your cuts, use a pie server to lift each slice. Slide the server under the slice and lift gently, supporting the slice with your other hand if needed.
+    </p>
+
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">Common Mistakes to Avoid</h2>
+    <ul class="list-disc list-inside text-gray-600 mb-6 space-y-2">
+      <li>Using a dull knife (crushes the crust)</li>
+      <li>Slicing while the pie is still hot (causes filling to run)</li>
+      <li>Pressing down too hard (breaks the crust)</li>
+      <li>Not cleaning the knife between cuts (causes smearing)</li>
+    </ul>
+
+    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+      <p class="text-gray-700">
+        <strong>Pro Tip:</strong> For the first slice, cut it slightly smaller than the others. This makes it easier to remove and prevents the remaining pie from falling apart.
+      </p>
+    </div>
+  `,
+  author: 'SatisPie Baking Team',
+  date: '2024-01-15',
+  readTime: '3 min read',
+  category: 'Techniques',
+  relatedTips: [
+    {
+      title: 'The Complete Guide to Storing Pies',
+      slug: 'storing-pies-properly',
+      excerpt: 'Keep your pies fresh and delicious with these essential storage tips.',
+    },
+    {
+      title: 'Temperature Control for Perfect Baking',
+      slug: 'temperature-control-baking',
+      excerpt: 'Understanding oven temperatures and how they affect your baked goods.',
+    },
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-orange-50 to-yellow-50 py-20 md:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <div class="flex items-center justify-center gap-2 mb-4">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
+            {tip.category}
+          </span>
+          <span class="text-sm text-gray-500">•</span>
+          <span class="text-sm text-gray-500">{tip.readTime}</span>
+          <span class="text-sm text-gray-500">•</span>
+          <span class="text-sm text-gray-500">
+            {new Date(tip.date).toLocaleDateString()}
+          </span>
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          {tip.title}
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          {tip.excerpt}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article class="prose prose-lg max-w-none">
+        <div class="mb-8">
+          <img
+            src="/src/assets/images/apple-pie-hero.jpg"
+            alt="Perfectly sliced apple pie"
+            class="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
+          />
+        </div>
+
+        <div class="mb-8">
+          <p class="text-lg text-gray-600">
+            <strong>By {tip.author}</strong> • {new Date(tip.date).toLocaleDateString()}
+          </p>
+        </div>
+
+        <div set:html={tip.content}></div>
+
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+              <span class="text-sm text-gray-500">Share this tip:</span>
+              <div class="flex gap-2">
+                <button class="p-2 text-gray-400 hover:text-blue-600 transition-colors">
+                  <Icon name="tabler:brand-facebook" class="w-5 h-5" />
+                </button>
+                <button class="p-2 text-gray-400 hover:text-blue-400 transition-colors">
+                  <Icon name="tabler:brand-twitter" class="w-5 h-5" />
+                </button>
+                <button class="p-2 text-gray-400 hover:text-green-600 transition-colors">
+                  <Icon name="tabler:brand-whatsapp" class="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+            <a
+              href="/tips-and-tricks"
+              class="inline-flex items-center text-orange-600 font-medium hover:text-orange-700 transition-colors duration-200"
+            >
+              <Icon name="tabler:arrow-left" class="w-4 h-4 mr-1" />
+              Back to Tips
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Tips -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+        Related Tips
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        {tip.relatedTips.map((relatedTip) => (
+          <article class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                {relatedTip.title}
+              </h3>
+              <p class="text-gray-600 mb-4">
+                {relatedTip.excerpt}
+              </p>
+              <a
+                href={`/tips/${relatedTip.slug}`}
+                class="inline-flex items-center text-orange-600 font-medium hover:text-orange-700 transition-colors duration-200"
+              >
+                Read More
+                <Icon name="tabler:arrow-right" class="w-4 h-4 ml-1" />
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="py-16 bg-orange-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Get More Baking Tips
+      </h2>
+      <p class="text-xl text-orange-100 mb-8">
+        Subscribe to our newsletter and receive new baking tips, recipes, and industry insights directly to your inbox.
+      </p>
+      <form class="max-w-md mx-auto">
+        <div class="flex gap-4">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600"
+            required
+          />
+          <button
+            type="submit"
+            class="px-6 py-3 bg-white text-orange-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
+          >
+            Subscribe
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .prose {
+    color: #374151;
+  }
+  
+  .prose h2 {
+    color: #111827;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .prose h3 {
+    color: #111827;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .prose p {
+    margin-bottom: 1rem;
+  }
+  
+  .prose ul {
+    margin-bottom: 1.5rem;
+  }
+  
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+</style>

@@ -1,0 +1,468 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+
+export const prerender = true;
+
+const metadata = {
+  title: 'SatisPie Products - Premium Pies, Waffles & Pancakes',
+  description: 'Discover our complete line of premium pies, waffles, and pancakes. From classic fruit pies to specialty waffles, find the perfect product for your needs.',
+  ignoreTitleTemplate: true,
+};
+
+// Sample product data - in production this would come from a database or content collection
+const products = [
+  {
+    id: 1,
+    name: 'Classic Apple Pie',
+    category: 'Fruit Pies',
+    description: 'Our signature apple pie made with fresh, crisp apples and a flaky, buttery crust. Perfect for any occasion.',
+    image: '/src/assets/images/apple-pie-hero.jpg',
+    price: '$12.99',
+    weight: '9-inch',
+    ingredients: ['Apples', 'Sugar', 'Cinnamon', 'Butter', 'Flour'],
+    allergens: ['Wheat', 'Dairy'],
+    nutrition: {
+      calories: 320,
+      fat: 14,
+      carbs: 45,
+      protein: 3,
+    },
+    featured: true,
+  },
+  {
+    id: 2,
+    name: 'Cherry Pie',
+    category: 'Fruit Pies',
+    description: 'Sweet and tart cherry pie with a lattice top. Made with premium cherries for the perfect balance of flavors.',
+    image: '/src/assets/images/pumpkin-pie-hero.jpg',
+    price: '$13.99',
+    weight: '9-inch',
+    ingredients: ['Cherries', 'Sugar', 'Cornstarch', 'Butter', 'Flour'],
+    allergens: ['Wheat', 'Dairy'],
+    nutrition: {
+      calories: 310,
+      fat: 13,
+      carbs: 48,
+      protein: 3,
+    },
+    featured: false,
+  },
+  {
+    id: 3,
+    name: 'Pumpkin Pie',
+    category: 'Seasonal Pies',
+    description: 'Traditional pumpkin pie with warm spices and a smooth, creamy filling. A holiday favorite.',
+    image: '/src/assets/images/pumpkin-pie-hero.jpg',
+    price: '$14.99',
+    weight: '9-inch',
+    ingredients: ['Pumpkin', 'Eggs', 'Sugar', 'Spices', 'Evaporated Milk'],
+    allergens: ['Wheat', 'Dairy', 'Eggs'],
+    nutrition: {
+      calories: 280,
+      fat: 12,
+      carbs: 42,
+      protein: 4,
+    },
+    featured: true,
+  },
+  {
+    id: 4,
+    name: 'Blueberry Pie',
+    category: 'Fruit Pies',
+    description: 'Bursting with fresh blueberries and a hint of lemon. A summer favorite that\'s perfect year-round.',
+    image: '/src/assets/images/apple-pie-hero.jpg',
+    price: '$13.99',
+    weight: '9-inch',
+    ingredients: ['Blueberries', 'Sugar', 'Lemon', 'Butter', 'Flour'],
+    allergens: ['Wheat', 'Dairy'],
+    nutrition: {
+      calories: 300,
+      fat: 13,
+      carbs: 46,
+      protein: 3,
+    },
+    featured: false,
+  },
+  {
+    id: 5,
+    name: 'Classic Waffles',
+    category: 'Waffles',
+    description: 'Light and fluffy waffles with a crispy exterior. Perfect for breakfast or brunch.',
+    image: '/src/assets/images/pie-filling-hero.jpg',
+    price: '$8.99',
+    weight: '6-pack',
+    ingredients: ['Flour', 'Eggs', 'Milk', 'Butter', 'Sugar'],
+    allergens: ['Wheat', 'Dairy', 'Eggs'],
+    nutrition: {
+      calories: 180,
+      fat: 8,
+      carbs: 25,
+      protein: 4,
+    },
+    featured: false,
+  },
+  {
+    id: 6,
+    name: 'Buttermilk Pancakes',
+    category: 'Pancakes',
+    description: 'Fluffy buttermilk pancakes with a rich, tangy flavor. Stack them high and top with your favorites.',
+    image: '/src/assets/images/satispie-hero-pies.png',
+    price: '$7.99',
+    weight: '8-pack',
+    ingredients: ['Flour', 'Buttermilk', 'Eggs', 'Butter', 'Sugar'],
+    allergens: ['Wheat', 'Dairy', 'Eggs'],
+    nutrition: {
+      calories: 160,
+      fat: 6,
+      carbs: 28,
+      protein: 4,
+    },
+    featured: false,
+  },
+  {
+    id: 7,
+    name: 'Pecan Pie',
+    category: 'Seasonal Pies',
+    description: 'Rich and nutty pecan pie with a gooey center and crunchy top. A Southern classic.',
+    image: '/src/assets/images/satispie-default-pie.png',
+    price: '$15.99',
+    weight: '9-inch',
+    ingredients: ['Pecans', 'Corn Syrup', 'Eggs', 'Sugar', 'Butter'],
+    allergens: ['Wheat', 'Dairy', 'Eggs', 'Tree Nuts'],
+    nutrition: {
+      calories: 420,
+      fat: 22,
+      carbs: 52,
+      protein: 5,
+    },
+    featured: false,
+  },
+  {
+    id: 8,
+    name: 'Chocolate Waffles',
+    category: 'Waffles',
+    description: 'Decadent chocolate waffles with a rich cocoa flavor. Perfect for dessert or a special breakfast.',
+    image: '/src/assets/images/pie-filling-hero.jpg',
+    price: '$9.99',
+    weight: '6-pack',
+    ingredients: ['Flour', 'Cocoa', 'Eggs', 'Milk', 'Sugar'],
+    allergens: ['Wheat', 'Dairy', 'Eggs'],
+    nutrition: {
+      calories: 200,
+      fat: 9,
+      carbs: 28,
+      protein: 4,
+    },
+    featured: false,
+  },
+];
+
+const categories = ['All', 'Fruit Pies', 'Seasonal Pies', 'Waffles', 'Pancakes'];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-50 to-orange-50 py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          Our <span class="text-blue-600">Products</span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          Discover our complete line of premium pies, waffles, and pancakes. Each product is crafted with care using the finest ingredients and traditional baking techniques.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          {categories.map((category) => (
+            <button
+              class="px-6 py-2 rounded-full border-2 border-blue-200 text-blue-700 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-colors duration-200 font-medium"
+              data-category={category === 'All' ? '' : category}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Featured Products
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Our most popular products, loved by customers nationwide
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        {products.filter(product => product.featured).map((product) => (
+          <div class="bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-8 shadow-lg">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                    <Icon name="tabler:star" class="w-4 h-4 mr-1" />
+                    Featured
+                  </span>
+                  <span class="text-sm text-gray-500">{product.category}</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                  {product.name}
+                </h3>
+                <p class="text-lg text-gray-600 mb-6">
+                  {product.description}
+                </p>
+                <div class="flex items-center gap-4 mb-6">
+                  <span class="text-2xl font-bold text-blue-600">{product.price}</span>
+                  <span class="text-sm text-gray-500">{product.weight}</span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <a
+                    href={`/products/${product.id}`}
+                    class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
+                  >
+                    View Details
+                    <Icon name="tabler:arrow-right" class="w-5 h-5 ml-2" />
+                  </a>
+                  <a
+                    href="/where-to-buy"
+                    class="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    Find Store
+                    <Icon name="tabler:map-pin" class="w-5 h-5 ml-2" />
+                  </a>
+                </div>
+              </div>
+              <div class="relative">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  class="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- All Products Grid -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          All Products
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Browse our complete collection of premium baked goods
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
+        {products.filter(product => !product.featured).map((product) => (
+          <article class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+            <div class="relative">
+              <img
+                src={product.image}
+                alt={product.name}
+                class="w-full h-48 object-cover"
+              />
+              <div class="absolute top-4 left-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90 text-gray-700">
+                  {product.category}
+                </span>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 font-semibold">
+                  {product.price}
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                {product.name}
+              </h3>
+              <p class="text-gray-600 mb-4 line-clamp-3">
+                {product.description}
+              </p>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-sm text-gray-500">{product.weight}</span>
+                <div class="flex items-center gap-1">
+                  <span class="text-sm text-gray-500">Calories:</span>
+                  <span class="text-sm font-medium">{product.nutrition.calories}</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <a
+                  href={`/products/${product.id}`}
+                  class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors duration-200"
+                >
+                  View Details
+                </a>
+                <a
+                  href="/where-to-buy"
+                  class="inline-flex items-center justify-center p-2 text-gray-400 hover:text-blue-600 transition-colors duration-200"
+                  title="Find in stores"
+                >
+                  <Icon name="tabler:map-pin" class="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Categories -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Product Categories
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Explore our different product lines and find your perfect match
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <Icon name="tabler:leaf" class="w-8 h-8 text-blue-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Fruit Pies</h3>
+          <p class="text-gray-600 mb-4">
+            Classic fruit pies made with fresh, seasonal fruits and traditional recipes.
+          </p>
+          <a href="#fruit-pies" class="text-blue-600 font-medium hover:text-blue-700">
+            View Products →
+          </a>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <Icon name="tabler:calendar" class="w-8 h-8 text-orange-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Seasonal Pies</h3>
+          <p class="text-gray-600 mb-4">
+            Holiday favorites and seasonal specialties perfect for celebrations.
+          </p>
+          <a href="#seasonal-pies" class="text-orange-600 font-medium hover:text-orange-700">
+            View Products →
+          </a>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <Icon name="tabler:bread" class="w-8 h-8 text-yellow-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Waffles</h3>
+          <p class="text-gray-600 mb-4">
+            Light and fluffy waffles perfect for breakfast, brunch, or dessert.
+          </p>
+          <a href="#waffles" class="text-yellow-600 font-medium hover:text-yellow-700">
+            View Products →
+          </a>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <Icon name="tabler:circle" class="w-8 h-8 text-purple-600" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Pancakes</h3>
+          <p class="text-gray-600 mb-4">
+            Fluffy pancakes with rich flavors, perfect for a hearty breakfast.
+          </p>
+          <a href="#pancakes" class="text-purple-600 font-medium hover:text-purple-700">
+            View Products →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-blue-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Can't Find What You're Looking For?
+      </h2>
+      <p class="text-xl text-blue-100 mb-8">
+        We offer custom formulations and private label options. Contact us to discuss your specific needs.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
+        >
+          Contact Us
+          <Icon name="tabler:arrow-right" class="w-5 h-5 ml-2" />
+        </a>
+        <a
+          href="/where-to-buy"
+          class="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
+        >
+          Find Stores
+          <Icon name="tabler:map-pin" class="w-5 h-5 ml-2" />
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Category filtering functionality
+  function initCategoryFilter() {
+    const categoryButtons = document.querySelectorAll('[data-category]');
+    const productsGrid = document.getElementById('products-grid');
+    
+    if (categoryButtons && productsGrid) {
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const selectedCategory = button.getAttribute('data-category');
+          
+          // Update active button
+          categoryButtons.forEach(btn => {
+            btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
+            btn.classList.add('border-blue-200', 'text-blue-700');
+          });
+          button.classList.remove('border-blue-200', 'text-blue-700');
+          button.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
+          
+          // Filter products (in a real implementation, this would filter the actual content)
+          console.log('Filtering by category:', selectedCategory);
+          
+          // For now, just show a visual feedback
+          const articles = productsGrid.querySelectorAll('article');
+          articles.forEach(article => {
+            if (selectedCategory === '' || article.querySelector('.bg-white\\/90').textContent === selectedCategory) {
+              article.style.display = 'block';
+            } else {
+              article.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initCategoryFilter);
+  document.addEventListener('astro:after-swap', initCategoryFilter);
+</script>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

@@ -1,0 +1,289 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+
+export const prerender = true;
+
+const metadata = {
+  title: 'Baking Tips & Tricks - SatisPie',
+  description: 'Discover expert baking tips and tricks for perfect pies, waffles, and pancakes. Learn professional techniques and secrets from SatisPie.',
+  ignoreTitleTemplate: true,
+};
+
+// Sample tips data - in production this would come from content collections
+const tips = [
+  {
+    slug: 'how-to-slice-a-pie',
+    title: 'How to Slice a Pie Perfectly Every Time',
+    excerpt: 'Learn the professional technique for cutting clean, even pie slices that look as good as they taste.',
+    image: '/src/assets/images/apple-pie-hero.jpg',
+    category: 'Techniques',
+    readTime: '3 min read',
+    date: '2024-01-15',
+    featured: true,
+  },
+  {
+    slug: 'storing-pies-properly',
+    title: 'The Complete Guide to Storing Pies',
+    excerpt: 'Keep your pies fresh and delicious with these essential storage tips for maximum shelf life.',
+    image: '/src/assets/images/pumpkin-pie-hero.jpg',
+    category: 'Storage',
+    readTime: '4 min read',
+    date: '2024-01-10',
+    featured: false,
+  },
+  {
+    slug: 'waffle-batter-secrets',
+    title: 'Professional Waffle Batter Secrets',
+    excerpt: 'Discover the industry secrets for creating light, fluffy waffles that are crispy on the outside and tender inside.',
+    image: '/src/assets/images/pie-filling-hero.jpg',
+    category: 'Recipes',
+    readTime: '5 min read',
+    date: '2024-01-08',
+    featured: false,
+  },
+  {
+    slug: 'pancake-flipping-technique',
+    title: 'Master the Perfect Pancake Flip',
+    excerpt: 'Learn the timing and technique for flipping pancakes without making a mess or breaking them apart.',
+    image: '/src/assets/images/satispie-hero-pies.png',
+    category: 'Techniques',
+    readTime: '2 min read',
+    date: '2024-01-05',
+    featured: false,
+  },
+  {
+    slug: 'temperature-control-baking',
+    title: 'Temperature Control for Perfect Baking',
+    excerpt: 'Understanding oven temperatures and how they affect your baked goods for consistent results every time.',
+    image: '/src/assets/images/satispie-default-pie.png',
+    category: 'Techniques',
+    readTime: '6 min read',
+    date: '2024-01-03',
+    featured: false,
+  },
+  {
+    slug: 'ingredient-substitutions',
+    title: 'Smart Ingredient Substitutions',
+    excerpt: 'Learn how to substitute ingredients without compromising taste or texture in your favorite recipes.',
+    image: '/src/assets/images/apple-pie-hero.jpg',
+    category: 'Recipes',
+    readTime: '4 min read',
+    date: '2024-01-01',
+    featured: false,
+  },
+];
+
+const categories = ['All', 'Techniques', 'Recipes', 'Storage'];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-orange-50 to-yellow-50 py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          Baking <span class="text-orange-600">Tips & Tricks</span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          Discover professional baking techniques and secrets from our expert team. From perfect pie slicing to flawless waffle making, we've got you covered.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          {categories.map((category) => (
+            <button
+              class="px-6 py-2 rounded-full border-2 border-orange-200 text-orange-700 hover:bg-orange-600 hover:text-white hover:border-orange-600 transition-colors duration-200 font-medium"
+              data-category={category === 'All' ? '' : category}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Tip -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {tips.filter(tip => tip.featured).map((featuredTip) => (
+        <div class="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl p-8 md:p-12 mb-16">
+          <div class="grid lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800">
+                  <Icon name="tabler:star" class="w-4 h-4 mr-1" />
+                  Featured Tip
+                </span>
+                <span class="text-sm text-gray-500">{featuredTip.category}</span>
+              </div>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {featuredTip.title}
+              </h2>
+              <p class="text-lg text-gray-600 mb-6">
+                {featuredTip.excerpt}
+              </p>
+              <div class="flex items-center gap-4 mb-6">
+                <span class="flex items-center gap-2 text-sm text-gray-500">
+                  <Icon name="tabler:clock" class="w-4 h-4" />
+                  {featuredTip.readTime}
+                </span>
+                <span class="flex items-center gap-2 text-sm text-gray-500">
+                  <Icon name="tabler:calendar" class="w-4 h-4" />
+                  {new Date(featuredTip.date).toLocaleDateString()}
+                </span>
+              </div>
+              <a
+                href={`/tips/${featuredTip.slug}`}
+                class="inline-flex items-center justify-center px-6 py-3 bg-orange-600 text-white rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200"
+              >
+                Read Full Article
+                <Icon name="tabler:arrow-right" class="w-5 h-5 ml-2" />
+              </a>
+            </div>
+            <div class="relative">
+              <img
+                src={featuredTip.image}
+                alt={featuredTip.title}
+                class="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Tips Grid -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          All Baking Tips
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Browse our complete collection of professional baking tips and techniques
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="tips-grid">
+        {tips.filter(tip => !tip.featured).map((tip) => (
+          <article class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+            <div class="relative">
+              <img
+                src={tip.image}
+                alt={tip.title}
+                class="w-full h-48 object-cover"
+              />
+              <div class="absolute top-4 left-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/90 text-gray-700">
+                  {tip.category}
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-sm text-gray-500">{tip.readTime}</span>
+                <span class="text-gray-300">•</span>
+                <span class="text-sm text-gray-500">
+                  {new Date(tip.date).toLocaleDateString()}
+                </span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">
+                {tip.title}
+              </h3>
+              <p class="text-gray-600 mb-4 line-clamp-3">
+                {tip.excerpt}
+              </p>
+              <a
+                href={`/tips/${tip.slug}`}
+                class="inline-flex items-center text-orange-600 font-medium hover:text-orange-700 transition-colors duration-200"
+              >
+                Read More
+                <Icon name="tabler:arrow-right" class="w-4 h-4 ml-1" />
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="py-16 bg-orange-600">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        Get Baking Tips Delivered
+      </h2>
+      <p class="text-xl text-orange-100 mb-8">
+        Subscribe to our newsletter and receive new baking tips, recipes, and industry insights directly to your inbox.
+      </p>
+      <form class="max-w-md mx-auto">
+        <div class="flex gap-4">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600"
+            required
+          />
+          <button
+            type="submit"
+            class="px-6 py-3 bg-white text-orange-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
+          >
+            Subscribe
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Category filtering functionality
+  function initCategoryFilter() {
+    const categoryButtons = document.querySelectorAll('[data-category]');
+    const tipsGrid = document.getElementById('tips-grid');
+    
+    if (categoryButtons && tipsGrid) {
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const selectedCategory = button.getAttribute('data-category');
+          
+          // Update active button
+          categoryButtons.forEach(btn => {
+            btn.classList.remove('bg-orange-600', 'text-white', 'border-orange-600');
+            btn.classList.add('border-orange-200', 'text-orange-700');
+          });
+          button.classList.remove('border-orange-200', 'text-orange-700');
+          button.classList.add('bg-orange-600', 'text-white', 'border-orange-600');
+          
+          // Filter tips (in a real implementation, this would filter the actual content)
+          console.log('Filtering by category:', selectedCategory);
+          
+          // For now, just show a visual feedback
+          const articles = tipsGrid.querySelectorAll('article');
+          articles.forEach(article => {
+            if (selectedCategory === '' || article.querySelector('.bg-white\\/90').textContent === selectedCategory) {
+              article.style.display = 'block';
+            } else {
+              article.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initCategoryFilter);
+  document.addEventListener('astro:after-swap', initCategoryFilter);
+</script>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

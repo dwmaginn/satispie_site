@@ -1,0 +1,302 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+
+export const prerender = true;
+
+const metadata = {
+  title: 'Where to Buy SatisPie Products - Find Retailers Near You',
+  description: 'Find SatisPie products at retailers near you. Search by ZIP code to locate stores carrying our premium pies, waffles, and pancakes.',
+  ignoreTitleTemplate: true,
+};
+
+// Sample store data - in production this would come from a database or API
+const sampleStores = [
+  {
+    name: 'Fresh Market',
+    address: '123 Main Street',
+    city: 'Anytown',
+    state: 'CA',
+    zip: '90210',
+    distance: '0.5 miles',
+    phone: '(555) 123-4567',
+    hours: '8AM-9PM',
+    hasPies: true,
+    hasWaffles: true,
+    hasPancakes: false,
+  },
+  {
+    name: 'Grocery Plus',
+    address: '456 Oak Avenue',
+    city: 'Anytown',
+    state: 'CA',
+    zip: '90210',
+    distance: '1.2 miles',
+    phone: '(555) 234-5678',
+    hours: '7AM-10PM',
+    hasPies: true,
+    hasWaffles: false,
+    hasPancakes: true,
+  },
+  {
+    name: 'Super Foods',
+    address: '789 Pine Street',
+    city: 'Anytown',
+    state: 'CA',
+    zip: '90210',
+    distance: '2.1 miles',
+    phone: '(555) 345-6789',
+    hours: '6AM-11PM',
+    hasPies: true,
+    hasWaffles: true,
+    hasPancakes: true,
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-50 to-orange-50 py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          Find <span class="text-blue-600">SatisPie</span> Near You
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          Discover where to buy our premium pies, waffles, and pancakes. Search by ZIP code to find retailers in your area.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Find Stores Near You
+          </h2>
+          <p class="text-gray-600">
+            Enter your ZIP code to find retailers carrying SatisPie products
+          </p>
+        </div>
+
+        <!-- Search Form -->
+        <form class="max-w-md mx-auto mb-8">
+          <div class="flex gap-4">
+            <div class="flex-1">
+              <label for="zipcode" class="sr-only">ZIP Code</label>
+              <input
+                type="text"
+                id="zipcode"
+                name="zipcode"
+                placeholder="Enter ZIP code"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg"
+                maxlength="5"
+                pattern="[0-9]{5}"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 flex items-center gap-2"
+            >
+              <Icon name="tabler:search" class="w-5 h-5" />
+              Search
+            </button>
+          </div>
+        </form>
+
+        <!-- Store Results -->
+        <div class="space-y-6">
+          {sampleStores.map((store, index) => (
+            <div class="bg-gray-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-2">
+                    <Icon name="tabler:building-store" class="w-6 h-6 text-blue-600" />
+                    <h3 class="text-xl font-bold text-gray-900">{store.name}</h3>
+                    <span class="text-sm text-gray-500">({store.distance})</span>
+                  </div>
+                  <p class="text-gray-600 mb-2">
+                    {store.address}, {store.city}, {store.state} {store.zip}
+                  </p>
+                  <div class="flex items-center gap-4 text-sm text-gray-500">
+                    <span class="flex items-center gap-1">
+                      <Icon name="tabler:phone" class="w-4 h-4" />
+                      {store.phone}
+                    </span>
+                    <span class="flex items-center gap-1">
+                      <Icon name="tabler:clock" class="w-4 h-4" />
+                      {store.hours}
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="flex flex-col gap-2">
+                  <div class="flex items-center gap-2">
+                    {store.hasPies && (
+                      <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        <Icon name="tabler:leaf" class="w-3 h-3 mr-1" />
+                        Pies
+                      </span>
+                    )}
+                    {store.hasWaffles && (
+                      <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                        <Icon name="tabler:bread" class="w-3 h-3 mr-1" />
+                        Waffles
+                      </span>
+                    )}
+                    {store.hasPancakes && (
+                      <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                        <Icon name="tabler:circle" class="w-3 h-3 mr-1" />
+                        Pancakes
+                      </span>
+                    )}
+                  </div>
+                  <a
+                    href={`https://maps.google.com/?q=${store.address},${store.city},${store.state} ${store.zip}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors duration-200"
+                  >
+                    <Icon name="tabler:map-pin" class="w-4 h-4 mr-1" />
+                    Get Directions
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- No Results Message (hidden by default) -->
+        <div class="hidden text-center py-12">
+          <Icon name="tabler:map-pin-off" class="w-16 h-16 text-gray-400 mx-auto mb-4" />
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">No stores found</h3>
+          <p class="text-gray-600 mb-6">
+            We couldn't find any retailers in your area. Try searching with a different ZIP code or contact us for assistance.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Information -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">
+            Can't Find a Store Near You?
+          </h2>
+          <p class="text-lg text-gray-600 mb-6">
+            If you can't find SatisPie products in your area, we're here to help. Contact us to learn about our distribution network or request products at your local retailer.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <Icon name="tabler:phone" class="w-6 h-6 text-blue-600 mt-1" />
+              <div>
+                <h3 class="font-semibold text-gray-900">Call Us</h3>
+                <p class="text-gray-600">Speak with our customer service team</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <Icon name="tabler:mail" class="w-6 h-6 text-blue-600 mt-1" />
+              <div>
+                <h3 class="font-semibold text-gray-900">Email Us</h3>
+                <p class="text-gray-600">Send us a message for assistance</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <Icon name="tabler:building-store" class="w-6 h-6 text-blue-600 mt-1" />
+              <div>
+                <h3 class="font-semibold text-gray-900">Request Products</h3>
+                <p class="text-gray-600">Ask your local store to carry SatisPie</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl p-8 shadow-lg">
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Product Availability</h3>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
+              <div class="flex items-center gap-3">
+                <Icon name="tabler:leaf" class="w-6 h-6 text-blue-600" />
+                <span class="font-medium text-gray-900">Fruit Pies</span>
+              </div>
+              <span class="text-sm text-gray-600">Widely Available</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-orange-50 rounded-lg">
+              <div class="flex items-center gap-3">
+                <Icon name="tabler:bread" class="w-6 h-6 text-orange-600" />
+                <span class="font-medium text-gray-900">Waffles</span>
+              </div>
+              <span class="text-sm text-gray-600">Select Locations</span>
+            </div>
+            <div class="flex items-center justify-between p-4 bg-purple-50 rounded-lg">
+              <div class="flex items-center gap-3">
+                <Icon name="tabler:circle" class="w-6 h-6 text-purple-600" />
+                <span class="font-medium text-gray-900">Pancakes</span>
+              </div>
+              <span class="text-sm text-gray-600">Limited Availability</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Store locator functionality
+  function initStoreLocator() {
+    const form = document.querySelector('form');
+    const zipInput = document.getElementById('zipcode');
+    
+    if (form && zipInput) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const zipCode = zipInput.value.trim();
+        
+        if (zipCode.length === 5 && /^\d{5}$/.test(zipCode)) {
+          // In a real implementation, this would make an API call
+          // For now, we'll just show the sample results
+          console.log('Searching for stores in ZIP:', zipCode);
+          
+          // Show loading state
+          const resultsContainer = document.querySelector('.space-y-6');
+          if (resultsContainer) {
+            resultsContainer.innerHTML = `
+              <div class="text-center py-8">
+                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                <p class="text-gray-600">Searching for stores...</p>
+              </div>
+            `;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+              // Reload the page to show results (in real implementation, update DOM)
+              window.location.reload();
+            }, 1500);
+          }
+        } else {
+          alert('Please enter a valid 5-digit ZIP code');
+          zipInput.focus();
+        }
+      });
+    }
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initStoreLocator);
+  document.addEventListener('astro:after-swap', initStoreLocator);
+</script>
