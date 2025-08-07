@@ -1,221 +1,199 @@
 ---
-import { headerData } from '~/navigation';
 import { Icon } from 'astro-icon/components';
+import Logo from '~/components/Logo.astro';
+import { getHomePermalink } from '~/utils/permalinks';
 
-const { links, actions } = headerData;
+export interface Props {
+  id?: string;
+  isSticky?: boolean;
+  isFullWidth?: boolean;
+}
+
+const {
+  id = 'header',
+  isSticky = true,
+  isFullWidth = false,
+} = Astro.props;
+
+// Simplified navigation structure per Phase 5.1 requirements
+const navigationLinks = [
+  { text: 'Products', href: '/products' },
+  { text: 'Where to Buy', href: '/where-to-buy' },
+  { text: 'Tips & Tricks', href: '/tips-and-tricks' },
+  { text: 'About', href: '/about' },
+  { text: 'Contact', href: '/contact' },
+];
 ---
 
-<header class="bg-white shadow-md sticky top-0 z-50" role="banner">
-  <div class="border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-20">
+<header
+  class:list={[
+    'top-0 z-50 w-full bg-white border-b border-gray-200 transition-all duration-300',
+    { 'sticky shadow-lg': isSticky, 'relative': !isSticky },
+  ]}
+  {...id ? { id } : {}}
+>
+  <div
+    class:list={[
+      'mx-auto px-4 sm:px-6 lg:px-8',
+      { 'max-w-7xl': !isFullWidth },
+    ]}
+  >
+    <div class="flex justify-between items-center h-16 md:h-20">
         <!-- Logo -->
-        <div class="flex items-center">
-          <a href="/" class="flex items-center space-x-3">
-            <img src="/satispie-logo.svg" alt="SatisPie Manufacturing" class="h-12 w-auto" />
-            <div class="hidden sm:block">
-              <div class="text-xl font-bold text-gray-900">SatisPie</div>
-              <div class="text-xs text-gray-600 uppercase tracking-wider">Manufacturing</div>
-            </div>
+      <div class="flex-shrink-0">
+        <a href={getHomePermalink()} class="flex items-center">
+          <Logo />
           </a>
         </div>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center space-x-1" role="navigation" aria-label="Main navigation">
-          {
-            links?.map((item) => (
-              <div class="relative group">
-                {item.links ? (
-                  <>
-                    <button
-                      class="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors duration-200 flex items-center group-hover:text-blue-600"
-                      aria-expanded="false"
-                    >
-                      {item.text}
-                      <Icon name="tabler:chevron-down" class="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" />
-                    </button>
-                    <div class="absolute left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                      <div class="bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 py-2">
-                        {item.links.map((subItem) => (
-                          <a
-                            href={subItem.href}
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                          >
-                            {subItem.text}
+      <nav class="hidden md:flex md:items-center md:space-x-8" aria-label="Main navigation">
+        {navigationLinks.map(({ text, href }) => (
+          <a
+            href={href}
+            class="text-gray-700 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors duration-200"
+          >
+            {text}
                           </a>
                         ))}
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <a
-                    href={item.href}
-                    class="text-gray-700 hover:text-blue-600 px-4 py-2 text-sm font-medium transition-colors duration-200"
-                  >
-                    {item.text}
-                  </a>
-                )}
-              </div>
-            ))
-          }
-          
-          <!-- Desktop CTA Button -->
-          {actions?.map((action) => (
-            <a
-              href={action.href}
-              class="ml-4 bg-blue-600 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-blue-700 hover:shadow-lg"
-            >
-              {action.text}
-            </a>
-          ))}
+        <a
+          href="/careers"
+          class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-lg text-base font-medium transition-colors duration-200"
+        >
+          Apply Today
+        </a>
         </nav>
 
         <!-- Mobile menu button -->
-        <div class="lg:hidden">
           <button
             type="button"
-            class="text-gray-700 hover:text-blue-600 inline-flex items-center justify-center p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-            aria-controls="mobile-menu"
+        class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200"
             aria-expanded="false"
-            aria-label="Toggle main menu"
-            id="mobile-menu-button"
-          >
-            <span class="sr-only">Open main menu</span>
-            <!-- Icon when menu is closed -->
-            <svg
-              class="block h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-            <!-- Icon when menu is open -->
-            <svg
-              class="hidden h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
+        aria-label="Toggle navigation menu"
+        data-mobile-menu-toggle
+      >
+        <Icon name="tabler:menu-2" class="w-6 h-6 block menu-open-icon" />
+        <Icon name="tabler:x" class="w-6 h-6 hidden menu-close-icon" />
           </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    </div>
   </div>
   
-  <!-- Mobile menu -->
-  <div class="hidden lg:hidden" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
-    <div class="px-4 pt-2 pb-3 bg-white border-t border-gray-200">
-      {
-        links?.map((item) => (
-          <div class="py-2">
-            {item.links ? (
-              <>
-                <div class="font-semibold text-gray-900 px-3 py-2 text-sm uppercase tracking-wider">
-                  {item.text}
-                </div>
-                <div class="pl-4">
-                  {item.links.map((subItem) => (
-                    <a
-                      href={subItem.href}
-                      class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-sm transition-colors duration-200"
-                    >
-                      {subItem.text}
-                    </a>
-                  ))}
-                </div>
-              </>
-            ) : (
-              <a
-                href={item.href}
-                class="text-gray-700 hover:text-blue-600 block px-3 py-2 text-sm font-medium transition-colors duration-200"
-              >
-                {item.text}
-              </a>
-            )}
-          </div>
-        ))
-      }
-      
-      <!-- Mobile CTA Button -->
-      <div class="pt-4 mt-4 border-t border-gray-200">
-        {actions?.map((action) => (
+    <!-- Mobile Navigation Menu -->
+    <div
+      class="md:hidden hidden mobile-menu-panel"
+      data-mobile-menu-panel
+    >
+      <div class="pt-2 pb-3 space-y-1">
+        {navigationLinks.map(({ text, href }) => (
           <a
-            href={action.href}
-            class="bg-blue-600 text-white block w-full text-center px-6 py-3 rounded-lg text-sm font-semibold transition-colors duration-200 hover:bg-blue-700"
+            href={href}
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
           >
-            {action.text}
+            {text}
           </a>
         ))}
+        <a
+          href="/careers"
+          class="block mx-3 mt-3 bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-lg text-base font-medium text-center transition-colors duration-200"
+        >
+          Apply Today
+        </a>
       </div>
     </div>
   </div>
 </header>
 
 <script>
-  // Mobile menu toggle with improved accessibility
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcons = mobileMenuButton?.querySelectorAll('svg');
+  // Mobile menu toggle functionality
+  function initMobileMenu() {
+    const toggleButton = document.querySelector('[data-mobile-menu-toggle]');
+    const menuPanel = document.querySelector('[data-mobile-menu-panel]');
+    const openIcon = document.querySelector('.menu-open-icon');
+    const closeIcon = document.querySelector('.menu-close-icon');
 
-  if (mobileMenuButton && mobileMenu && menuIcons) {
-    mobileMenuButton.addEventListener('click', () => {
-      const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+    if (toggleButton && menuPanel && openIcon && closeIcon) {
+      let isOpen = false;
 
-      // Toggle menu visibility
-      mobileMenu.classList.toggle('hidden');
-
-      // Update button state
-      mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
-
-      // Toggle icons
-      menuIcons.forEach((icon) => icon.classList.toggle('hidden'));
-
-      // Focus management for accessibility
-      if (!isExpanded) {
-        // Menu is opening - focus first menu item
-        const firstMenuItem = mobileMenu.querySelector('a');
-        if (firstMenuItem) {
-          setTimeout(() => firstMenuItem.focus(), 100);
-        }
-      } else {
-        // Menu is closing - return focus to button
-        mobileMenuButton.focus();
+      toggleButton.addEventListener('click', () => {
+        isOpen = !isOpen;
+        
+        if (isOpen) {
+          menuPanel.classList.remove('hidden');
+          openIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+          toggleButton.setAttribute('aria-expanded', 'true');
+        } else {
+          menuPanel.classList.add('hidden');
+          openIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          toggleButton.setAttribute('aria-expanded', 'false');
       }
     });
 
     // Close menu when clicking outside
     document.addEventListener('click', (event) => {
-      if (!mobileMenuButton?.contains(event.target as Node) && !mobileMenu?.contains(event.target as Node)) {
-        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-          mobileMenuButton.setAttribute('aria-expanded', 'false');
-          menuIcons.forEach((icon, index) => {
-            icon.classList.toggle('hidden', index === 0);
-          });
+        const target = event.target as HTMLElement;
+        if (isOpen && !toggleButton.contains(target) && !menuPanel.contains(target)) {
+          isOpen = false;
+          menuPanel.classList.add('hidden');
+          openIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          toggleButton.setAttribute('aria-expanded', 'false');
         }
-      }
-    });
+      });
 
-    // Close menu on escape key
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.add('hidden');
-        mobileMenuButton.setAttribute('aria-expanded', 'false');
-        menuIcons.forEach((icon, index) => {
-          icon.classList.toggle('hidden', index === 0);
-        });
-        mobileMenuButton.focus();
+      // Close menu on window resize to desktop
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768 && isOpen) {
+          isOpen = false;
+          menuPanel.classList.add('hidden');
+          openIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          toggleButton.setAttribute('aria-expanded', 'false');
       }
     });
   }
+  }
+
+  // Initialize on DOM content loaded
+  document.addEventListener('DOMContentLoaded', initMobileMenu);
+  // Re-initialize on Astro page navigation
+  document.addEventListener('astro:after-swap', initMobileMenu);
 </script>
+
+<style>
+  /* Smooth transitions for mobile menu */
+  .mobile-menu-panel {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Add hover effect to navigation links */
+  nav a {
+    position: relative;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2563eb;
+    transition: width 0.3s ease;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+</style>

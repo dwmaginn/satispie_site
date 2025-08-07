@@ -7,29 +7,50 @@ export default {
   theme: {
     extend: {
       colors: {
-        // SatisPie brand colors
-        'sp-primary': '#D35400',
+        // SatisPie brand colors - Updated for Phase 5.1
+        brand: {
+          primary: '#2563EB', // Professional blue
+          'primary-dark': '#1E40AF',
+          'primary-light': '#3B82F6',
+          secondary: '#8B4513', // Warm brown (pie crust)
+          'secondary-dark': '#6B3410',
+          'secondary-light': '#A0522D',
+          accent: '#F59E0B', // Golden (baked goods)
+          'accent-dark': '#D97706',
+          'accent-light': '#FCD34D',
+          success: '#10B981',
+          warning: '#F59E0B',
+          error: '#EF4444',
+          info: '#3B82F6',
+        },
+        // Text colors
+        text: {
+          primary: '#111827',
+          secondary: '#4B5563',
+          muted: '#6B7280',
+          light: '#9CA3AF',
+        },
+        // Background colors
+        background: {
+          primary: '#FFFFFF',
+          secondary: '#F9FAFB',
+          tertiary: '#F3F4F6',
+          dark: '#111827',
+        },
+        // Legacy color mappings for compatibility
+        'sp-primary': '#2563EB',
         'sp-secondary': '#8B4513',
-        'sp-accent': '#C0392B',
-        'sp-purple': '#4A148C', // Deep purple from logo
-        'sp-purple-light': '#6A1B9A', // Lighter purple for hover states
-        'sp-purple-dark': '#311B92', // Darker purple for active states
-        'sp-text-primary': '#2C3E50',
-        'sp-text-secondary': '#7F8C8D',
-        'sp-bg-light': '#F8F9FA',
+        'sp-accent': '#F59E0B',
+        'sp-text-primary': '#111827',
+        'sp-text-secondary': '#4B5563',
+        'sp-bg-light': '#F9FAFB',
         'sp-bg-white': '#FFFFFF',
-
-        // Legacy colors for backward compatibility
-        primary: 'var(--aw-color-primary)',
-        secondary: 'var(--aw-color-secondary)',
-        accent: 'var(--aw-color-accent)',
-        default: 'var(--aw-color-text-default)',
-        muted: 'var(--aw-color-text-muted)',
       },
       fontFamily: {
-        sans: ['Lato', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         serif: ['Playfair Display', 'Georgia', ...defaultTheme.fontFamily.serif],
         heading: ['Playfair Display', 'Georgia', ...defaultTheme.fontFamily.serif],
+        body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       fontSize: {
         // Enhanced mobile typography
@@ -57,5 +78,5 @@ export default {
       addVariant('intersect', '&:not([no-intersect])');
     }),
   ],
-  darkMode: 'class',
+  // Dark mode disabled per Phase 5.1 requirements (out of scope)
 };

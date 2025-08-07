@@ -1,116 +1,257 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { footerData } from '~/navigation';
+import { getHomePermalink } from '~/utils/permalinks';
 
-const { links, socialLinks, footNote } = footerData;
+const currentYear = new Date().getFullYear();
 
-const companyInfo = {
-  name: 'SatisPie Manufacturing',
-  address: '155 Balta Drive',
-  city: 'Rochester, NY 14623',
-  phone: '(585) 424-1240',
-  email: 'info@satispie.com',
+// Footer navigation links
+const footerLinks = {
+  products: [
+    { text: 'All Products', href: '/products' },
+    { text: 'Fruit Pies', href: '/products/fruit-pies' },
+    { text: 'Seasonal Pies', href: '/products/seasonal' },
+    { text: 'Specialty Items', href: '/products/specialty' },
+  ],
+  company: [
+    { text: 'About Us', href: '/about' },
+    { text: 'Where to Buy', href: '/where-to-buy' },
+    { text: 'Careers', href: '/careers' },
+    { text: 'Contact', href: '/contact' },
+  ],
+  resources: [
+    { text: 'Tips & Tricks', href: '/tips-and-tricks' },
+    { text: 'FAQ', href: '/faq' },
+    { text: 'News', href: '/news' },
+    { text: 'Resources', href: '/resources' },
+  ],
 };
+
+// Social media links
+const socialLinks = [
+  { name: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/satispie' },
+  { name: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/satispie' },
+  { name: 'Twitter', icon: 'tabler:brand-x', href: 'https://twitter.com/satispie' },
+  { name: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://linkedin.com/company/satispie' },
+];
 ---
 
 <footer class="bg-gray-900 text-gray-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <!-- Main Footer Content -->
-    <div class="grid grid-cols-2 md:grid-cols-6 gap-8 mb-8">
-      <!-- Company Info - Takes 2 columns -->
-      <div class="col-span-2">
-        <div class="mb-6">
-          <img src="/satispie-logo.svg" alt="SatisPie Manufacturing" class="h-10 w-auto brightness-0 invert" />
+  <!-- Newsletter Section -->
+  <div class="bg-blue-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-bold text-white mb-2">Stay Connected</h3>
+          <p class="text-blue-100">Subscribe to our newsletter for updates, tips, and exclusive offers!</p>
         </div>
-        <p class="text-gray-400 mb-4">
-          Leading industrial pie manufacturer providing quality products at scale for retailers and foodservice operators across North America.
-        </p>
-        <div class="space-y-2">
-          <p class="flex items-center">
-            <Icon name="tabler:map-pin" class="w-4 h-4 mr-2" />
-            {companyInfo.address}, {companyInfo.city}
-          </p>
-          <p class="flex items-center">
-            <Icon name="tabler:phone" class="w-4 h-4 mr-2" />
-            <a href={`tel:${companyInfo.phone}`} class="hover:text-white transition-colors">
-              {companyInfo.phone}
-            </a>
-          </p>
-          <p class="flex items-center">
-            <Icon name="tabler:mail" class="w-4 h-4 mr-2" />
-            <a href={`mailto:${companyInfo.email}`} class="hover:text-white transition-colors">
-              {companyInfo.email}
-            </a>
-          </p>
-        </div>
+        <form 
+          class="flex flex-col sm:flex-row gap-3 w-full md:w-auto"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+          data-newsletter-form
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+            class="px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 bg-white focus:outline-none focus:ring-2 focus:ring-white w-full sm:w-64"
+          />
+          <button
+            type="submit"
+            class="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 whitespace-nowrap"
+          >
+            Subscribe
+          </button>
+        </form>
       </div>
-
-      <!-- Footer Links -->
-      {links?.map((section) => (
-        <div>
-          <h3 class="text-white font-semibold mb-4">{section.title}</h3>
-          <ul class="space-y-2">
-            {section.links.map((link) => (
-              <li>
-                <a href={link.href} class="text-gray-400 hover:text-white transition-colors text-sm">
-                  {link.text}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
     </div>
+  </div>
 
-    <!-- Certifications & Social -->
-    <div class="border-t border-gray-800 pt-8">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <!-- Certifications -->
-        <div class="flex items-center space-x-6 mb-4 md:mb-0">
-          <div class="flex items-center space-x-2">
-            <Icon name="tabler:certificate" class="w-5 h-5 text-green-500" />
-            <span class="text-sm">SQF Certified</span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <Icon name="tabler:shield-check" class="w-5 h-5 text-blue-500" />
-            <span class="text-sm">HACCP Compliant</span>
-          </div>
-          <div class="flex items-center space-x-2">
-            <Icon name="tabler:award" class="w-5 h-5 text-purple-500" />
-            <span class="text-sm">GMP Standards</span>
-          </div>
-        </div>
-
-        <!-- Social Links -->
-        <div class="flex items-center space-x-4">
-          {socialLinks?.map((social) => (
+  <!-- Main Footer Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Company Info -->
+      <div class="col-span-1">
+        <a href={getHomePermalink()} class="inline-block mb-4">
+          <img src="/satispie-logo.svg" alt="SatisPie" class="h-12 w-auto filter brightness-0 invert" />
+        </a>
+        <p class="text-sm mb-4">
+          Premium pre-baked pies, waffles, and pancakes for retail and foodservice partners nationwide.
+        </p>
+        <div class="flex space-x-3">
+          {socialLinks.map(({ name, icon, href }) => (
             <a
-              href={social.href}
-              aria-label={social.ariaLabel}
-              class="text-gray-400 hover:text-white transition-colors"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={name}
+              class="text-gray-400 hover:text-white transition-colors duration-200"
             >
-              <Icon name={social.icon} class="w-5 h-5" />
+              <Icon name={icon} class="w-6 h-6" />
             </a>
           ))}
         </div>
       </div>
+
+      <!-- Products Links -->
+      <div>
+        <h4 class="text-white font-semibold mb-4">Products</h4>
+        <ul class="space-y-2">
+          {footerLinks.products.map(({ text, href }) => (
+            <li>
+              <a
+                href={href}
+                class="text-sm hover:text-white transition-colors duration-200"
+              >
+                {text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company Links -->
+      <div>
+        <h4 class="text-white font-semibold mb-4">Company</h4>
+        <ul class="space-y-2">
+          {footerLinks.company.map(({ text, href }) => (
+            <li>
+              <a
+                href={href}
+                class="text-sm hover:text-white transition-colors duration-200"
+              >
+                {text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Resources Links -->
+      <div>
+        <h4 class="text-white font-semibold mb-4">Resources</h4>
+        <ul class="space-y-2">
+          {footerLinks.resources.map(({ text, href }) => (
+            <li>
+              <a
+                href={href}
+                class="text-sm hover:text-white transition-colors duration-200"
+              >
+                {text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
 
-    <!-- Bottom Bar -->
-    <div class="border-t border-gray-800 mt-8 pt-8">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
-          <Fragment set:html={footNote} />
+    <!-- Contact Info -->
+    <div class="mt-8 pt-8 border-t border-gray-800">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+        <div class="flex items-center gap-2">
+          <Icon name="tabler:map-pin" class="w-5 h-5 text-blue-400" />
+          <span>123 Bakery Lane, Chicago, IL 60601</span>
         </div>
-        
-        <!-- Quick Actions -->
-        <div class="flex items-center space-x-6">
-          <a href="/contact" class="text-sm text-gray-400 hover:text-white">Partner Portal</a>
-          <a href="/resources" class="text-sm text-gray-400 hover:text-white">Resources</a>
-          <a href="/news" class="text-sm text-gray-400 hover:text-white">Press</a>
-          <a href="/careers" class="text-sm text-gray-400 hover:text-white">Careers</a>
+        <div class="flex items-center gap-2">
+          <Icon name="tabler:phone" class="w-5 h-5 text-blue-400" />
+          <a href="tel:+1-800-SATISPIE" class="hover:text-white transition-colors duration-200">
+            1-800-SATISPIE
+          </a>
+        </div>
+        <div class="flex items-center gap-2">
+          <Icon name="tabler:mail" class="w-5 h-5 text-blue-400" />
+          <a href="mailto:info@satispie.com" class="hover:text-white transition-colors duration-200">
+            info@satispie.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="bg-gray-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-2 text-xs text-gray-400">
+        <div>
+          © {currentYear} SatisPie Manufacturing. All rights reserved.
+        </div>
+        <div class="flex gap-4">
+          <a href="/privacy" class="hover:text-white transition-colors duration-200">
+            Privacy Policy
+          </a>
+          <a href="/terms" class="hover:text-white transition-colors duration-200">
+            Terms of Use
+          </a>
+          <a href="/sitemap-index.xml" class="hover:text-white transition-colors duration-200">
+            Sitemap
+          </a>
         </div>
       </div>
     </div>
   </div>
 </footer>
+
+<script>
+  // Newsletter form handling
+  function initNewsletterForm() {
+    const form = document.querySelector('[data-newsletter-form]') as HTMLFormElement;
+    
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const email = formData.get('email');
+        
+        // For now, just log the submission (replace with actual Formspree integration)
+        console.log('Newsletter signup:', email);
+        
+        // Show success message (you can customize this)
+        const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalText = button.textContent;
+        button.textContent = 'Subscribed!';
+        button.disabled = true;
+        
+        // Reset after 3 seconds
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.disabled = false;
+          form.reset();
+        }, 3000);
+        
+        // TODO: Implement actual Formspree submission when endpoint is ready
+        // const response = await fetch(form.action, {
+        //   method: 'POST',
+        //   body: formData,
+        //   headers: {
+        //     'Accept': 'application/json'
+        //   }
+        // });
+      });
+    }
+  }
+
+  // Initialize on DOM content loaded
+  document.addEventListener('DOMContentLoaded', initNewsletterForm);
+  // Re-initialize on Astro page navigation
+  document.addEventListener('astro:after-swap', initNewsletterForm);
+</script>
+
+<style>
+  /* Add smooth hover transitions */
+  footer a {
+    transition: color 0.2s ease-in-out;
+  }
+
+  /* Newsletter input focus styles */
+  input[type="email"]:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Social icon hover effect */
+  footer a:hover svg {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+  }
+</style>
