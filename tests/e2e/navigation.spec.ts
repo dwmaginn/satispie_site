@@ -6,38 +6,38 @@ test.describe('Site Navigation', () => {
     await page.goto('/');
 
     // Check that we're on the homepage
-    await expect(page).toHaveTitle(/Home.*SatisPie/);
+    await expect(page).toHaveTitle(/SatisPie Manufacturing/);
 
-    // Navigate to Branded Products
-    await page.click('nav a[href="/branded-products"]');
-    await expect(page).toHaveURL('/branded-products');
-    await expect(page.locator('main h1')).toContainText('Branded');
+    // Navigate to Products
+    await page.click('a[href="/products"]');
+    await expect(page).toHaveURL('/products');
+    await expect(page.locator('h1')).toContainText('Products');
 
-    // Navigate to Tips & Techniques
-    await page.click('nav a[href="/tips-and-techniques"]');
-    await expect(page).toHaveURL('/tips-and-techniques');
-    await expect(page.locator('main h1')).toContainText('Tips');
+    // Navigate to Tips & Tricks
+    await page.click('a[href="/tips-and-tricks"]');
+    await expect(page).toHaveURL('/tips-and-tricks');
+    await expect(page.locator('h1')).toContainText('Tips');
 
     // Navigate to Contact Us
-    await page.click('nav a[href="/contact"]');
+    await page.click('a[href="/contact"]');
     await expect(page).toHaveURL('/contact');
-    await expect(page.locator('main h1')).toContainText('Contact');
+    await expect(page.locator('h1')).toContainText('Contact');
 
     // Navigate to Apply Today
-    await page.click('nav a[href="/apply-today"]');
+    await page.click('a[href="/apply-today"]');
     await expect(page).toHaveURL('/apply-today');
-    await expect(page.locator('main h1')).toContainText('Apply');
+    await expect(page.locator('h1')).toContainText('Apply');
 
     // Navigate back to Home
-    await page.locator('nav a[href="/"]').first().click();
+    await page.locator('a[href="/"]').first().click();
     await expect(page).toHaveURL('/');
   });
 
   test('should have working logo link', async ({ page }) => {
-    await page.goto('/branded-products');
+    await page.goto('/products');
 
     // Click on logo to go home
-    await page.locator('header a[href="/"]').first().click();
+    await page.locator('a[href="/"]').first().click();
     await expect(page).toHaveURL('/');
   });
 
@@ -45,10 +45,10 @@ test.describe('Site Navigation', () => {
     await page.goto('/nonexistent-page');
 
     // Should show our custom 404 page
-    await expect(page.locator('main h1')).toContainText('404');
-    await expect(page.locator('main p').first()).toContainText('Oops! The page you');
+    await expect(page.locator('h1')).toContainText('404');
+    await expect(page.locator('p').first()).toContainText('Oops! The page you');
 
     // Should have a link back to home
-    await expect(page.locator('main a[href="/"]').first()).toBeVisible();
+    await expect(page.locator('a[href="/"]').first()).toBeVisible();
   });
 });
