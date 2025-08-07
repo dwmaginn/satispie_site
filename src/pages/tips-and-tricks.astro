@@ -10,69 +10,33 @@ const metadata = {
   ignoreTitleTemplate: true,
 };
 
-// Sample tips data - in production this would come from content collections
-const tips = [
-  {
-    slug: 'how-to-slice-a-pie',
-    title: 'How to Slice a Pie Perfectly Every Time',
-    excerpt: 'Learn the professional technique for cutting clean, even pie slices that look as good as they taste.',
-    image: '/src/assets/images/apple-pie-hero.jpg',
-    category: 'Techniques',
-    readTime: '3 min read',
-    date: '2024-01-15',
-    featured: true,
-  },
-  {
-    slug: 'storing-pies-properly',
-    title: 'The Complete Guide to Storing Pies',
-    excerpt: 'Keep your pies fresh and delicious with these essential storage tips for maximum shelf life.',
-    image: '/src/assets/images/pumpkin-pie-hero.jpg',
-    category: 'Storage',
-    readTime: '4 min read',
-    date: '2024-01-10',
-    featured: false,
-  },
-  {
-    slug: 'waffle-batter-secrets',
-    title: 'Professional Waffle Batter Secrets',
-    excerpt: 'Discover the industry secrets for creating light, fluffy waffles that are crispy on the outside and tender inside.',
-    image: '/src/assets/images/pie-filling-hero.jpg',
-    category: 'Recipes',
-    readTime: '5 min read',
-    date: '2024-01-08',
-    featured: false,
-  },
-  {
-    slug: 'pancake-flipping-technique',
-    title: 'Master the Perfect Pancake Flip',
-    excerpt: 'Learn the timing and technique for flipping pancakes without making a mess or breaking them apart.',
-    image: '/src/assets/images/satispie-hero-pies.png',
-    category: 'Techniques',
-    readTime: '2 min read',
-    date: '2024-01-05',
-    featured: false,
-  },
-  {
-    slug: 'temperature-control-baking',
-    title: 'Temperature Control for Perfect Baking',
-    excerpt: 'Understanding oven temperatures and how they affect your baked goods for consistent results every time.',
-    image: '/src/assets/images/satispie-default-pie.png',
-    category: 'Techniques',
-    readTime: '6 min read',
-    date: '2024-01-03',
-    featured: false,
-  },
-  {
-    slug: 'ingredient-substitutions',
-    title: 'Smart Ingredient Substitutions',
-    excerpt: 'Learn how to substitute ingredients without compromising taste or texture in your favorite recipes.',
-    image: '/src/assets/images/apple-pie-hero.jpg',
-    category: 'Recipes',
-    readTime: '4 min read',
-    date: '2024-01-01',
-    featured: false,
-  },
-];
+// Import tips from content collection
+import { getCollection } from 'astro:content';
+
+// Get all tips from the content collection
+const allTips = await getCollection('tips');
+const tips = allTips.map(tip => ({
+  slug: tip.id,
+  title: tip.data.title,
+  excerpt: tip.data.excerpt,
+  image: tip.data.image || '/src/assets/images/apple-pie-hero.jpg',
+  category: tip.data.category || 'Techniques',
+  readTime: tip.data.readTime || '5 min read',
+  date: tip.data.publishDate ? tip.data.publishDate.toISOString().split('T')[0] : '2024-01-15',
+  featured: tip.data.category === 'Baking Fundamentals',
+}));
+
+// Add existing tip
+tips.push({
+  slug: 'how-to-slice-a-pie',
+  title: 'How to Slice a Pie Perfectly Every Time',
+  excerpt: 'Learn the professional technique for cutting clean, even pie slices that look as good as they taste.',
+  image: '/src/assets/images/apple-pie-hero.jpg',
+  category: 'Techniques',
+  readTime: '3 min read',
+  date: '2024-01-15',
+  featured: true,
+});
 
 const categories = ['All', 'Techniques', 'Recipes', 'Storage'];
 ---
