@@ -186,7 +186,7 @@ const openPositions = [
 
       <div class="bg-gray-50 rounded-2xl p-8 shadow-lg">
         <form
-          action="https://formspree.io/f/YOUR_FORM_ID"
+          action="https://formspree.io/f/xaylqjwn"
           method="POST"
           class="space-y-8"
         >
@@ -446,22 +446,25 @@ const openPositions = [
 
 <script>
   // Position selection functionality
-  function selectPosition(positionTitle) {
-    const positionSelect = document.getElementById('position');
+  function selectPosition(positionTitle: string) {
+    const positionSelect = document.getElementById('position') as HTMLSelectElement;
     if (positionSelect) {
       positionSelect.value = positionTitle;
       // Scroll to the application form
-      document.getElementById('application-form').scrollIntoView({ behavior: 'smooth' });
+      const applicationForm = document.getElementById('application-form');
+      if (applicationForm) {
+        applicationForm.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }
 
   // Form validation and submission
   function initApplicationForm() {
-    const form = document.querySelector('form');
+    const form = document.querySelector('form') as HTMLFormElement;
     if (form) {
       form.addEventListener('submit', (e) => {
         // Basic validation
-        const requiredFields = form.querySelectorAll('[required]');
+        const requiredFields = form.querySelectorAll('[required]') as NodeListOf<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>;
         let isValid = true;
 
         requiredFields.forEach(field => {
